@@ -5,8 +5,6 @@ module.exports = {
     },
     AUTH: {
       authSecret: process.env.NEXTAUTH_SECRET,
-      cognitoDomain: process.env.COGNITO_DOMAIN,
-      cognitoClientId: process.env.COGNITO_CLIENT_ID,
     },
   },
   IS_MOCKING_ENABLED: false,

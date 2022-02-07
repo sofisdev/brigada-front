@@ -14,16 +14,21 @@ const { THIRD_PARTY } = serverRuntimeConfig;
 export default NextAuth({
   providers: [
     CredentialsProvider({
+      name: 'credentials',
       credentials: {
         weddingId: { label: 'Wedding ID / ID de la Boda', type: 'text' },
       },
       authorize: async (credentials) => {
         const { weddingId } = credentials;
+        console.log(
+          '🚀 ~ file: [...nextauth].js ~ line 23 ~ authorize: ~ weddingId',
+          weddingId,
+        );
         try {
-          const weddingId = await postVerifyCredentials({
+          const tokenID = await postVerifyCredentials({
             token: weddingId,
           });
-          if (token) {
+          if (tokenID) {
             const layout = await getLayout();
           }
         } catch (error) {
@@ -37,5 +42,14 @@ export default NextAuth({
   callbacks: {
     jwt: jwtCallback,
     session: sessionCallback,
+  },
+  session: {
+    strategy: 'jwt',
+  },
+  jwt: {
+    maxAge: 5 * 60,
+  },
+  pages: {
+    signIn: '/login',
   },
 });

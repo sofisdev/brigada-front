@@ -1,0 +1,21 @@
+/* eslint-disable consistent-return */
+import { NextResponse } from 'next/server';
+import { getToken } from 'next-auth/jwt';
+
+import routes from '../constants/routes';
+
+const isAppRoute = (pathname) =>
+  !!Object.values(routes)?.filter(el => typeof el === 'string').find((route) => route.startsWith(pathname));
+
+export async function middleware(req) {
+  const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET, secureCookie: process.env.NEXTAUTH_URL?.startsWith('https://') ?? process.env.NEXTAUTH_URL });
+  const { pathname } = req.nextUrl;
+
+  if (pathname.includes(routes.api) || !!token || !isAppRoute(pathname)) {
+    return NextResponse.next();
+  }
+
+  if (!token && pathname !== routes.login) {
+    return NextResponse.redirect(routes.login);
+  }
+}
