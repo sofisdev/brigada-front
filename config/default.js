@@ -4,6 +4,7 @@ module.exports = {
       baseUrl: process.env.PLATFORM_API_URL || 'http://localhost:4000',
     },
     AUTH: {
+      authUrl: process.env.NEXTAUTH_URL,
       authSecret: process.env.NEXTAUTH_SECRET,
     },
   },

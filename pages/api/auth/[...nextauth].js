@@ -15,21 +15,15 @@ export default NextAuth({
   providers: [
     CredentialsProvider({
       name: 'credentials',
-      credentials: {
-        weddingId: { label: 'Wedding ID / ID de la Boda', type: 'text' },
-      },
       authorize: async (credentials) => {
         const { weddingId } = credentials;
-        console.log(
-          '🚀 ~ file: [...nextauth].js ~ line 23 ~ authorize: ~ weddingId',
-          weddingId,
-        );
         try {
           const tokenID = await postVerifyCredentials({
             token: weddingId,
           });
           if (tokenID) {
             const layout = await getLayout();
+            return layout;
           }
         } catch (error) {
           console.log(error.message, 'authorize error');
@@ -45,9 +39,10 @@ export default NextAuth({
   },
   session: {
     strategy: 'jwt',
+    maxAge: 60 * 60 * 1 * 1,
   },
   jwt: {
-    maxAge: 5 * 60,
+    maxAge: 60 * 60 * 1 * 1,
   },
   pages: {
     signIn: '/login',
