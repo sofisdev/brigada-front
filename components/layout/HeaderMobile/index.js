@@ -1,44 +1,27 @@
 /** @jsxImportSource theme-ui */
 import { useRouter } from 'next/router';
-import { PropTypes } from 'prop-types';
 import { Fragment, useState } from 'react';
-import { Box, Divider, Flex, Image, NavLink, Text } from 'theme-ui';
+import { Box, Divider, Flex, NavLink, Text } from 'theme-ui';
 
-import imageRoutes from '../../../constants/imageRoutes';
 import { navItems } from '../../../constants/navItems';
 import { onNavClick } from '../../../utils/onNavClick';
 import styles from './styles';
 
-const HeaderMobile = ({ invitationId }) => {
+const HeaderMobile = () => {
   const router = useRouter();
   const isNavItemActive = (link) => router?.pathname?.startsWith(link);
 
-  const [showNav, setShowNav] = useState(false);
+  const [showNav] = useState(false);
 
   return (
     <Box as="header" sx={styles.headerContainer}>
-      <Flex sx={styles.topBanner}>
-        <Image sx={styles.logo} src={imageRoutes?.primaryLogo} />
-        <Box sx={styles.navIconContainer}>
-          <Image
-            sx={styles.navIcon(showNav)}
-            src={imageRoutes?.icons?.crossIcon}
-            onClick={() => setShowNav(!showNav)}
-          />
-          <Image
-            sx={styles.navIcon(!showNav)}
-            src={imageRoutes?.icons?.barsIcon}
-            onClick={() => setShowNav(!showNav)}
-          />
-        </Box>
-      </Flex>
       <Flex sx={styles.navContainer(showNav)}>
         <Flex sx={styles.navItemsContainer}>
           {navItems.map((item) => (
             <Fragment key={item?.name}>
               <NavLink
                 sx={styles.navItems(isNavItemActive(item?.link))}
-                onClick={onNavClick(item, invitationId)}
+                onClick={onNavClick(item)}
               >
                 {item?.name}
               </NavLink>
@@ -46,11 +29,10 @@ const HeaderMobile = ({ invitationId }) => {
             </Fragment>
           ))}
         </Flex>
-        <Flex sx={styles.csmContainer}>
-          <Flex sx={styles.csmCircle}>
-            <Text sx={styles.csmTitle}>csm</Text>
+        <Flex sx={styles.Container}>
+          <Flex sx={styles.Circle}>
+            <Text sx={styles.Title}>Test</Text>
           </Flex>
-          <Text sx={styles.csmText}>powered</Text>
         </Flex>
       </Flex>
     </Box>
@@ -59,10 +41,3 @@ const HeaderMobile = ({ invitationId }) => {
 
 export default HeaderMobile;
 
-HeaderMobile.defaultProps = {
-  invitationId: 0,
-};
-
-HeaderMobile.propTypes = {
-  invitationId: PropTypes.number,
-};

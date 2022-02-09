@@ -63,12 +63,12 @@ const styles = {
     textTransform: 'capitalize',
   }),
   divider: { width: '40px', color: 'white', my: '30px' },
-  csmContainer: {
+  Container: {
     flexDirection: 'column',
     alignItems: 'center',
     mb: '65px',
   },
-  csmCircle: {
+  Circle: {
     height: '55px',
     width: '55px',
     alignItems: 'center',
@@ -76,14 +76,14 @@ const styles = {
     backgroundColor: 'white',
     borderRadius: 'circle',
   },
-  csmTitle: {
+  Title: {
     fontFamily: 'bold',
     fontSize: 4,
     fontWeight: 'bold',
     color: 'darkBlue',
     mb: '2px',
   },
-  csmText: {
+  Text: {
     fontSize: 1,
     color: 'background',
     textTransform: 'uppercase',
