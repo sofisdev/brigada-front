@@ -1,5 +1,5 @@
 /** @jsxImportSource theme-ui */
-
+import { useSession } from 'next-auth/react';
 import { PropTypes } from 'prop-types';
 import { Box, Themed } from 'theme-ui';
 
@@ -9,8 +9,13 @@ import routes from '../constants/routes';
 
 const HomePage = (props) => {
   const { callbackUrl } = props;
+  const { data: session } = useSession();
 
-  return <Box><Themed.h1>OH YES</Themed.h1></Box>;
+  return (
+    <Box>
+      <Themed.h1>OH YES</Themed.h1>
+    </Box>
+  );
 };
 
 HomePage.defaultProps = {

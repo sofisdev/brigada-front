@@ -24,7 +24,7 @@ const MyApp = function ({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Alteryx Guest Portal</title>
+        <title>Brigada</title>
         {/* <FontLinks /> */}
         <link rel="icon" href="/static/assets/images/icons/favicon.png" />
         <meta

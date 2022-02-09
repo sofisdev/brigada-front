@@ -22,8 +22,7 @@ export default NextAuth({
             token: weddingId,
           });
           if (tokenID) {
-            const layout = await getLayout();
-            return layout;
+            return tokenID;
           }
         } catch (error) {
           console.log(error.message, 'authorize error');
