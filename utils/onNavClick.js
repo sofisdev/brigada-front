@@ -1,7 +1,5 @@
 import Router from 'next/router';
 
-export const onNavClick = (item, invitationId) => () =>
+export const onNavClick = (item) => () =>
   Router.push({
-    pathname: item?.link,
-    query: item?.parameters ? { invitationId } : {},
-  });
+    pathname: item?.link  });

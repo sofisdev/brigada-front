@@ -1,15 +1,18 @@
 /** @jsxImportSource theme-ui */
 import { useSession } from 'next-auth/react';
-import { PropTypes } from 'prop-types';
+import { useQuery } from 'react-query';
 import { Box, Themed } from 'theme-ui';
 
 import WithMainLayout from '../components/hocs/WithMainLayout';
-import LogIn from '../components/LogIn';
-import routes from '../constants/routes';
+import { getLayout } from '../repository/platformApi';
 
-const HomePage = (props) => {
-  const { callbackUrl } = props;
+const HomePage = () => {
   const { data: session } = useSession();
+
+  const { data: layout } = useQuery(['layout'], getLayout, {
+    enabled: !!session,
+  });
+  console.log('🚀 ~ file: home.js ~ line 16 ~ HomePage ~ layout', layout);
 
   return (
     <Box>
@@ -18,21 +21,12 @@ const HomePage = (props) => {
   );
 };
 
-HomePage.defaultProps = {
-  callbackUrl: '',
-};
+HomePage.defaultProps = {};
 
-HomePage.propTypes = {
-  callbackUrl: PropTypes.string,
-};
+HomePage.propTypes = {};
 
-export default WithMainLayout(HomePage, { header: false });
+export default WithMainLayout(HomePage);
 
 export async function getServerSideProps() {
-  const callbackUrl = `${routes?.home}`;
-  return {
-    props: {
-      callbackUrl,
-    },
-  };
+  return { props: {} };
 }
