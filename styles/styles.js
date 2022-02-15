@@ -3,9 +3,6 @@ export const styles = {
     fontFamily: 'regular',
     lineHeight: 'body',
     fontWeight: 'body',
-    'input[type=date]': {
-      fontFamily: 'regular',
-    },
   },
   h1: {
     variant: 'text.heading',

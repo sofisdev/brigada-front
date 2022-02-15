@@ -3,11 +3,11 @@ import { SessionProvider } from 'next-auth/react';
 import { useState } from 'react';
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
-// import { ThemeProvider } from 'theme-ui';
+import { ThemeProvider } from 'theme-ui';
 
-// import GlobalComponent from '../styles/global';
-// import { theme } from '../styles/theme';
-// import { FontLinks } from '../utils/getFonts';
+import GlobalComponent from '../styles/global';
+import { theme } from '../styles/theme';
+import { FontLinks } from '../utils/getFonts';
 
 const MyApp = function ({ Component, pageProps }) {
   const [queryClient] = useState(
@@ -25,7 +25,8 @@ const MyApp = function ({ Component, pageProps }) {
     <>
       <Head>
         <title>Brigada</title>
-        {/* <FontLinks /> */}
+        <FontLinks />
+
         <link rel="icon" href="/static/assets/images/icons/favicon.png" />
         <meta
           name="viewport"
@@ -33,14 +34,14 @@ const MyApp = function ({ Component, pageProps }) {
         />
       </Head>
       <QueryClientProvider client={queryClient}>
-        {/* <ThemeProvider theme={theme}> */}
-        {/* <GlobalComponent /> */}
-        <Hydrate state={pageProps.dehydratedState}>
+        <ThemeProvider theme={theme}>
+          <GlobalComponent />
+          {/* <Hydrate state={pageProps.dehydratedState}> */}
           <SessionProvider session={pageProps.session}>
             <Component {...pageProps} />
           </SessionProvider>
-        </Hydrate>
-        {/* </ThemeProvider> */}
+          {/* </Hydrate> */}
+        </ThemeProvider>
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </>

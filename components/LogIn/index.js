@@ -27,33 +27,29 @@ const LogIn = ({ callbackUrl }) => {
     onError: console.log,
   });
   return (
-    <Box sx={styles.colOneContainer}>
-      <Heading as="h1" sx={styles.signUpHeading}>
-        WELCOME!
-      </Heading>
-      <Flex sx={styles.container}>
-        <Box as="form" onSubmit={handleSubmit(submitForm)}>
-          <Flex sx={styles.cardContainer}>
-            <Box>
-              <Themed.p>
-                Enter required fields and hit save to create new contact.
-              </Themed.p>
-              <FormInput
-                label="Enter Password"
-                name="weddingId"
-                placeholder="password"
-                register={register}
-                isRequired
-                errors={errors}
-              />
-            </Box>
-            <Button sx={styles.Button} type="submit">
-              CONTINUE
-            </Button>
-          </Flex>
-        </Box>
+    <Flex sx={styles.mainContainer}>
+      <Flex sx={styles.colOneContainer}>
+        <Heading as="h1" sx={styles.signUpHeading}>
+          WELCOME!
+        </Heading>
+        <Flex sx={styles.column} as="form" onSubmit={handleSubmit(submitForm)}>
+          <Themed.p>
+            Enter required fields and hit save to create new contact.
+          </Themed.p>
+          <FormInput
+            label="Enter Password"
+            name="weddingId"
+            placeholder="password"
+            register={register}
+            isRequired
+            errors={errors}
+          />
+          <Button sx={styles.button} type="submit">
+            CONTINUE
+          </Button>
+        </Flex>
       </Flex>
-    </Box>
+    </Flex>
   );
 };
 

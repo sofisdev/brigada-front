@@ -7,7 +7,6 @@ import { fontWeights } from './fontWeights';
 import { forms } from './forms';
 import { lineHeights } from './lineHeights';
 import { links } from './links';
-import { radii } from './radii';
 import { sizes } from './sizes';
 import { space } from './space';
 import { styles } from './styles';
@@ -18,7 +17,6 @@ export const theme = {
   fonts,
   fontSizes,
   sizes,
-  radii,
   links,
   buttons,
   fontWeights,

@@ -5,7 +5,7 @@ export const text = {
   },
   heading: {
     color: 'text',
-    fontFamily: 'bold',
+    fontFamily: 'heading',
     fontWeight: 'heading',
     lineHeight: 'heading',
   },

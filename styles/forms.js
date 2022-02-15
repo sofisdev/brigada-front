@@ -11,7 +11,7 @@ export const forms = {
   label: {
     display: 'flex',
     alignItems: 'center',
-    fontFamily: 'medium',
+    fontFamily: 'bold',
     fontSize: 1,
     fontWeight: 'bold',
     textTransform: 'uppercase',

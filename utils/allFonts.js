@@ -1,23 +1,23 @@
 // ⬇️ Define here your fonts according to the font file name and format
 const allFonts = [
   {
-    name: 'Montserrat-Regular',
+    name: 'Lato-Black',
     type: 'woff',
   },
   {
-    name: 'Montserrat-Medium',
+    name: 'Lato-Bold',
     type: 'woff',
   },
   {
-    name: 'Montserrat-Bold',
+    name: 'Lato-Light',
     type: 'woff',
   },
   {
-    name: 'Montserrat-SemiBold',
+    name: 'Lato-Regular',
     type: 'woff',
   },
   {
-    name: 'Montserrat-Light',
+    name: 'Prata-Regular',
     type: 'woff',
   },
 ];
