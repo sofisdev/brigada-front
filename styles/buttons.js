@@ -22,4 +22,23 @@ export const buttons = {
       border: 'none',
     },
   },
+  transparent: {
+    bg: 'transparent',
+    p: '8px',
+    fontSize: 0,
+    fontWeight: 'bold',
+    border: '0px',
+    letterSpacing: '2px',
+    textTransform: 'uppercase',
+    cursor: 'pointer',
+    '&:hover': {
+      color: ['white ', 'text'],
+      bg:'yellow'
+    },
+    '&:disabled': {
+      bg: 'midGrey',
+      color: 'white',
+      border: 'none',
+    },
+  },
 };

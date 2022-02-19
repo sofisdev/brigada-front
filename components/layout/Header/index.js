@@ -23,6 +23,7 @@ const Header = () => {
             onClick={() => {
               setNavActive(false);
             }}
+            variant="transparent"
           >
             <Image alt="close_icon" src={close} />
           </Button>
@@ -50,6 +51,7 @@ const Header = () => {
           onClick={() => {
             setNavActive(true);
           }}
+          variant="transparent"
         >
           <Image alt="menu_icon" src={menu} />
         </Button>

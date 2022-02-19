@@ -1,3 +1,7 @@
+import { keyframes } from '@emotion/react';
+
+const fadeIn = keyframes({ from: { right: '-200px' }, to: { right: 0 } });
+
 const styles = {
   headerContainer: {
     position: 'absolute',
@@ -5,7 +9,6 @@ const styles = {
     width: '100vw',
     zIndex: 10,
     justifyContent: 'flex-end',
-    // px: '50px',
   },
 
   topBanner: {
@@ -18,6 +21,7 @@ const styles = {
     width: '300px',
   },
   navContainer: {
+    animation: `${fadeIn} 0.5s linear`,
     position: 'absolute',
     height: '100vh',
     backgroundColor: 'yellow',
