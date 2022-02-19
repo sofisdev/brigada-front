@@ -3,12 +3,11 @@
 const config = require('config');
 
 const THIRD_PARTY = config.get('THIRD_PARTY');
-const IS_MOCKING_ENABLED = config.get('IS_MOCKING_ENABLED');
 
 const redirects = async () => [
   {
     source: '/',
-    destination: '/home',
+    destination: '/login',
     permanent: true,
   },
 ];
@@ -25,7 +24,6 @@ module.exports = {
   },
   publicRuntimeConfig: {
     staticFolder: '/public',
-    IS_MOCKING_ENABLED,
     THIRD_PARTY,
   },
   serverRuntimeConfig: {
