@@ -1,11 +1,13 @@
 const styles = {
   headerContainer: {
-    display: ['none', 'inline'],
-    position: 'sticky',
+    position: 'absolute',
     top: 0,
-    width: '100%',
+    width: '100vw',
     zIndex: 10,
+    justifyContent: 'flex-end',
+    // px: '50px',
   },
+
   topBanner: {
     alignItems: 'center',
     bg: 'darkBlue',
@@ -16,28 +18,26 @@ const styles = {
     width: '300px',
   },
   navContainer: {
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    height: '60px',
-    px: '25px',
-    backgroundColor: 'white',
-    boxShadow: '0px 5px 15px 4px rgba(0,0,0,0.1)',
+    position: 'absolute',
+    height: '100vh',
+    backgroundColor: 'yellow',
+    flexDirection: 'column',
+    alignItems: 'flex-end',
+    color: 'darkGreen',
   },
   subNavContainer: {
     alignItems: 'center',
     height: '40px',
-    px: '25px',
-    backgroundColor: 'lightGray',
     boxShadow: '0px 5px 15px 4px rgba(0,0,0,0.1)',
   },
-  navItems: { justifyContent: 'space-around' },
+  navItems: { justifyContent: 'space-between', flexDirection: 'column' },
   verticalDivider: {
     borderLeft: '1px solid',
     height: '20px',
   },
-  isItemActive: (bool) => ({
-    fontFamily: bool ? 'bold' : 'regular',
-  }),
+  isItemActive: {
+    fontFamily: 'bold',
+  },
 };
 
 export default styles;

@@ -2,7 +2,6 @@ const styles = {
   mainContainer: {
     flexDirection: 'column',
     alignItems: 'center',
-    height: '100vh',
     justifyContent: 'center',
   },
   colOneContainer: {

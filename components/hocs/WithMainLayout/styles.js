@@ -2,7 +2,6 @@ const styles = {
   container: {
     flexDirection: 'column',
     backgroundColor: 'background',
-    minHeight: '100vh',
     m: '0',
   },
   content: {
@@ -10,7 +9,7 @@ const styles = {
     height: '100%',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    p: '0px 200px 50px',
+    p: '50px',
     m: '0px auto auto auto',
   },
 };

@@ -7,11 +7,9 @@ export const colors = {
   lightGrey: '#d8dfe1',
   midGrey: '#B1B1B1',
   darkGrey: '#373737',
-  yellow: '#ff9e18',
-  orange: '#ff4713',
-  green: '#4a8b2c',
+  yellow: '#F9A932',
   lightGreen: '#00c08b',
-  beige: '#aa9767',
   error: '#ff4713',
   backgroundGrey: '#D3D3D3',
+  darkGreen: '#224A3B',
 };

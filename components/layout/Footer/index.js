@@ -1,12 +1,12 @@
 /** @jsxImportSource theme-ui */
-import { Grid, Themed } from 'theme-ui';
+import { Flex, Themed } from 'theme-ui';
 
 import styles from './styles';
 
 const Footer = () => (
-  <Grid as="footer" sx={styles.container}>
-    <Themed.p>Test</Themed.p>
-  </Grid>
+  <Flex as="footer" sx={styles.container}>
+    <Themed.p>Designed by Sofía and Javi 💃🏻🕺🏽</Themed.p>
+  </Flex>
 );
 
 export default Footer;
