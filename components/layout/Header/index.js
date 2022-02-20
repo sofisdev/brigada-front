@@ -9,7 +9,7 @@ import { navItems } from '../../../constants/navItems';
 import { onNavClick } from '../../../utils/onNavClick';
 import styles from './styles';
 
-const Header = () => {
+const Header = ({ setLanguage, language }) => {
   const router = useRouter();
   const isNavItemActive = (link) => router?.pathname?.startsWith(link);
   const { menu, close } = imageRoutes;
@@ -47,15 +47,26 @@ const Header = () => {
           </Flex>
         </Flex>
       ) : (
-        <Button
-          sx={styles.icon}
-          onClick={() => {
-            setNavActive(true);
-          }}
-          variant="transparent"
-        >
-          <Image alt="menu_icon" src={menu} />
-        </Button>
+        <>
+          <Button
+            sx={styles.icon}
+            onClick={() => {
+              setLanguage(language === 'ES' ? 'EN' : 'ES');
+            }}
+            variant="transparent"
+          >
+            {language}
+          </Button>
+          <Button
+            sx={styles.icon}
+            onClick={() => {
+              setNavActive(true);
+            }}
+            variant="transparent"
+          >
+            <Image alt="menu_icon" src={menu} />
+          </Button>
+        </>
       )}
     </Flex>
   );
