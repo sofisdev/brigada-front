@@ -5,12 +5,13 @@ const fadeIn = keyframes({ from: { right: '-200px' }, to: { right: 0 } });
 const styles = {
   headerContainer: {
     position: 'absolute',
-    top: 0,
     width: '100vw',
     zIndex: 10,
     justifyContent: 'flex-end',
   },
-
+  icon: {
+    m: '20px',
+  },
   topBanner: {
     alignItems: 'center',
     bg: 'darkBlue',

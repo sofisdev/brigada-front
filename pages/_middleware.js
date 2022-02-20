@@ -23,6 +23,8 @@ export async function middleware(req = NextRequest) {
   }
 
   if (!token && pathname !== routes.login) {
-    return NextResponse.redirect(`${routes.login}`);
+    const url = req.nextUrl.clone();
+    url.pathname = routes.login;
+    return NextResponse.rewrite(url);
   }
 }

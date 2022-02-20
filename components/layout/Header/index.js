@@ -48,6 +48,7 @@ const Header = () => {
         </Flex>
       ) : (
         <Button
+          sx={styles.icon}
           onClick={() => {
             setNavActive(true);
           }}
