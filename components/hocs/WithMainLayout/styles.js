@@ -12,7 +12,7 @@ const styles = {
       height: '100%',
       backgroundSize: 'cover',
       opacity: '0.5',
-      position: 'absolute',
+      position: 'fixed',
       top: '0px',
       right: '0px',
       bottom: '0px',
@@ -22,10 +22,11 @@ const styles = {
   content: {
     position: 'relative',
     width: '100%',
+    maxWidth: '1200px',
     height: '100%',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    p: '50px',
+    p: '80px',
     m: '0px auto auto auto',
   },
 };

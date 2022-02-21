@@ -1,17 +1,19 @@
 /** @jsxImportSource theme-ui */
 import { PropTypes } from 'prop-types';
-import { Image, Input, Label, Text, Themed } from 'theme-ui';
+import { Box, Image, Input, Label, Text, Themed } from 'theme-ui';
 
 import imageRoutes from '../../../constants/imageRoutes';
+import styles from './styles';
 
 const WelcomeSection = ({ layout }) => {
-console.log("🚀 ~ file: index.js ~ line 8 ~ WelcomeSection ~ layout", layout)
-  // const { date, title } = layout;
+  const { date, title } = layout.home;
   return (
-    <section id="home">
-      <Image src={imageRoutes.couple} />
-      {/* <Themed.h1>{title}</Themed.h1>
-      <Themed.h1>{date}</Themed.h1> */}
+    <section id="home" sx={styles?.container}>
+      <Image src={imageRoutes.couple} sx={styles?.image} />
+      <Box>
+        <Themed.h1>{title}</Themed.h1>
+        <Themed.h1>{date}</Themed.h1>
+      </Box>
     </section>
   );
 };

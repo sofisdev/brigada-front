@@ -10,9 +10,13 @@ import { getLayout } from '../repository/platformApi';
 
 const HomePage = ({ layout }) => (
   <Box>
-    <WelcomeSection layout={layout} />
+    {layout ? (
+      <WelcomeSection layout={layout} />
+    ) : (
+      <Themed.p>Loading..</Themed.p>
+    )}
   </Box>
-  );
+);
 
 HomePage.defaultProps = {};
 

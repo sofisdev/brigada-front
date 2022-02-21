@@ -18,19 +18,20 @@ const WithMainLayout = (Page, options = defaultOptions) =>
     const { header } = options;
     const { data: session } = useSession();
 
-    const [language, setLanguage] = useState('ES');
+    const [language, setLanguage] = useState('es');
 
     const { data: layout } = useQuery(['layout'], getLayout, {
       enabled: !!session,
     });
-    console.log('🚀 ~ file: index.js ~ line 24 ~ Component ~ layout', layout);
 
-    const pageProps = { ...props, layout: layout?.data?.[language] };
+    const pageProps = { ...props };
+    const data = layout?.data;
+
     return (
       <Flex sx={styles.container}>
         {header && <Header setLanguage={setLanguage} language={language} />}
         <Flex as="main" sx={styles.content}>
-          {layout ? <Page {...pageProps} /> : <Themed.p>loading...</Themed.p>}
+          <Page {...pageProps} layout={data?.[language]} />
         </Flex>
         <Footer />
       </Flex>

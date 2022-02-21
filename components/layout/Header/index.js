@@ -51,7 +51,7 @@ const Header = ({ setLanguage, language }) => {
           <Button
             sx={styles.icon}
             onClick={() => {
-              setLanguage(language === 'ES' ? 'EN' : 'ES');
+              setLanguage(language === 'es' ? 'en' : 'es');
             }}
             variant="transparent"
           >
