@@ -4,7 +4,7 @@ const fadeIn = keyframes({ from: { right: '-200px' }, to: { right: 0 } });
 
 const styles = {
   headerContainer: {
-    position: 'absolute',
+    position: 'fixed',
     width: '100vw',
     zIndex: 10,
     justifyContent: 'flex-end',
@@ -25,6 +25,8 @@ const styles = {
     animation: `${fadeIn} 0.5s linear`,
     position: 'absolute',
     height: '100vh',
+    width:'50vw',
+    maxWidth:'800px',
     backgroundColor: 'yellow',
     flexDirection: 'column',
     alignItems: 'flex-end',

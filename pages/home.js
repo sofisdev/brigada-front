@@ -5,13 +5,17 @@ import { useQuery } from 'react-query';
 import { Box, Themed } from 'theme-ui';
 
 import WithMainLayout from '../components/hocs/WithMainLayout';
+import AddressSection from '../components/pages/AddressSection';
 import WelcomeSection from '../components/pages/welcomeSection';
 import { getLayout } from '../repository/platformApi';
 
 const HomePage = ({ layout }) => (
   <Box>
     {layout ? (
-      <WelcomeSection layout={layout} />
+      <>
+        <WelcomeSection layout={layout} />
+        <AddressSection layout={layout} />
+      </>
     ) : (
       <Themed.p>Loading..</Themed.p>
     )}
