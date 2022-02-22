@@ -15,6 +15,8 @@ export const styles = {
   h3: {
     variant: 'text.heading',
     fontSize: 3,
+    mb: '5px',
+    mt: '0px',
   },
   h4: {
     variant: 'text.heading',
@@ -34,7 +36,7 @@ export const styles = {
     fontWeight: 'body',
     lineHeight: 'body',
     fontSize: 1,
-    my: '5px',
+    mb: '5px',
   },
   a: {
     color: 'blue',
