@@ -16,8 +16,8 @@ const AddressSection = ({ layout }) => {
           Página Web
         </Link>
       </Box>
-      <Flex>
-        <Image src={imageRoutes?.test} />
+      <Flex sx={styles?.row}>
+        <Image sx={styles?.map} src={imageRoutes?.test} />
         <Box sx={styles.rightColumn}>
           <Flex sx={styles?.street}>
             <Image
@@ -40,12 +40,14 @@ const AddressSection = ({ layout }) => {
               <Themed.h3 sx={styles?.text}>{warning}</Themed.h3>
             </Box>
           </Flex>
-          <Image
-            alt="arrow-icon"
-            src={imageRoutes?.arrowDown}
-            sx={styles?.arrow}
-          />
         </Box>
+      </Flex>
+      <Flex sx={styles?.rowCenter}>
+        <Image
+          alt="arrow-icon"
+          src={imageRoutes?.arrowDown}
+          sx={styles?.arrow}
+        />
       </Flex>
     </section>
   );

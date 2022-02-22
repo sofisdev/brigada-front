@@ -15,6 +15,7 @@ const HomePage = ({ layout }) => (
       <>
         <WelcomeSection layout={layout} />
         <AddressSection layout={layout} />
+        <AddressSection layout={layout} />
       </>
     ) : (
       <Themed.p>Loading..</Themed.p>

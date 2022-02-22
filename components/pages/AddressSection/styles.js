@@ -1,14 +1,10 @@
 const styles = {
   container: {
-    // display: 'flex',
-    // justifyContent: 'space-between',
-    // flexDirection: 'column',
-    // alignItems: 'center',
-    minHeight: '80vh',
-    mb: '80px',
+    height: '80vh',
+    maxHeight: '900px',
+    my: '100px',
   },
-  column: {
-    flexDirection: 'column',
+  row: {
     alignItems: 'center',
     justifyContent: 'space-between',
   },
@@ -22,9 +18,9 @@ const styles = {
     mb: '30px',
   },
   text: {
-    width: '600px',
-    maxWidth: 'auto',
+    maxWidth: '600px',
     ml: '20px',
+    mb: '30px',
   },
   image: {
     clipPath: 'polygon(30% 70% 70% 30% / 30% 30% 70% 70%)',
@@ -34,12 +30,20 @@ const styles = {
   arrow: {
     width: '50px',
     height: 'auto',
-    mt: '80px',
+    mt: '30px',
   },
   icon: {
     width: '80px',
     height: '100%',
     objectFit: 'contain',
+  },
+  map: {
+    width: 'fit-content',
+    height: '100%',
+    objectFit: 'contain',
+  },
+  rowCenter: {
+    justifyContent: 'center',
   },
 };
 

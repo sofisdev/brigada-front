@@ -22,11 +22,11 @@ const styles = {
   content: {
     position: 'relative',
     width: '100%',
-    maxWidth: '1200px',
+    maxWidth: '1300px',
     height: '100%',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    p: '80px',
+    p: '0px 80px',
     m: '0px auto auto auto',
   },
 };

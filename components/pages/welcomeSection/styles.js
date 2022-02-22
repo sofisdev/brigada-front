@@ -4,8 +4,7 @@ const styles = {
     justifyContent: 'space-between',
     textAlign: 'right',
     alignItems: 'center',
-    minHeight: '80vh',
-    mb: '80px',
+    minHeight: '100vh',
   },
   column: {
     flexDirection: 'column',
