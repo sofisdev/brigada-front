@@ -1,13 +1,10 @@
 /** @jsxImportSource theme-ui */
-import { useSession } from 'next-auth/react';
-import { useState } from 'react';
-import { useQuery } from 'react-query';
 import { Box, Themed } from 'theme-ui';
 
 import WithMainLayout from '../components/hocs/WithMainLayout';
 import AddressSection from '../components/pages/AddressSection';
+import FormRsvp from '../components/pages/FormRsvp';
 import WelcomeSection from '../components/pages/welcomeSection';
-import { getLayout } from '../repository/platformApi';
 
 const HomePage = ({ layout }) => (
   <Box>
@@ -15,7 +12,7 @@ const HomePage = ({ layout }) => (
       <>
         <WelcomeSection layout={layout} />
         <AddressSection layout={layout} />
-        <AddressSection layout={layout} />
+        <FormRsvp layout={layout} />
       </>
     ) : (
       <Themed.p>Loading..</Themed.p>

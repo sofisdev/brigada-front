@@ -17,9 +17,9 @@
     "react": "^17.0.2",
     "react-circular-progressbar": "^2.0.4",
     "react-dom": "^17.0.2",
-    "react-hook-form": "^7.22.5",
+    "react-hook-form": "^7.27.1",
     "react-query": "^3.34.7",
-    "react-select": "^5.2.1",
+    "react-select": "^5.2.2",
     "theme-ui": "^0.12.1",
     "winston": "^3.5.1"
   },
