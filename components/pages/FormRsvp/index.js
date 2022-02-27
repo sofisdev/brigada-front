@@ -41,9 +41,9 @@ const FormRsvp = ({ layout }) => {
     <section id="rsvp" sx={styles?.container}>
       <Flex sx={styles.container}>
         <Box as="form" onSubmit={handleSubmit(submitForm)}>
-          <Flex sx={styles.cardContainer}>
+          <Box sx={styles.cardContainer}>
             <Box>
-              <Label>Confirma tu asistencia</Label>
+              {/* <Label>Confirma tu asistencia</Label>
               <Label>
                 <Radio
                   {...register('rsvp', { required: true })}
@@ -59,16 +59,10 @@ const FormRsvp = ({ layout }) => {
                   value="no"
                 />
                 <p sx={{ m: '0' }}>No podré asistir</p>
-              </Label>
-              <Button onClick={() => setPlusOne(!plusOne)}>
-                {plusOne ? 'Quitar acompañante' : 'Añadir acompañante'}
-              </Button>
-              <Button onClick={() => addKid(!kid)}>
-                {kid ? 'Iré sin peques' : '¿Vienes con tus peques?'}
-              </Button>
+              </Label> */}
 
               <Themed.p>Datos de invitado 1</Themed.p>
-              <Box>
+              <Flex>
                 <FormInput
                   label="Nombre"
                   name="nombre"
@@ -111,12 +105,17 @@ const FormRsvp = ({ layout }) => {
                   isSearchable={false}
                   errors={errors}
                 />
-              </Box>
-
+              </Flex>
+              <Button onClick={() => setPlusOne(!plusOne)}>
+                {plusOne ? 'Quitar acompañante' : 'Añadir acompañante'}
+              </Button>
+              <Button onClick={() => addKid(!kid)}>
+                {kid ? 'Iré sin peques' : '¿Vienes con tus peques?'}
+              </Button>
               {plusOne && (
                 <>
-                  <Themed.p>Datos de invitado 1</Themed.p>
-                  <Box>
+                  <Themed.p>Datos de acompañante</Themed.p>
+                  <Flex>
                     <FormInput
                       label="Nombre"
                       name="plusOne_nombre"
@@ -150,13 +149,13 @@ const FormRsvp = ({ layout }) => {
                       register={register}
                       errors={errors}
                     />
-                  </Box>
+                  </Flex>
                 </>
               )}
               {kid && (
                 <>
-                  <Themed.p>Datos de invitado 1</Themed.p>
-                  <Box>
+                  <Themed.p>Niños</Themed.p>
+                  <Flex>
                     <FormSelect
                       label="¿Cuántos peques?"
                       name="kids_cantidad"
@@ -205,14 +204,14 @@ const FormRsvp = ({ layout }) => {
                       register={register}
                       errors={errors}
                     />
-                  </Box>
+                  </Flex>
                 </>
               )}
             </Box>
             <Button sx={styles.Button} type="submit">
               SAVE
             </Button>
-          </Flex>
+          </Box>
         </Box>
       </Flex>
     </section>
