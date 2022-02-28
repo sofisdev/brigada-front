@@ -6,45 +6,15 @@ const styles = {
     py: '20px',
   },
   row: {
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  rightColumn: {
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    ml: '50px',
-  },
-  street: {
+    height: '50px',
+    justifyContent: 'flex-start',
     mb: '30px',
   },
-  text: {
-    maxWidth: '600px',
-    ml: '20px',
-    mb: '30px',
-  },
-  image: {
-    clipPath: 'polygon(30% 70% 70% 30% / 30% 30% 70% 70%)',
-    maxWidth: '550px',
-    height: 'auto',
-  },
-  arrow: {
-    width: '50px',
-    height: 'auto',
-    mt: '30px',
-  },
-  icon: {
-    width: '80px',
-    height: '100%',
-    objectFit: 'contain',
-  },
-  map: {
-    width: 'fit-content',
-    height: '100%',
-    objectFit: 'contain',
-  },
-  rowCenter: {
-    justifyContent: 'center',
+  options: {
+    mt: '50px',
+    mb: '20px',
+    justifyContent: 'space-between',
+    width: '580px',
   },
 };
 

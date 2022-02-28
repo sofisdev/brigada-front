@@ -1,6 +1,8 @@
 const styles = {
-  default: {
-    color: '#000',
+  field: {
+    flexDirection: 'column',
+    mr: '20px',
+    minWidth: '200px',
   },
 };
 

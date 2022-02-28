@@ -1,7 +1,6 @@
 const styles = {
   field: {
-    mr: '20px',
-    minWidth: '200px',
+    flexDirection: 'column',
   },
 };
 

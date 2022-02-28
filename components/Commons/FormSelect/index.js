@@ -1,9 +1,10 @@
 /** @jsxImportSource theme-ui */
 import { PropTypes } from 'prop-types';
 import { Controller } from 'react-hook-form';
-import { Label, Text } from 'theme-ui';
+import { Box, Label, Text } from 'theme-ui';
 
 import Select from '../ReactSelect';
+import styles from './styles';
 
 const FormSelect = ({
   label,
@@ -14,7 +15,7 @@ const FormSelect = ({
   errorMessage,
   ...props
 }) => (
-  <>
+  <Box sx={styles.field}>
     {label && <Label>{label}</Label>}
     <Controller
       name={name}
@@ -25,7 +26,7 @@ const FormSelect = ({
     {errors?.[name]?.type === 'required' && (
       <Text variant="error">{errorMessage}</Text>
     )}
-  </>
+  </Box>
 );
 
 export default FormSelect;

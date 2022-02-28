@@ -4,7 +4,7 @@ import { Flex, Input, Label, Text } from 'theme-ui';
 
 import styles from './styles';
 
-const FormInput = ({
+const FormPhone = ({
   label,
   name,
   register,

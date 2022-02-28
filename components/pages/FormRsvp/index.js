@@ -39,181 +39,166 @@ const FormRsvp = ({ layout }) => {
   });
   return (
     <section id="rsvp" sx={styles?.container}>
-      <Flex sx={styles.container}>
-        <Box as="form" onSubmit={handleSubmit(submitForm)}>
-          <Box sx={styles.cardContainer}>
-            <Box>
-              {/* <Label>Confirma tu asistencia</Label>
-              <Label>
-                <Radio
-                  {...register('rsvp', { required: true })}
-                  type="radio"
-                  value="yes"
-                />
-                <p sx={{ m: '0' }}>¡Allí estaré!</p>
-              </Label>
-              <Label>
-                <Radio
-                  {...register('rsvp', { required: true })}
-                  type="radio"
-                  value="no"
-                />
-                <p sx={{ m: '0' }}>No podré asistir</p>
-              </Label> */}
+      <Box sx={styles.container} as="form" onSubmit={handleSubmit(submitForm)}>
+        <Box>
+          <Box>
+            <Themed.p>Datos de invitado 1</Themed.p>
+            <Flex sx={styles.row}>
+              <FormInput
+                label="Nombre"
+                name="nombre"
+                placeholder="Nombre"
+                register={register}
+                isRequired
+                errors={errors}
+              />
+              <FormInput
+                label="Apellidos"
+                name="apellidos"
+                placeholder="Apellidos"
+                register={register}
+                isRequired
+                errors={errors}
+              />
+            </Flex>
 
-              <Themed.p>Datos de invitado 1</Themed.p>
-              <Flex>
-                <FormInput
-                  label="Nombre"
-                  name="nombre"
-                  placeholder="Nombre"
-                  register={register}
-                  isRequired
-                  errors={errors}
-                />
-                <FormInput
-                  label="Apellidos"
-                  name="apellidos"
-                  placeholder="Apellidos"
-                  register={register}
-                  isRequired
-                  errors={errors}
-                />
-                <FormSelect
-                  label="Dieta"
-                  name="dieta"
-                  control={control}
-                  isRequired
-                  placeholder="Selecciona dieta"
-                  options={options}
-                  isSearchable={false}
-                  errors={errors}
-                />
-                <FormInput
-                  label="Intolerancias / Alergias"
-                  name="intolerancias"
-                  placeholder="Celiaco, diabético, intolerancia a la fructosa"
-                  register={register}
-                  errors={errors}
-                />
-                <FormSelect
-                  label="¿Vas a venir en Bus? Selecciona horario de vuelta"
-                  name="bus"
-                  control={control}
-                  placeholder="Selecciona horario de vuelta"
-                  options={options}
-                  isSearchable={false}
-                  errors={errors}
-                />
-              </Flex>
+            <Flex sx={styles.row}>
+              <FormSelect
+                label="Dieta"
+                name="dieta"
+                control={control}
+                isRequired
+                placeholder="Selecciona dieta"
+                options={options}
+                isSearchable={false}
+                errors={errors}
+              />
+              <FormInput
+                label="Intolerancias"
+                name="intolerancias"
+                placeholder="Celiaco, diabético, intolerancia a la fructosa"
+                register={register}
+                errors={errors}
+              />
+              <FormSelect
+                label="¿Vienes en Bus o en coche?"
+                name="bus"
+                control={control}
+                placeholder="Selecciona horario de vuelta"
+                options={options}
+                isSearchable={false}
+                errors={errors}
+              />
+            </Flex>
+            <Flex sx={styles.options}>
               <Button onClick={() => setPlusOne(!plusOne)}>
                 {plusOne ? 'Quitar acompañante' : 'Añadir acompañante'}
               </Button>
               <Button onClick={() => addKid(!kid)}>
                 {kid ? 'Iré sin peques' : '¿Vienes con tus peques?'}
               </Button>
-              {plusOne && (
-                <>
-                  <Themed.p>Datos de acompañante</Themed.p>
-                  <Flex>
-                    <FormInput
-                      label="Nombre"
-                      name="plusOne_nombre"
-                      placeholder="Nombre"
-                      register={register}
-                      isRequired={!!plusOne}
-                      errors={errors}
+            </Flex>
+            {plusOne && (
+              <>
+                <Themed.p>Datos de acompañante</Themed.p>
+                <Flex>
+                  <FormInput
+                    label="Nombre"
+                    name="plusOne_nombre"
+                    placeholder="Nombre"
+                    register={register}
+                    isRequired={!!plusOne}
+                    errors={errors}
+                  />
+                  <FormInput
+                    label="Apellidos"
+                    name="plusOne_apellidos"
+                    placeholder="Apellidos"
+                    register={register}
+                    isRequired={!!plusOne}
+                    errors={errors}
+                  />
+                  <FormSelect
+                    label="Dieta"
+                    name="plusOne_dieta"
+                    control={control}
+                    isRequired={!!plusOne}
+                    placeholder="Selecciona dieta"
+                    options={options}
+                    isSearchable={false}
+                    errors={errors}
+                  />
+                  <FormInput
+                    label="Intolerancias / Alergias"
+                    name="plusOne_intolerancias"
+                    placeholder="Celiaco, diabético, intolerancia a la fructosa"
+                    register={register}
+                    errors={errors}
+                  />
+                </Flex>
+              </>
+            )}
+            {kid && (
+              <>
+                <Themed.p>Niños</Themed.p>
+                <Flex>
+                  <FormSelect
+                    label="¿Cuántos peques?"
+                    name="kids_cantidad"
+                    control={control}
+                    isRequired={!!kid}
+                    placeholder="Selecciona una opción."
+                    options={options}
+                    isSearchable={false}
+                    errors={errors}
+                  />
+                  <FormSelect
+                    label="¿Necesitan silla o trona?"
+                    name="kids_asiento"
+                    control={control}
+                    isRequired={!!kid}
+                    placeholder="Selecciona una opción"
+                    options={options}
+                    isSearchable={false}
+                    errors={errors}
+                  />
+                  <Label>¿Quieres menú infantil?</Label>
+                  <Label>
+                    <Radio
+                      {...register('kids_dieta', { required: !!kid })}
+                      type="radio"
+                      value="yes"
                     />
-                    <FormInput
-                      label="Apellidos"
-                      name="plusOne_apellidos"
-                      placeholder="Apellidos"
-                      register={register}
-                      isRequired={!!plusOne}
-                      errors={errors}
+                    <p sx={{ m: '0' }}>Si por favor</p>
+                  </Label>
+                  <Label>
+                    <Radio
+                      {...register('kids_dieta', { required: !!kid })}
+                      type="radio"
+                      value="no"
                     />
-                    <FormSelect
-                      label="Dieta"
-                      name="plusOne_dieta"
-                      control={control}
-                      isRequired={!!plusOne}
-                      placeholder="Selecciona dieta"
-                      options={options}
-                      isSearchable={false}
-                      errors={errors}
-                    />
-                    <FormInput
-                      label="Intolerancias / Alergias"
-                      name="plusOne_intolerancias"
-                      placeholder="Celiaco, diabético, intolerancia a la fructosa"
-                      register={register}
-                      errors={errors}
-                    />
-                  </Flex>
-                </>
-              )}
-              {kid && (
-                <>
-                  <Themed.p>Niños</Themed.p>
-                  <Flex>
-                    <FormSelect
-                      label="¿Cuántos peques?"
-                      name="kids_cantidad"
-                      control={control}
-                      isRequired={!!kid}
-                      placeholder="Selecciona una opción."
-                      options={options}
-                      isSearchable={false}
-                      errors={errors}
-                    />
-                    <FormSelect
-                      label="¿Necesitan silla o trona?"
-                      name="kids_asiento"
-                      control={control}
-                      isRequired={!!kid}
-                      placeholder="Selecciona una opción"
-                      options={options}
-                      isSearchable={false}
-                      errors={errors}
-                    />
-                    <Label>¿Quieres menú infantil?</Label>
-                    <Label>
-                      <Radio
-                        {...register('kids_dieta', { required: !!kid })}
-                        type="radio"
-                        value="yes"
-                      />
-                      <p sx={{ m: '0' }}>Si por favor</p>
-                    </Label>
-                    <Label>
-                      <Radio
-                        {...register('kids_dieta', { required: !!kid })}
-                        type="radio"
-                        value="no"
-                      />
-                      <p sx={{ m: '0' }}>No gracias</p>
-                    </Label>
-                    {errors?.kids_dieta?.type === 'required' && (
-                      <Text variant="error">error</Text>
-                    )}
+                    <p sx={{ m: '0' }}>No gracias</p>
+                  </Label>
+                  {errors?.kids_dieta?.type === 'required' && (
+                    <Text variant="error">error</Text>
+                  )}
 
-                    <FormInput
-                      label="Intolerancias / Alergias"
-                      name="plusOne_intolerancias"
-                      placeholder="Celiaco, diabético, intolerancia a la fructosa"
-                      register={register}
-                      errors={errors}
-                    />
-                  </Flex>
-                </>
-              )}
-            </Box>
-            <Button sx={styles.Button} type="submit">
-              SAVE
-            </Button>
+                  <FormInput
+                    label="Intolerancias / Alergias"
+                    name="plusOne_intolerancias"
+                    placeholder="Celiaco, diabético, intolerancia a la fructosa"
+                    register={register}
+                    errors={errors}
+                  />
+                </Flex>
+              </>
+            )}
           </Box>
+          <Button sx={styles.Button} type="submit">
+            SAVE
+          </Button>
         </Box>
-      </Flex>
+      </Box>
     </section>
   );
 };
