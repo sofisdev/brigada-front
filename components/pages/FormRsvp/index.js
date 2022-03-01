@@ -6,6 +6,7 @@ import { useMutation, useQueryClient } from 'react-query';
 import { Box, Button, Flex, Label, Radio, Text, Themed } from 'theme-ui';
 
 import { options } from '../../../constants/options';
+import FormAdult from '../../Commons/FormAdult';
 import FormInput from '../../Commons/FormInput';
 import FormSelect from '../../Commons/FormSelect';
 import Select from '../../Commons/ReactSelect';
@@ -42,54 +43,16 @@ const FormRsvp = ({ layout }) => {
       <Box sx={styles.container} as="form" onSubmit={handleSubmit(submitForm)}>
         <Box>
           <Box>
-            <Themed.p>Datos de invitado 1</Themed.p>
-            <Flex sx={styles.row}>
-              <FormInput
-                label="Nombre"
-                name="nombre"
-                placeholder="Nombre"
-                register={register}
-                isRequired
-                errors={errors}
-              />
-              <FormInput
-                label="Apellidos"
-                name="apellidos"
-                placeholder="Apellidos"
-                register={register}
-                isRequired
-                errors={errors}
-              />
-            </Flex>
-
-            <Flex sx={styles.row}>
-              <FormSelect
-                label="Dieta"
-                name="dieta"
-                control={control}
-                isRequired
-                placeholder="Selecciona dieta"
-                options={options}
-                isSearchable={false}
-                errors={errors}
-              />
-              <FormInput
-                label="Intolerancias"
-                name="intolerancias"
-                placeholder="Celiaco, diabético, intolerancia a la fructosa"
-                register={register}
-                errors={errors}
-              />
-              <FormSelect
-                label="¿Vienes en Bus o en coche?"
-                name="bus"
-                control={control}
-                placeholder="Selecciona horario de vuelta"
-                options={options}
-                isSearchable={false}
-                errors={errors}
-              />
-            </Flex>
+            <FormAdult
+              title="Datos de invitado 1"
+              errors={errors}
+              register={register}
+              options={options}
+              control={control}
+              name=""
+              isRequired
+              selectBus
+            />
             <Flex sx={styles.options}>
               <Button onClick={() => setPlusOne(!plusOne)}>
                 {plusOne ? 'Quitar acompañante' : 'Añadir acompañante'}
@@ -99,44 +62,15 @@ const FormRsvp = ({ layout }) => {
               </Button>
             </Flex>
             {plusOne && (
-              <>
-                <Themed.p>Datos de acompañante</Themed.p>
-                <Flex>
-                  <FormInput
-                    label="Nombre"
-                    name="plusOne_nombre"
-                    placeholder="Nombre"
-                    register={register}
-                    isRequired={!!plusOne}
-                    errors={errors}
-                  />
-                  <FormInput
-                    label="Apellidos"
-                    name="plusOne_apellidos"
-                    placeholder="Apellidos"
-                    register={register}
-                    isRequired={!!plusOne}
-                    errors={errors}
-                  />
-                  <FormSelect
-                    label="Dieta"
-                    name="plusOne_dieta"
-                    control={control}
-                    isRequired={!!plusOne}
-                    placeholder="Selecciona dieta"
-                    options={options}
-                    isSearchable={false}
-                    errors={errors}
-                  />
-                  <FormInput
-                    label="Intolerancias / Alergias"
-                    name="plusOne_intolerancias"
-                    placeholder="Celiaco, diabético, intolerancia a la fructosa"
-                    register={register}
-                    errors={errors}
-                  />
-                </Flex>
-              </>
+              <FormAdult
+                title="Datos de acompañante"
+                errors={errors}
+                register={register}
+                options={options}
+                control={control}
+                name=""
+                isRequired={!!plusOne}
+              />
             )}
             {kid && (
               <>
