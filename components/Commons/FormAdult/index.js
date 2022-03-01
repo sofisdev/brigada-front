@@ -20,7 +20,7 @@ const FormAdult = ({
     <Flex sx={styles.row}>
       <FormInput
         label="Nombre"
-        name={`${name}_nombre`}
+        name={`${name}name`}
         placeholder="Nombre"
         register={register}
         isRequired={isRequired}
@@ -28,7 +28,7 @@ const FormAdult = ({
       />
       <FormInput
         label="Apellidos"
-        name={`${name}_apellidos`}
+        name={`${name}lastName`}
         placeholder="Apellidos"
         register={register}
         isRequired={isRequired}
@@ -39,7 +39,7 @@ const FormAdult = ({
     <Flex sx={styles.row}>
       <FormSelect
         label="Dieta"
-        name={`${name}_dieta`}
+        name={`${name}diet`}
         control={control}
         isRequired={isRequired}
         placeholder="Selecciona dieta"
@@ -49,14 +49,14 @@ const FormAdult = ({
       />
       <FormInput
         label="Intolerancias"
-        name={`${name}_intolerancias`}
+        name={`${name}allergy`}
         placeholder="Celiaco, diabético, intolerancia a la fructosa"
         register={register}
         errors={errors}
       />
       {selectBus && <FormSelect
         label="¿Vienes en Bus o en coche?"
-        name={`${name}_bus`}
+        name={`${name}bus`}
         control={control}
         placeholder="Selecciona horario de vuelta"
         options={options}

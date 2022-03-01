@@ -6,6 +6,7 @@ import { useMutation, useQueryClient } from 'react-query';
 import { Box, Button, Flex, Label, Radio, Text, Themed } from 'theme-ui';
 
 import { options } from '../../../constants/options';
+import { postForm } from '../../../repository/platformApi';
 import FormAdult from '../../Commons/FormAdult';
 import FormInput from '../../Commons/FormInput';
 import FormSelect from '../../Commons/FormSelect';
@@ -29,7 +30,22 @@ const FormRsvp = ({ layout }) => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    console.log('🚀 ~ file: index.js ~ line 11 ~ onSubmit ~ data', data);
+    const newData = {
+      main_name: data?.main_name,
+      main_lastName: data?.main_lastName,
+      main_diet: data?.main_diet?.value,
+      main_allergy: data?.main_allergy || null,
+      main_bus: data?.main_bus?.value,
+      guest_name: data?.guest_name || null,
+      guest_lastName: data?.guest_lastName || null,
+      guest_diet: data?.guest_diet?.value || null,
+      guest_allergy: data?.guest_allergy || null,
+      kids_qty: data?.kids_qty?.value || null,
+      kids_sitType: data?.kids_sitType?.value || null,
+      kids_diet: data?.kids_diet?.value || null,
+      kid_allergy: data?.kid_allergy || null,
+    };
+    await postForm(newData);
   };
 
   const { mutate: submitForm } = useMutation(onSubmit, {
@@ -49,7 +65,7 @@ const FormRsvp = ({ layout }) => {
               register={register}
               options={options}
               control={control}
-              name=""
+              name="main_"
               isRequired
               selectBus
             />
@@ -68,7 +84,7 @@ const FormRsvp = ({ layout }) => {
                 register={register}
                 options={options}
                 control={control}
-                name=""
+                name="guest_"
                 isRequired={!!plusOne}
               />
             )}
@@ -78,7 +94,7 @@ const FormRsvp = ({ layout }) => {
                 <Flex>
                   <FormSelect
                     label="¿Cuántos peques?"
-                    name="kids_cantidad"
+                    name="kids_qty"
                     control={control}
                     isRequired={!!kid}
                     placeholder="Selecciona una opción."
@@ -88,7 +104,7 @@ const FormRsvp = ({ layout }) => {
                   />
                   <FormSelect
                     label="¿Necesitan silla o trona?"
-                    name="kids_asiento"
+                    name="kids_sitType"
                     control={control}
                     isRequired={!!kid}
                     placeholder="Selecciona una opción"
@@ -99,7 +115,7 @@ const FormRsvp = ({ layout }) => {
                   <Label>¿Quieres menú infantil?</Label>
                   <Label>
                     <Radio
-                      {...register('kids_dieta', { required: !!kid })}
+                      {...register('kids_diet', { required: !!kid })}
                       type="radio"
                       value="yes"
                     />
@@ -107,19 +123,19 @@ const FormRsvp = ({ layout }) => {
                   </Label>
                   <Label>
                     <Radio
-                      {...register('kids_dieta', { required: !!kid })}
+                      {...register('kids_diet', { required: !!kid })}
                       type="radio"
                       value="no"
                     />
                     <p sx={{ m: '0' }}>No gracias</p>
                   </Label>
-                  {errors?.kids_dieta?.type === 'required' && (
+                  {errors?.kids_diet?.type === 'required' && (
                     <Text variant="error">error</Text>
                   )}
 
                   <FormInput
                     label="Intolerancias / Alergias"
-                    name="plusOne_intolerancias"
+                    name="kid_allergy"
                     placeholder="Celiaco, diabético, intolerancia a la fructosa"
                     register={register}
                     errors={errors}
