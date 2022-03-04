@@ -29,7 +29,12 @@ const WithMainLayout = (Page, options = defaultOptions) =>
 
     return (
       <Flex sx={styles.container}>
-        {header && <Header setLanguage={setLanguage} language={language} />}
+        {header && (
+          <Header
+            setLanguage={setLanguage}
+            language={language}
+          />
+        )}
         <Flex as="main" sx={styles.content}>
           <Page {...pageProps} layout={data?.[language]} />
         </Flex>

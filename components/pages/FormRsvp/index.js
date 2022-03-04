@@ -1,4 +1,5 @@
 /** @jsxImportSource theme-ui */
+import Router from 'next/router';
 import { PropTypes } from 'prop-types';
 import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
@@ -6,6 +7,7 @@ import { useMutation, useQueryClient } from 'react-query';
 import { Box, Button, Flex, Label, Radio, Text, Themed } from 'theme-ui';
 
 import { options } from '../../../constants/options';
+import routes from '../../../constants/routes';
 import { postForm } from '../../../repository/platformApi';
 import FormAdult from '../../Commons/FormAdult';
 import FormInput from '../../Commons/FormInput';
@@ -25,8 +27,6 @@ const FormRsvp = ({ layout }) => {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
-    setValue,
   } = useForm();
 
   const onSubmit = async (data) => {
@@ -50,7 +50,8 @@ const FormRsvp = ({ layout }) => {
 
   const { mutate: submitForm } = useMutation(onSubmit, {
     onSuccess: async () => {
-      console.log('SUCCESS');
+      
+      Router.push(routes?.patreon)
     },
     onError: console.log,
   });

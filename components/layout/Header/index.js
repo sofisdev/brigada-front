@@ -2,7 +2,7 @@
 import { useRouter } from 'next/router';
 import { signOut } from 'next-auth/react';
 import { useState } from 'react';
-import { Box, Button, Flex, Image, NavLink } from 'theme-ui';
+import { Button, Flex, Image, NavLink } from 'theme-ui';
 
 import imageRoutes from '../../../constants/imageRoutes';
 import { navItems } from '../../../constants/navItems';
@@ -30,11 +30,11 @@ const Header = ({ setLanguage, language }) => {
           <Flex sx={styles.navItems}>
             {navItems.map((item) => (
               <NavLink
-                key={item?.name}
+                key={item?.name[language]}
                 sx={styles.isItemActive}
                 onClick={onNavClick(item)}
               >
-                {item?.name}
+                {item?.name[language]}
               </NavLink>
             ))}
             <NavLink
