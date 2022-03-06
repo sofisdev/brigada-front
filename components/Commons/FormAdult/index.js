@@ -14,22 +14,23 @@ const FormAdult = ({
   register,
   options,
   control,
+  language,
 }) => (
   <>
     <Themed.p>{title}</Themed.p>
     <Flex sx={styles.row}>
       <FormInput
-        label="Nombre"
+        label={language === 'es' ? 'Nombre' : 'First name'}
         name={`${name}name`}
-        placeholder="Nombre"
+        placeholder={language === 'es' ? 'Nombre' : 'First name'}
         register={register}
         isRequired={isRequired}
         errors={errors}
       />
       <FormInput
-        label="Apellidos"
+        label={language === 'es' ? 'Apellidos' : 'Last name'}
         name={`${name}lastName`}
-        placeholder="Apellidos"
+        placeholder={language === 'es' ? 'Apellidos' : 'Last name'}
         register={register}
         isRequired={isRequired}
         errors={errors}
@@ -38,32 +39,44 @@ const FormAdult = ({
 
     <Flex sx={styles.row}>
       <FormSelect
-        label="Dieta"
+        label={language === 'es' ? 'Menú' : 'Menu'}
         name={`${name}diet`}
         control={control}
         isRequired={isRequired}
-        placeholder="Selecciona dieta"
+        placeholder={
+          language === 'es' ? 'Selecciona un menú' : 'Please select a menu'
+        }
         options={options}
         isSearchable={false}
         errors={errors}
       />
       <FormInput
-        label="Intolerancias"
+        label={language === 'es' ? 'Intolerancias' : 'Allergies'}
         name={`${name}allergy`}
-        placeholder="Celiaco, diabético, intolerancia a la fructosa"
+        placeholder={
+          language === 'es'
+            ? 'Celiaco, diabético, intolerancia a la fructosa'
+            : 'Diabetic, lactose-intolerant, etc'
+        }
         register={register}
         errors={errors}
       />
-      {selectBus && <FormSelect
-        label="¿Vienes en Bus o en coche?"
-        name={`${name}bus`}
-        control={control}
-        placeholder="Selecciona horario de vuelta"
-        options={options}
-        isSearchable={false}
-        errors={errors}
-        isRequired={isRequired}
-      />}
+      {selectBus && (
+        <FormSelect
+          label={
+            language === 'es' ? '¿Vienes en Bus o en coche?' : 'Transportation'
+          }
+          name={`${name}bus`}
+          control={control}
+          placeholder={
+            language === 'es' ? 'Selecciona un método de transporta' : 'Please select one option'
+          }
+          options={options}
+          isSearchable={false}
+          errors={errors}
+          isRequired={isRequired}
+        />
+      )}
     </Flex>
   </>
 );

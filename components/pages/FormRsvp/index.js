@@ -1,8 +1,8 @@
 /** @jsxImportSource theme-ui */
 import Router from 'next/router';
 import { PropTypes } from 'prop-types';
-import { useState } from 'react';
-import { Controller, useForm } from 'react-hook-form';
+import { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { useMutation, useQueryClient } from 'react-query';
 import { Box, Button, Flex, Label, Radio, Text, Themed } from 'theme-ui';
 
@@ -11,16 +11,39 @@ import routes from '../../../constants/routes';
 import { postForm } from '../../../repository/platformApi';
 import FormAdult from '../../Commons/FormAdult';
 import FormInput from '../../Commons/FormInput';
+import FormKids from '../../Commons/FormKids';
+import FormRadio from '../../Commons/FormRadio';
 import FormSelect from '../../Commons/FormSelect';
-import Select from '../../Commons/ReactSelect';
 import styles from './styles';
 
-const FormRsvp = ({ layout }) => {
+const FormRsvp = ({ layout, language }) => {
   const { title, place, href, street, description, warning } = layout.address;
   const [plusOne, setPlusOne] = useState(false);
   const [kid, addKid] = useState(false);
+  const [addGuestLabel, setAddGuestLabel] = useState();
+  const [addKidLabel, setAddKidLabel] = useState();
+  const [optionsRadio, setOptionsRadio] = useState([]);
 
   const queryClient = useQueryClient();
+
+  useEffect(() => {
+    setAddGuestLabel(
+      language === 'es' ? '¿Vienes con acompañante?' : 'Add Plus-One',
+    );
+    setAddKidLabel(
+      language === 'es'
+        ? '¿Vienes con tu(s) peque(s)?'
+        : 'Are you bringing kids?',
+    );
+    setOptionsRadio(language === 'es' ? ['Si', 'No'] : ['Yes', 'No']);
+  }, [language]);
+
+  const handleChangeGuest = () => {
+    setPlusOne(!plusOne);
+  };
+  const handleChangeKid = () => {
+    addKid(!kid);
+  };
 
   const {
     control,
@@ -50,14 +73,30 @@ const FormRsvp = ({ layout }) => {
 
   const { mutate: submitForm } = useMutation(onSubmit, {
     onSuccess: async () => {
-      
-      Router.push(routes?.patreon)
+      Router.push(routes?.patreon);
     },
     onError: console.log,
   });
   return (
     <section id="rsvp" sx={styles?.container}>
       <Box sx={styles.container} as="form" onSubmit={handleSubmit(submitForm)}>
+        <Flex sx={styles.options}>
+          <FormRadio
+            label={addGuestLabel}
+            handleChange={handleChangeGuest}
+            option1={optionsRadio?.[0]}
+            option2={optionsRadio?.[1]}
+            name="guestQuery"
+          />
+          <FormRadio
+            label={addKidLabel}
+            handleChange={handleChangeKid}
+            option1={optionsRadio?.[0]}
+            option2={optionsRadio?.[1]}
+            name="kidsQuery"
+          />
+        </Flex>
+
         <Box>
           <Box>
             <FormAdult
@@ -69,15 +108,8 @@ const FormRsvp = ({ layout }) => {
               name="main_"
               isRequired
               selectBus
+              language={language}
             />
-            <Flex sx={styles.options}>
-              <Button onClick={() => setPlusOne(!plusOne)}>
-                {plusOne ? 'Quitar acompañante' : 'Añadir acompañante'}
-              </Button>
-              <Button onClick={() => addKid(!kid)}>
-                {kid ? 'Iré sin peques' : '¿Vienes con tus peques?'}
-              </Button>
-            </Flex>
             {plusOne && (
               <FormAdult
                 title="Datos de acompañante"
@@ -87,62 +119,17 @@ const FormRsvp = ({ layout }) => {
                 control={control}
                 name="guest_"
                 isRequired={!!plusOne}
+                language={language}
               />
             )}
             {kid && (
-              <>
-                <Themed.p>Niños</Themed.p>
-                <Flex>
-                  <FormSelect
-                    label="¿Cuántos peques?"
-                    name="kids_qty"
-                    control={control}
-                    isRequired={!!kid}
-                    placeholder="Selecciona una opción."
-                    options={options}
-                    isSearchable={false}
-                    errors={errors}
-                  />
-                  <FormSelect
-                    label="¿Necesitan silla o trona?"
-                    name="kids_sitType"
-                    control={control}
-                    isRequired={!!kid}
-                    placeholder="Selecciona una opción"
-                    options={options}
-                    isSearchable={false}
-                    errors={errors}
-                  />
-                  <Label>¿Quieres menú infantil?</Label>
-                  <Label>
-                    <Radio
-                      {...register('kids_diet', { required: !!kid })}
-                      type="radio"
-                      value="yes"
-                    />
-                    <p sx={{ m: '0' }}>Si por favor</p>
-                  </Label>
-                  <Label>
-                    <Radio
-                      {...register('kids_diet', { required: !!kid })}
-                      type="radio"
-                      value="no"
-                    />
-                    <p sx={{ m: '0' }}>No gracias</p>
-                  </Label>
-                  {errors?.kids_diet?.type === 'required' && (
-                    <Text variant="error">error</Text>
-                  )}
-
-                  <FormInput
-                    label="Intolerancias / Alergias"
-                    name="kid_allergy"
-                    placeholder="Celiaco, diabético, intolerancia a la fructosa"
-                    register={register}
-                    errors={errors}
-                  />
-                </Flex>
-              </>
+              <FormKids
+                control={control}
+                errors={errors}
+                options={options}
+                register={register}
+                kid={kid}
+              />
             )}
           </Box>
           <Button sx={styles.Button} type="submit">

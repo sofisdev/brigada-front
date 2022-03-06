@@ -36,7 +36,7 @@ const WithMainLayout = (Page, options = defaultOptions) =>
           />
         )}
         <Flex as="main" sx={styles.content}>
-          <Page {...pageProps} layout={data?.[language]} />
+          <Page {...pageProps} layout={data?.[language]} language={language}/>
         </Flex>
         <Footer />
       </Flex>
