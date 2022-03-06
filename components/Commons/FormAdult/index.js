@@ -17,7 +17,7 @@ const FormAdult = ({
   language,
 }) => (
   <>
-    <Themed.p>{title}</Themed.p>
+    <Themed.h3 sx={styles.heading}>{title}</Themed.h3>
     <Flex sx={styles.row}>
       <FormInput
         label={language === 'es' ? 'Nombre' : 'First name'}

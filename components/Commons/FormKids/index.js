@@ -3,35 +3,58 @@ import { Box, Flex, Label, Radio, Text, Themed } from 'theme-ui';
 
 import FormInput from '../FormInput';
 import FormSelect from '../FormSelect';
+import styles from './styles';
 
-const FormKids = ({ errors, register, options, control, kid }) => (
+const FormKids = ({ errors, register, options, control, kid, language }) => (
   <>
-    <Themed.p>Niños</Themed.p>
+    <Themed.h3 sx={styles.heading}>
+      {language === 'es' ? 'Niños' : 'Kids'}
+    </Themed.h3>
     <Flex>
-      <FormSelect
-        label="¿Cuántos peques?"
-        name="kids_qty"
-        control={control}
-        isRequired={!!kid}
-        placeholder="Selecciona una opción."
-        options={options}
-        isSearchable={false}
-        errors={errors}
-      />
-      <FormSelect
-        label="¿Necesitan silla o trona?"
-        name="kids_sitType"
-        control={control}
-        isRequired={!!kid}
-        placeholder="Selecciona una opción"
-        options={options}
-        isSearchable={false}
-        errors={errors}
-      />
+      <Box sx={styles?.menu}>
+        <FormSelect
+          label={language === 'es' ? '¿Cuántos peques?' : 'How many kids?'}
+          name="kids_qty"
+          control={control}
+          isRequired={!!kid}
+          placeholder={
+            language === 'es'
+              ? 'Selecciona una opción'
+              : 'Please select an option'
+          }
+          options={options}
+          isSearchable={false}
+          errors={errors}
+        />
+      </Box>
+      <Box sx={styles?.menu}>
+        <FormSelect
+          label={
+            language === 'es'
+              ? '¿Necesitan silla o trona?'
+              : 'Do you need a chair or a hight chair?'
+          }
+          name="kids_sitType"
+          control={control}
+          isRequired={!!kid}
+          placeholder={
+            language === 'es'
+              ? 'Selecciona una opción'
+              : 'Please select an option'
+          }
+          options={options}
+          isSearchable={false}
+          errors={errors}
+        />
+      </Box>
     </Flex>
     <Flex>
-      <Box>
-        <Label>¿Quieres menú infantil?</Label>
+      <Box sx={styles?.menu}>
+        <Label>
+          {language === 'es'
+            ? '¿Quieres menú infantil?'
+            : 'Do you want children menu?'}
+        </Label>
         <Flex>
           <Label>
             <Radio
@@ -39,7 +62,9 @@ const FormKids = ({ errors, register, options, control, kid }) => (
               type="radio"
               value="yes"
             />
-            <p sx={{ m: '0' }}>Si por favor</p>
+            <p sx={{ m: '0' }}>
+              {language === 'es' ? 'Si, por favor' : 'Yes please'}
+            </p>
           </Label>
           <Label>
             <Radio
@@ -47,7 +72,9 @@ const FormKids = ({ errors, register, options, control, kid }) => (
               type="radio"
               value="no"
             />
-            <p sx={{ m: '0' }}>No gracias</p>
+            <p sx={{ m: '0' }}>
+              {language === 'es' ? 'No, gracias' : 'No thanks'}
+            </p>
           </Label>
         </Flex>
 
@@ -57,9 +84,13 @@ const FormKids = ({ errors, register, options, control, kid }) => (
       </Box>
 
       <FormInput
-        label="Intolerancias / Alergias"
+        label={language === 'es' ? 'Intolerancias' : 'Allergies'}
         name="kid_allergy"
-        placeholder="Celiaco, diabético, intolerancia a la fructosa"
+        placeholder={
+          language === 'es'
+            ? 'Celiaco, diabético, intolerancia a la fructosa'
+            : 'Diabetic, lactose-intolerant, etc'
+        }
         register={register}
         errors={errors}
       />

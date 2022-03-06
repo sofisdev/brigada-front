@@ -98,7 +98,7 @@ const FormRsvp = ({ layout, language }) => {
         </Flex>
 
         <Box>
-          <Box>
+          <Box sx={styles.formSection}>
             <FormAdult
               title="Datos de invitado 1"
               errors={errors}
@@ -129,10 +129,11 @@ const FormRsvp = ({ layout, language }) => {
                 options={options}
                 register={register}
                 kid={kid}
+                language={language}
               />
             )}
           </Box>
-          <Button sx={styles.Button} type="submit">
+          <Button sx={styles.button} type="submit">
             SAVE
           </Button>
         </Box>
