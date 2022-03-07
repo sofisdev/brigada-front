@@ -3,6 +3,7 @@ export const styles = {
     fontFamily: 'regular',
     lineHeight: 'body',
     fontWeight: 'body',
+    scrollBehavior: 'smooth',
   },
   h1: {
     variant: 'text.heading',
