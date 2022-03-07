@@ -11,7 +11,7 @@ export const styles = {
   },
   h2: {
     variant: 'text.heading',
-    fontSize: 4,
+    fontSize: 5,
   },
   h3: {
     variant: 'text.heading',
