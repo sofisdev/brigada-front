@@ -12,7 +12,8 @@ const FormAdult = ({
   title,
   errors,
   register,
-  options,
+  optionsMenus,
+  optionsTransport,
   control,
   language,
 }) => (
@@ -20,7 +21,7 @@ const FormAdult = ({
     <Themed.h3 sx={styles.heading}>{title}</Themed.h3>
     <Flex sx={styles.row}>
       <FormInput
-        label={language === 'es' ? 'Nombre' : 'First name'}
+        label={language === 'es' ? 'Nombre *' : 'First name *'}
         name={`${name}name`}
         placeholder={language === 'es' ? 'Nombre' : 'First name'}
         register={register}
@@ -28,7 +29,7 @@ const FormAdult = ({
         errors={errors}
       />
       <FormInput
-        label={language === 'es' ? 'Apellidos' : 'Last name'}
+        label={language === 'es' ? 'Apellidos * ' : 'Last name *'}
         name={`${name}lastName`}
         placeholder={language === 'es' ? 'Apellidos' : 'Last name'}
         register={register}
@@ -39,14 +40,14 @@ const FormAdult = ({
 
     <Flex sx={styles.row}>
       <FormSelect
-        label={language === 'es' ? 'Menú' : 'Menu'}
+        label={language === 'es' ? 'Menú *' : 'Menu *'}
         name={`${name}diet`}
         control={control}
         isRequired={isRequired}
         placeholder={
           language === 'es' ? 'Selecciona un menú' : 'Please select a menu'
         }
-        options={options}
+        options={optionsMenus?.[language]}
         isSearchable={false}
         errors={errors}
       />
@@ -64,14 +65,16 @@ const FormAdult = ({
       {selectBus && (
         <FormSelect
           label={
-            language === 'es' ? '¿Vienes en Bus o en coche?' : 'Transportation'
+            language === 'es' ? '¿Vienes en Bus o en coche? *' : 'Transportation *'
           }
           name={`${name}bus`}
           control={control}
           placeholder={
-            language === 'es' ? 'Selecciona un método de transporta' : 'Please select one option'
+            language === 'es'
+              ? 'Selecciona un método de transporte'
+              : 'Please select one option'
           }
-          options={options}
+          options={optionsTransport?.[language]}
           isSearchable={false}
           errors={errors}
           isRequired={isRequired}

@@ -5,7 +5,16 @@ import FormInput from '../FormInput';
 import FormSelect from '../FormSelect';
 import styles from './styles';
 
-const FormKids = ({ errors, register, options, control, kid, language }) => (
+const FormKids = ({
+  errors,
+  register,
+  options,
+  control,
+  kid,
+  language,
+  optionsSitting,
+  optionsQty,
+}) => (
   <>
     <Themed.h3 sx={styles.heading}>
       {language === 'es' ? 'Niños' : 'Kids'}
@@ -13,7 +22,7 @@ const FormKids = ({ errors, register, options, control, kid, language }) => (
     <Flex>
       <Box sx={styles?.menu}>
         <FormSelect
-          label={language === 'es' ? '¿Cuántos peques?' : 'How many kids?'}
+          label={language === 'es' ? '¿Cuántos peques? * ' : 'How many kids? *'}
           name="kids_qty"
           control={control}
           isRequired={!!kid}
@@ -22,7 +31,7 @@ const FormKids = ({ errors, register, options, control, kid, language }) => (
               ? 'Selecciona una opción'
               : 'Please select an option'
           }
-          options={options}
+          options={optionsQty}
           isSearchable={false}
           errors={errors}
         />
@@ -31,8 +40,8 @@ const FormKids = ({ errors, register, options, control, kid, language }) => (
         <FormSelect
           label={
             language === 'es'
-              ? '¿Necesitan silla o trona?'
-              : 'Do you need a chair or a hight chair?'
+              ? '¿Necesitan silla o trona? *'
+              : 'Do you need a chair or a hight chair? *'
           }
           name="kids_sitType"
           control={control}
@@ -42,7 +51,7 @@ const FormKids = ({ errors, register, options, control, kid, language }) => (
               ? 'Selecciona una opción'
               : 'Please select an option'
           }
-          options={options}
+          options={optionsSitting?.[language]}
           isSearchable={false}
           errors={errors}
         />
@@ -52,8 +61,8 @@ const FormKids = ({ errors, register, options, control, kid, language }) => (
       <Box sx={styles?.menu}>
         <Label>
           {language === 'es'
-            ? '¿Quieres menú infantil?'
-            : 'Do you want children menu?'}
+            ? '¿Quieres menú infantil? * '
+            : 'Do you want children menu? *'}
         </Label>
         <Flex>
           <Label>

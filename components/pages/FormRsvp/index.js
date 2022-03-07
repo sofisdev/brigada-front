@@ -4,16 +4,20 @@ import { PropTypes } from 'prop-types';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useMutation, useQueryClient } from 'react-query';
-import { Box, Button, Flex, Label, Radio, Text, Themed } from 'theme-ui';
+import { Box, Button, Flex } from 'theme-ui';
 
-import { options } from '../../../constants/options';
+import {
+  kidsQty,
+  menus,
+  sitting,
+  transportation,
+} from '../../../constants/options';
 import routes from '../../../constants/routes';
 import { postForm } from '../../../repository/platformApi';
 import FormAdult from '../../Commons/FormAdult';
-import FormInput from '../../Commons/FormInput';
 import FormKids from '../../Commons/FormKids';
 import FormRadio from '../../Commons/FormRadio';
-import FormSelect from '../../Commons/FormSelect';
+import FormTextArea from '../../Commons/FormTextArea';
 import styles from './styles';
 
 const FormRsvp = ({ layout, language }) => {
@@ -67,6 +71,8 @@ const FormRsvp = ({ layout, language }) => {
       kids_sitType: data?.kids_sitType?.value || null,
       kids_diet: data?.kids_diet?.value || null,
       kid_allergy: data?.kid_allergy || null,
+      comments: data?.comments || null,
+      date: new Date().toISOString(),
     };
     await postForm(newData);
   };
@@ -103,7 +109,8 @@ const FormRsvp = ({ layout, language }) => {
               title="Datos de invitado 1"
               errors={errors}
               register={register}
-              options={options}
+              optionsMenus={menus}
+              optionsTransport={transportation}
               control={control}
               name="main_"
               isRequired
@@ -115,7 +122,7 @@ const FormRsvp = ({ layout, language }) => {
                 title="Datos de acompañante"
                 errors={errors}
                 register={register}
-                options={options}
+                optionsMenus={menus}
                 control={control}
                 name="guest_"
                 isRequired={!!plusOne}
@@ -126,13 +133,30 @@ const FormRsvp = ({ layout, language }) => {
               <FormKids
                 control={control}
                 errors={errors}
-                options={options}
+                optionsQty={kidsQty}
+                optionsSitting={sitting}
                 register={register}
                 kid={kid}
                 language={language}
               />
             )}
+            <FormTextArea
+              label={
+                language === 'es'
+                  ? 'Déjanos comentarios o preguntas (opcional)'
+                  : 'Do you any questions or comments? (optional)'
+              }
+              name="comments"
+              placeholder={
+                language === 'es'
+                  ? 'Déjanos tus comentarios...'
+                  : 'Leave us your comments...'
+              }
+              register={register}
+              errors={errors}
+            />
           </Box>
+
           <Button sx={styles.button} type="submit">
             SAVE
           </Button>
