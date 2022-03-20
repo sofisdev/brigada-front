@@ -8,4 +8,5 @@ export default {
   icon_compass: '/static/assets/images/icon_compass.png',
   icon_warning: '/static/assets/images/icon_warning.png',
   desktop_0_Home: '/static/assets/images/desktop_0_Home.png',
+  desktop_0_Home_back: '/static/assets/images/desktop_0_Home_back.png',
 };

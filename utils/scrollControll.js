@@ -9,7 +9,6 @@ export const scrollControll = () => {
 
     if (elementTop < windowHeight - elementVisible) {
       reveals[i].classList.add('active');
-      console.log('now!!!');
     } else {
       reveals[i].classList.remove('active');
     }
