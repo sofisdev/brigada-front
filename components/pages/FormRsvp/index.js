@@ -14,6 +14,7 @@ import {
 } from '../../../constants/options';
 import routes from '../../../constants/routes';
 import { postForm } from '../../../repository/platformApi';
+import { scrollControll } from '../../../utils/scrollControll';
 import FormAdult from '../../Commons/FormAdult';
 import FormKids from '../../Commons/FormKids';
 import FormRadio from '../../Commons/FormRadio';
@@ -84,8 +85,15 @@ const FormRsvp = ({ layout, language }) => {
     onError: console.log,
   });
   return (
-    <section id="rsvp" sx={styles?.container}>
-      <Box sx={styles.container} as="form" onSubmit={handleSubmit(submitForm)}>
+    <section
+      id="rsvp"
+      sx={styles?.container(kid && plusOne)}
+    >
+      <Box
+        sx={styles.container(kid && plusOne)}
+        as="form"
+        onSubmit={handleSubmit(submitForm)}
+      >
         <Flex sx={styles.options}>
           <FormRadio
             label={addGuestLabel}

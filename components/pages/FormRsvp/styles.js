@@ -1,10 +1,10 @@
 const styles = {
-  container: {
+  container: (bool) => ({
+    minHeight: bool ? '900px' : 'auto',
     height: '80vh',
-    maxHeight: '900px',
     my: '100px',
     py: '20px',
-  },
+  }),
   row: {
     height: '50px',
     justifyContent: 'flex-start',

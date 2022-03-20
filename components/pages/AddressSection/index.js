@@ -3,12 +3,15 @@ import { PropTypes } from 'prop-types';
 import { Box, Flex, Image, Link, Themed } from 'theme-ui';
 
 import imageRoutes from '../../../constants/imageRoutes';
+import { scrollControll } from '../../../utils/scrollControll';
 import styles from './styles';
 
 const AddressSection = ({ layout }) => {
   const { title, place, href, street, description, warning } = layout.address;
+
+  window.addEventListener('scroll', scrollControll);
   return (
-    <section id="address" sx={styles?.container}>
+    <section id="address" sx={styles?.container} className="reveal">
       <Box>
         <Themed.h1>{title}</Themed.h1>
         <Themed.h1>{place}</Themed.h1>

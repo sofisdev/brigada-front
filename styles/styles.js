@@ -1,10 +1,27 @@
+import { keyframes } from '@emotion/react';
+
+const fadeBottom = keyframes({
+  from: { transform: 'translateY(150px)', opacity: 0 },
+  to: { transform: 'translateY(0)', opacity: 1 },
+});
+
 export const styles = {
   root: {
     fontFamily: 'regular',
     lineHeight: 'body',
     fontWeight: 'body',
     scrollBehavior: 'smooth',
+    '.reveal': {
+      position: 'relative',
+      opacity: 0,
+    },
+
+    '.reveal.active': {
+      animation: `${fadeBottom} 0.6s ease-in`,
+      opacity: 1,
+    },
   },
+
   h1: {
     variant: 'text.heading',
     fontSize: 7,
