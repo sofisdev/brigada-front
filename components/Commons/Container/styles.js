@@ -1,9 +1,8 @@
 const styles = {
   container: (src) => ({
     backgroundImage: `url(${src})`,
-    backgroundSize: 'cover',
-    height: '100vh',
-    minWidth: '100vh',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: '100vw 100vh',
   }),
 };
 

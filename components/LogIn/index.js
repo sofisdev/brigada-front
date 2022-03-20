@@ -32,7 +32,7 @@ const LogIn = ({ callbackUrl }) => {
     <Container src={imageRoutes?.desktop_0_Home}>
       <Flex sx={styles.mainContainer}>
         <Flex sx={styles.colOneContainer}>
-          <Heading as="h1" sx={styles.signUpHeading}>
+          <Heading as="h1" sx={styles.text}>
             WELCOME!
           </Heading>
           <Flex
@@ -40,7 +40,7 @@ const LogIn = ({ callbackUrl }) => {
             as="form"
             onSubmit={handleSubmit(submitForm)}
           >
-            <Themed.p>
+            <Themed.p sx={styles.text}>
               Enter required fields and hit save to create new contact.
             </Themed.p>
             <FormInput
