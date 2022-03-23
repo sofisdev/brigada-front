@@ -5,6 +5,7 @@ const styles = {
     textAlign: 'right',
     alignItems: 'center',
     minHeight: '100vh',
+    p: '0px 60px',
   },
   column: {
     flexDirection: 'column',

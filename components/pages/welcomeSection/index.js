@@ -8,6 +8,7 @@ import { Box, Flex, Image, Themed } from 'theme-ui';
 
 import imageRoutes from '../../../constants/imageRoutes';
 import Container from '../../Commons/Container';
+import SpeedBox from '../../Commons/SpeedBox';
 import styles from './styles';
 
 const WelcomeSection = ({ layout }) => {
@@ -18,13 +19,7 @@ const WelcomeSection = ({ layout }) => {
       for (const parallaxEl of parallaxEls) {
         const direction = parallaxEl.dataset.direction == 'up' ? '-' : '';
         const transformY = this.pageYOffset * parallaxEl.dataset.speed;
-        if (parallaxEl.classList.contains('banner-title')) {
-          parallaxEl.style.transform = `translate3d(0,${direction}${transformY}px,0) rotate(-6deg)`;
-        } else if (parallaxEl.classList.contains('banner-subtitle')) {
-          parallaxEl.style.transform = `translate3d(0,${direction}${transformY}px,0) rotate(-3deg)`;
-        } else {
-          parallaxEl.style.transform = `translate3d(0,${direction}${transformY}px,0)`;
-        }
+        parallaxEl.style.transform = `translate3d(0,${direction}${transformY}px,0)`;
       }
     }
     window.addEventListener('scroll', scrollHandler);
@@ -32,18 +27,17 @@ const WelcomeSection = ({ layout }) => {
 
   return (
     <section id="home">
-      <Container className="welcome" src={imageRoutes?.desktop_0_Home_back}>
-        <Box sx={styles?.container}>
-          <Image src={imageRoutes?.couple} sx={styles?.image} />
-          <Flex sx={styles?.column}>
-            <Box>
-              <Themed.h1>{title}</Themed.h1>
-              <Themed.h1>{date}</Themed.h1>
-            </Box>
-            <Image src={imageRoutes?.arrowDown} sx={styles?.arrow} />
-          </Flex>
-        </Box>
-      </Container>
+      <SpeedBox className="welcome" src={imageRoutes?.desktop_0_Home_back} />
+      <Box sx={styles?.container}>
+        <Image src={imageRoutes?.couple} sx={styles?.image} />
+        <Flex sx={styles?.column}>
+          <Box>
+            <Themed.h1>{title}</Themed.h1>
+            <Themed.h1>{date}</Themed.h1>
+          </Box>
+          <Image src={imageRoutes?.arrowDown} sx={styles?.arrow} />
+        </Flex>
+      </Box>
     </section>
   );
 };

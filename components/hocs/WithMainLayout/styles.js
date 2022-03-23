@@ -8,7 +8,7 @@ const styles = {
       minHeight: '100vh',
       width: 'auto',
       height: '100%',
-      
+      zIndex:'-2',
       opacity: '0.5',
       position: 'fixed',
       top: '0px',
