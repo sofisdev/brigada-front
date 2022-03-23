@@ -1,5 +1,9 @@
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable eqeqeq */
+/* eslint-disable react/no-this-in-sfc */
 /** @jsxImportSource theme-ui */
 import { PropTypes } from 'prop-types';
+import { useEffect } from 'react';
 import { Box, Flex, Image, Themed } from 'theme-ui';
 
 import imageRoutes from '../../../constants/imageRoutes';
@@ -8,28 +12,27 @@ import styles from './styles';
 
 const WelcomeSection = ({ layout }) => {
   const { date, title } = layout.home;
-  let lastScrollTop = window.pageYOffset;
-
-  // element should be replaced with the actual target element on which you have applied scroll, use window in case of no target element.
-  window.addEventListener(
-    'scroll',
-    () => {
-      // or window.addEventListener("scroll"....
-      const st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
-      if (st > lastScrollTop) {
-        console.log('DOWN');
-      } else {
-        console.log('UPPP');
+  useEffect(() => {
+    const parallaxEls = document.querySelectorAll('[data-speed]');
+    function scrollHandler() {
+      for (const parallaxEl of parallaxEls) {
+        const direction = parallaxEl.dataset.direction == 'up' ? '-' : '';
+        const transformY = this.pageYOffset * parallaxEl.dataset.speed;
+        if (parallaxEl.classList.contains('banner-title')) {
+          parallaxEl.style.transform = `translate3d(0,${direction}${transformY}px,0) rotate(-6deg)`;
+        } else if (parallaxEl.classList.contains('banner-subtitle')) {
+          parallaxEl.style.transform = `translate3d(0,${direction}${transformY}px,0) rotate(-3deg)`;
+        } else {
+          parallaxEl.style.transform = `translate3d(0,${direction}${transformY}px,0)`;
+        }
       }
-      lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
-    },
-    false,
-  );
+    }
+    window.addEventListener('scroll', scrollHandler);
+  }, [window.pageYOffset]);
 
-  
   return (
     <section id="home">
-      <Container src={imageRoutes?.desktop_0_Home_back}>
+      <Container className="welcome" src={imageRoutes?.desktop_0_Home_back}>
         <Box sx={styles?.container}>
           <Image src={imageRoutes?.couple} sx={styles?.image} />
           <Flex sx={styles?.column}>

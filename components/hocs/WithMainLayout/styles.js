@@ -20,7 +20,6 @@ const styles = {
   content: {
     position: 'relative',
     width: '100%',
-    // maxWidth: '1300px',
     height: '100%',
     flexDirection: 'column',
     justifyContent: 'space-between',
