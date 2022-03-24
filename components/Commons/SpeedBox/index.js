@@ -3,8 +3,8 @@ import { Box } from 'theme-ui';
 
 import styles from './styles';
 
-const SpeedBox = ({ className, src, children }) => (
-  <Box data-speed="-0.6" sx={() => styles.container(src)}/>
+const SpeedBox = ({ className, src, speed = '-0.6' }) => (
+  <Box data-speed={speed} className={className} sx={() => styles.container(src)} />
 );
 
 export default SpeedBox;

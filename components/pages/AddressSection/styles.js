@@ -1,9 +1,11 @@
 const styles = {
-  container: {
+  section: {
     height: '80vh',
     maxHeight: '900px',
+  },
+  container: {
     my: '100px',
-    py: '20px',
+    p: '20px 80px',
   },
   row: {
     alignItems: 'center',

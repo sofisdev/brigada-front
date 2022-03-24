@@ -7,7 +7,6 @@ import { useEffect } from 'react';
 import { Box, Flex, Image, Themed } from 'theme-ui';
 
 import imageRoutes from '../../../constants/imageRoutes';
-import Container from '../../Commons/Container';
 import SpeedBox from '../../Commons/SpeedBox';
 import styles from './styles';
 

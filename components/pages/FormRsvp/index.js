@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form';
 import { useMutation, useQueryClient } from 'react-query';
 import { Box, Button, Flex } from 'theme-ui';
 
+import imageRoutes from '../../../constants/imageRoutes';
 import {
   kidsQty,
   menus,
@@ -19,6 +20,7 @@ import FormAdult from '../../Commons/FormAdult';
 import FormKids from '../../Commons/FormKids';
 import FormRadio from '../../Commons/FormRadio';
 import FormTextArea from '../../Commons/FormTextArea';
+import SpeedBox from '../../Commons/SpeedBox';
 import styles from './styles';
 
 const FormRsvp = ({ layout, language }) => {
@@ -28,8 +30,7 @@ const FormRsvp = ({ layout, language }) => {
   const [addGuestLabel, setAddGuestLabel] = useState();
   const [addKidLabel, setAddKidLabel] = useState();
   const [optionsRadio, setOptionsRadio] = useState([]);
-
-  const queryClient = useQueryClient();
+  window.addEventListener('scroll', scrollControll);
 
   useEffect(() => {
     setAddGuestLabel(
@@ -85,10 +86,8 @@ const FormRsvp = ({ layout, language }) => {
     onError: console.log,
   });
   return (
-    <section
-      id="rsvp"
-      sx={styles?.container(kid && plusOne)}
-    >
+    <section id="rsvp" className="reveal">
+      <SpeedBox className="welcome" src={imageRoutes?.desktop_0_Home_back} />
       <Box
         sx={styles.container(kid && plusOne)}
         as="form"

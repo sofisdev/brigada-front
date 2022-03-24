@@ -3,7 +3,7 @@ const styles = {
     minHeight: bool ? '900px' : 'auto',
     height: '80vh',
     my: '100px',
-    py: '20px',
+    p: '20px 80px',
   }),
   row: {
     height: '50px',

@@ -1,6 +1,7 @@
+
 /** @jsxImportSource theme-ui */
 import { useSession } from 'next-auth/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import { Flex, Themed } from 'theme-ui';
 
@@ -29,14 +30,9 @@ const WithMainLayout = (Page, options = defaultOptions) =>
 
     return (
       <Flex sx={styles.container}>
-        {header && (
-          <Header
-            setLanguage={setLanguage}
-            language={language}
-          />
-        )}
+        {header && <Header setLanguage={setLanguage} language={language} />}
         <Flex as="main" sx={styles.content}>
-          <Page {...pageProps} layout={data?.[language]} language={language}/>
+          <Page {...pageProps} layout={data?.[language]} language={language} />
         </Flex>
         <Footer />
       </Flex>

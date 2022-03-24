@@ -20,6 +20,9 @@ export const styles = {
       animation: `${fadeBottom} 0.6s ease-in`,
       opacity: 1,
     },
+    '.welcome': {
+      mt: '100px',
+    },
   },
 
   h1: {
