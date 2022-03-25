@@ -4,11 +4,12 @@ const styles = {
   },
   container: {
     my: '100px',
-    p: '20px 80px',
+    p: ['20px 30px','20px 80px'],
   },
   row: {
     alignItems: 'center',
     justifyContent: 'space-between',
+    flexDirection: ['column', 'row'],
   },
   rightColumn: {
     flexDirection: 'column',

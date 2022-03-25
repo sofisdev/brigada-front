@@ -2,11 +2,13 @@
 /* eslint-disable eqeqeq */
 /* eslint-disable react/no-this-in-sfc */
 /** @jsxImportSource theme-ui */
+import Router from 'next/router';
 import { PropTypes } from 'prop-types';
 import { useEffect } from 'react';
-import { Box, Flex, Image, Themed } from 'theme-ui';
+import { Box, Button, Flex, Image, Themed } from 'theme-ui';
 
 import imageRoutes from '../../../constants/imageRoutes';
+import routes from '../../../constants/routes';
 import SpeedBox from '../../Commons/SpeedBox';
 import styles from './styles';
 
@@ -28,6 +30,11 @@ const WelcomeSection = ({ layout }) => {
     window.addEventListener('scroll', scrollHandler);
   }, [window.pageYOffset]);
 
+  const handleArrow = () =>
+    Router.push({
+      hash: routes.address,
+    });
+
   return (
     <section id="home">
       <SpeedBox
@@ -42,7 +49,9 @@ const WelcomeSection = ({ layout }) => {
             <Themed.h1>{title}</Themed.h1>
             <Themed.h1>{date}</Themed.h1>
           </Box>
-          <Image src={imageRoutes?.arrowDown} sx={styles?.arrow} />
+          <Button onClick={handleArrow} variant="transparent">
+            <Image src={imageRoutes?.arrowDown} sx={styles?.arrow} />
+          </Button>
         </Flex>
       </Box>
     </section>

@@ -10,14 +10,12 @@ import { onNavClick } from '../../../utils/onNavClick';
 import styles from './styles';
 
 const Header = ({ setLanguage, language }) => {
-  const router = useRouter();
-  const isNavItemActive = (link) => router?.pathname?.startsWith(link);
   const { menu, close } = imageRoutes;
   const [isNavActive, setNavActive] = useState(false);
 
   return (
     <Flex as="header" sx={styles.headerContainer}>
-      {isNavActive ? (
+      {isNavActive && (
         <Flex sx={styles.navContainer}>
           <Button
             onClick={() => {
@@ -46,28 +44,26 @@ const Header = ({ setLanguage, language }) => {
             </NavLink>
           </Flex>
         </Flex>
-      ) : (
-        <>
-          <Button
-            sx={styles.icon}
-            onClick={() => {
-              setLanguage(language === 'es' ? 'en' : 'es');
-            }}
-            variant="transparent"
-          >
-            {language}
-          </Button>
-          <Button
-            sx={styles.icon}
-            onClick={() => {
-              setNavActive(true);
-            }}
-            variant="transparent"
-          >
-            <Image alt="menu_icon" src={menu} />
-          </Button>
-        </>
       )}
+
+      <Button
+        sx={styles.icon}
+        onClick={() => {
+          setLanguage(language === 'es' ? 'en' : 'es');
+        }}
+        variant="transparent"
+      >
+        {language}
+      </Button>
+      <Button
+        sx={styles.icon}
+        onClick={() => {
+          setNavActive(true);
+        }}
+        variant="transparent"
+      >
+        <Image alt="menu_icon" src={menu} />
+      </Button>
     </Flex>
   );
 };
