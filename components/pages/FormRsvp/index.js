@@ -19,7 +19,7 @@ import styles from './styles';
 
 const FormRsvp = ({ layout, language }) => {
   const { title, place, href, street, description, warning } = layout.address;
-  const [plusOne, setPlusOne] = useState(false);
+  const [plusOne, setPlusOne] = useState(null);
   const [kid, addKid] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const [isSuccess, setSuccess] = useState(false);
@@ -40,11 +40,11 @@ const FormRsvp = ({ layout, language }) => {
     setOptionsRadio(language === 'es' ? ['Si', 'No'] : ['Yes', 'No']);
   }, [language]);
 
-  const handleChangeGuest = () => {
-    setPlusOne(!plusOne);
+  const handleChangeGuest = (e) => {
+    setPlusOne(e.target.value);
   };
-  const handleChangeKid = () => {
-    addKid(!kid);
+  const handleChangeKid = (e) => {
+    addKid(e.target.value);
   };
 
   const {
@@ -71,7 +71,6 @@ const FormRsvp = ({ layout, language }) => {
       date: new Date().toISOString(),
     };
     await postForm(newData);
-    console.log('yes');
   };
 
   const { mutate: submitForm } = useMutation(onSubmit, {
@@ -81,7 +80,10 @@ const FormRsvp = ({ layout, language }) => {
     onSuccess: async () => {
       await setLoading(false);
       await setSuccess(true);
-      Router.push({ hash: routes?.patreon, query: { isKid: kid } });
+      Router.push({
+        hash: routes?.patreon,
+        query: { isKid: kid, success: true },
+      });
     },
     onError: console.log,
   });
@@ -106,7 +108,7 @@ const FormRsvp = ({ layout, language }) => {
                   <FormRadio
                     register={register}
                     label={addGuestLabel}
-                    handleChange={handleChangeGuest}
+                    handleChange={(event) => handleChangeGuest(event)}
                     option1={optionsRadio?.[0]}
                     option2={optionsRadio?.[1]}
                     name="guest_plusOne"
@@ -115,7 +117,7 @@ const FormRsvp = ({ layout, language }) => {
                   <FormRadio
                     register={register}
                     label={addKidLabel}
-                    handleChange={handleChangeKid}
+                    handleChange={(event) => handleChangeKid(event)}
                     option1={optionsRadio?.[0]}
                     option2={optionsRadio?.[1]}
                     name="kids"
@@ -134,17 +136,20 @@ const FormRsvp = ({ layout, language }) => {
                   selectBus
                   language={language}
                 />
-                {plusOne && (
-                  <FormAdult
-                    title="Datos de acompañante"
-                    errors={errors}
-                    register={register}
-                    optionsMenus={menus}
-                    control={control}
-                    name="guest_"
-                    isRequired={!!plusOne}
-                    language={language}
-                  />
+                {plusOne === 'true' && (
+                  <>
+                    <Themed.p>{plusOne}</Themed.p>
+                    <FormAdult
+                      title="Datos de acompañante"
+                      errors={errors}
+                      register={register}
+                      optionsMenus={menus}
+                      control={control}
+                      name="guest_"
+                      isRequired={!!plusOne}
+                      language={language}
+                    />
+                  </>
                 )}
                 <FormTextArea
                   label={
@@ -169,7 +174,7 @@ const FormRsvp = ({ layout, language }) => {
           )}
           {isSuccess && (
             <Flex sx={styles.success}>
-              <Themed.h2 >SUCCESS</Themed.h2>
+              <Themed.h2>SUCCESS</Themed.h2>
             </Flex>
           )}
         </Box>

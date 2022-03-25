@@ -1,25 +1,27 @@
 /** @jsxImportSource theme-ui */
+import { useRouter } from 'next/router';
 import { PropTypes } from 'prop-types';
-import { Box, Flex, Image, Link, Text, Themed } from 'theme-ui';
+import { Box, Text, Themed } from 'theme-ui';
 
-import imageRoutes from '../../../constants/imageRoutes';
 import { scrollControll } from '../../../utils/scrollControll';
 import styles from './styles';
 
 const PatreonSection = ({ layout }) => {
   const { language } = layout.address;
   window.addEventListener('scroll', scrollControll);
+  const router = useRouter();
+  const { isKid, success } = router.query;
 
   return (
     <section id="patreon" sx={styles?.container} className="reveal">
       <Box sx={styles.formSection}>
-        {/* <Text>Gracias</Text>
-        {kid && (
+        {success && <Text>Gracias</Text>}
+        {isKid === 'true' && (
           <Text>
             Si has marcado que vienes con tus peques, nos pondremos en contacto
             contigo
           </Text>
-        )} */}
+        )}
       </Box>
       <Themed.h2>
         {language === 'es'
