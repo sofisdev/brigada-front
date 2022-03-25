@@ -4,7 +4,7 @@ import { PropTypes } from 'prop-types';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useMutation, useQueryClient } from 'react-query';
-import { Box, Button, Flex } from 'theme-ui';
+import { Box, Button, Flex, Text } from 'theme-ui';
 
 import imageRoutes from '../../../constants/imageRoutes';
 import {
@@ -27,6 +27,7 @@ const FormRsvp = ({ layout, language }) => {
   const { title, place, href, street, description, warning } = layout.address;
   const [plusOne, setPlusOne] = useState(false);
   const [kid, addKid] = useState(false);
+  const [isSuccess, setSuccess] = useState(false);
   const [addGuestLabel, setAddGuestLabel] = useState();
   const [addKidLabel, setAddKidLabel] = useState();
   const [optionsRadio, setOptionsRadio] = useState([]);
@@ -65,14 +66,12 @@ const FormRsvp = ({ layout, language }) => {
       main_diet: data?.main_diet?.value,
       main_allergy: data?.main_allergy || null,
       main_bus: data?.main_bus?.value,
+      guest_plusOne: data?.guest_plusOne || null,
+      kids: data?.kids || null,
       guest_name: data?.guest_name || null,
       guest_lastName: data?.guest_lastName || null,
       guest_diet: data?.guest_diet?.value || null,
       guest_allergy: data?.guest_allergy || null,
-      kids_qty: data?.kids_qty?.value || null,
-      kids_sitType: data?.kids_sitType?.value || null,
-      kids_diet: data?.kids_diet?.value || null,
-      kid_allergy: data?.kid_allergy || null,
       comments: data?.comments || null,
       date: new Date().toISOString(),
     };
@@ -81,7 +80,10 @@ const FormRsvp = ({ layout, language }) => {
 
   const { mutate: submitForm } = useMutation(onSubmit, {
     onSuccess: async () => {
-      Router.push(routes?.patreon);
+      setSuccess(true);
+      setTimeout(() => {
+        Router.push({ hash: routes?.patreon, query: { isKid: kid } });
+      }, 5000);
     },
     onError: console.log,
   });
@@ -92,85 +94,87 @@ const FormRsvp = ({ layout, language }) => {
         src={imageRoutes?.desktop_0_Home_back}
         speed="-0.1"
       />
-      <Box
-        sx={styles.container}
-        as="form"
-        onSubmit={handleSubmit(submitForm)}
-      >
-        <Flex sx={styles.options}>
-          <FormRadio
-            label={addGuestLabel}
-            handleChange={handleChangeGuest}
-            option1={optionsRadio?.[0]}
-            option2={optionsRadio?.[1]}
-            name="guestQuery"
-          />
-          <FormRadio
-            label={addKidLabel}
-            handleChange={handleChangeKid}
-            option1={optionsRadio?.[0]}
-            option2={optionsRadio?.[1]}
-            name="kidsQuery"
-          />
-        </Flex>
-
+      <Box sx={styles.container} as="form" onSubmit={handleSubmit(submitForm)}>
         <Box>
-          <Box sx={styles.formSection}>
-            <FormAdult
-              title="Datos de invitado 1"
-              errors={errors}
-              register={register}
-              optionsMenus={menus}
-              optionsTransport={transportation}
-              control={control}
-              name="main_"
-              isRequired
-              selectBus
-              language={language}
-            />
-            {plusOne && (
-              <FormAdult
-                title="Datos de acompañante"
-                errors={errors}
-                register={register}
-                optionsMenus={menus}
-                control={control}
-                name="guest_"
-                isRequired={!!plusOne}
-                language={language}
-              />
-            )}
-            {kid && (
-              <FormKids
-                control={control}
-                errors={errors}
-                optionsQty={kidsQty}
-                optionsSitting={sitting}
-                register={register}
-                kid={kid}
-                language={language}
-              />
-            )}
-            <FormTextArea
-              label={
-                language === 'es'
-                  ? 'Déjanos comentarios o preguntas (opcional)'
-                  : 'Do you any questions or comments? (optional)'
-              }
-              name="comments"
-              placeholder={
-                language === 'es'
-                  ? 'Déjanos tus comentarios...'
-                  : 'Leave us your comments...'
-              }
-              register={register}
-              errors={errors}
-            />
-          </Box>
+          {!isSuccess ? (
+            <>
+              <Box sx={styles.formSection}>
+                <Flex sx={styles.options}>
+                  <FormRadio
+                    register={register}
+                    label={addGuestLabel}
+                    handleChange={handleChangeGuest}
+                    option1={optionsRadio?.[0]}
+                    option2={optionsRadio?.[1]}
+                    name="guest_plusOne"
+                    errors={errors}
+                  />
+                  <FormRadio
+                    register={register}
+                    label={addKidLabel}
+                    handleChange={handleChangeKid}
+                    option1={optionsRadio?.[0]}
+                    option2={optionsRadio?.[1]}
+                    name="kids"
+                    errors={errors}
+                  />
+                </Flex>
+                <FormAdult
+                  title="Datos de invitado 1"
+                  errors={errors}
+                  register={register}
+                  optionsMenus={menus}
+                  optionsTransport={transportation}
+                  control={control}
+                  name="main_"
+                  isRequired
+                  selectBus
+                  language={language}
+                />
+                {plusOne && (
+                  <FormAdult
+                    title="Datos de acompañante"
+                    errors={errors}
+                    register={register}
+                    optionsMenus={menus}
+                    control={control}
+                    name="guest_"
+                    isRequired={!!plusOne}
+                    language={language}
+                  />
+                )}
+                <FormTextArea
+                  label={
+                    language === 'es'
+                      ? 'Déjanos comentarios o preguntas (opcional)'
+                      : 'Do you any questions or comments? (optional)'
+                  }
+                  name="comments"
+                  placeholder={
+                    language === 'es'
+                      ? 'Déjanos tus comentarios...'
+                      : 'Leave us your comments...'
+                  }
+                  register={register}
+                  errors={errors}
+                />
+              </Box>
 
-          <Button sx={styles.button} type="submit">
-            SAVE
-          </Button>
+              <Button sx={styles.button} type="submit">
+                SAVE
+              </Button>
+            </>
+          ) : (
+            <Box sx={styles.formSection}>
+              <Text>Gracias</Text>
+              {kid && (
+                <Text>
+                  Si has marcado que vienes con tus peques, nos pondremos en
+                  contacto contigo
+                </Text>
+              )}
+            </Box>
+          )}
         </Box>
       </Box>
     </section>

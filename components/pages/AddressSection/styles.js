@@ -3,8 +3,8 @@ const styles = {
     maxHeight: '900px',
   },
   container: {
-    my: '100px',
-    p: ['20px 30px','20px 80px'],
+    my: ['50px', '100px'],
+    p: ['20px 30px', '20px 80px'],
   },
   row: {
     alignItems: 'center',
@@ -15,15 +15,16 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'space-between',
-    ml: '50px',
+    ml: ['auto', '50px'],
+    mt: ['20px', '0px'],
   },
   street: {
-    mb: '30px',
+    mb: ['15px', '30px'],
   },
   text: {
     maxWidth: '600px',
-    ml: '20px',
-    mb: '30px',
+    ml: ['10px', '20px'],
+    mb: ['10px', '30px'],
   },
   image: {
     clipPath: 'polygon(30% 70% 70% 30% / 30% 30% 70% 70%)',
@@ -44,6 +45,7 @@ const styles = {
     width: 'fit-content',
     height: '100%',
     objectFit: 'contain',
+    mt: ['20px', '0px'],
   },
   rowCenter: {
     justifyContent: 'center',

@@ -1,15 +1,20 @@
 /** @jsxImportSource theme-ui */
+import Router from 'next/router';
 import { PropTypes } from 'prop-types';
 import { Box, Flex, Image, Link, Themed } from 'theme-ui';
 
 import imageRoutes from '../../../constants/imageRoutes';
+import routes from '../../../constants/routes';
 import { scrollControll } from '../../../utils/scrollControll';
 import SpeedBox from '../../Commons/SpeedBox';
 import styles from './styles';
 
 const AddressSection = ({ layout }) => {
   const { title, place, href, street, description, warning } = layout.address;
-
+  const handleArrow = () =>
+    Router.push({
+      hash: routes.guestList,
+    });
   window.addEventListener('scroll', scrollControll);
   return (
     <section id="address" sx={styles?.section}>
@@ -27,7 +32,13 @@ const AddressSection = ({ layout }) => {
           </Link>
         </Box>
         <Flex sx={styles?.row}>
-          <Image sx={styles?.map} src={imageRoutes?.test} />
+          {/* <Image sx={styles?.map} src={imageRoutes?.test} /> */}
+          <iframe
+            src="https://www.google.com/maps/d/embed?mid=1DbooN9OWeFNbsoPDlDw3NYsIbWua3hco&ehbc=2E312F"
+            width="640"
+            height="480"
+            title="map"
+           />
           <Box sx={styles.rightColumn}>
             <Flex sx={styles?.street}>
               <Image
@@ -57,6 +68,7 @@ const AddressSection = ({ layout }) => {
             alt="arrow-icon"
             src={imageRoutes?.arrowDown}
             sx={styles?.arrow}
+            onClick={handleArrow}
           />
         </Flex>
       </Box>

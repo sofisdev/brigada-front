@@ -49,9 +49,11 @@ const WelcomeSection = ({ layout }) => {
             <Themed.h1>{title}</Themed.h1>
             <Themed.h1>{date}</Themed.h1>
           </Box>
-          <Button onClick={handleArrow} variant="transparent">
-            <Image src={imageRoutes?.arrowDown} sx={styles?.arrow} />
-          </Button>
+          <Image
+            onClick={handleArrow}
+            src={imageRoutes?.arrowDown}
+            sx={styles?.arrow}
+          />
         </Flex>
       </Box>
     </section>

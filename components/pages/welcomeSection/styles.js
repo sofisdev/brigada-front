@@ -5,8 +5,8 @@ const styles = {
     justifyContent: 'space-between',
     textAlign: 'right',
     alignItems: 'center',
-    minHeight: '100vh',
-    p: ['60px 70px', '20px 80px'],
+    minHeight: ['80vh','100vh'],
+    p: ['0px 30px', '20px 80px'],
   },
   column: {
     flexDirection: 'column',
@@ -21,7 +21,7 @@ const styles = {
   arrow: {
     width: '50px',
     height: 'auto',
-    mt: '80px',
+    mt: ['0px', '80px'],
   },
 };
 

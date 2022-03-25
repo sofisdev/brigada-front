@@ -88,7 +88,7 @@ const FormKids = ({
         </Flex>
 
         {errors?.kids_diet?.type === 'required' && (
-          <Text variant="error">error</Text>
+          <Text variant="error">This field is required</Text>
         )}
       </Box>
 
