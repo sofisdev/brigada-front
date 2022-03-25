@@ -86,15 +86,14 @@ const FormRsvp = ({ layout, language }) => {
     onError: console.log,
   });
   return (
-    <section id="rsvp">
+    <section id="rsvp" sx={styles.section(kid && plusOne)}>
       <SpeedBox
         className="form"
         src={imageRoutes?.desktop_0_Home_back}
-        speed="-0.3"
+        speed="-0.1"
       />
       <Box
-        className="reveal"
-        sx={styles.container(kid && plusOne)}
+        sx={styles.container}
         as="form"
         onSubmit={handleSubmit(submitForm)}
       >

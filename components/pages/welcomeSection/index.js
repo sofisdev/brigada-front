@@ -19,10 +19,6 @@ const WelcomeSection = ({ layout }) => {
       for (const parallaxEl of parallaxEls) {
         const elementTop = parallaxEl.getBoundingClientRect().top;
         if (elementTop < windowHeight) {
-          console.log(
-            '🚀 ~ file: index.js ~ line 19 ~ scrollHandler ~ parallaxEl',
-            parallaxEl,
-          );
           const direction = parallaxEl.dataset.direction == 'up' ? '-' : '';
           const transformY = this.pageYOffset * parallaxEl.dataset.speed;
           parallaxEl.style.transform = `translate3d(0,${direction}${transformY}px,0)`;
@@ -34,7 +30,11 @@ const WelcomeSection = ({ layout }) => {
 
   return (
     <section id="home">
-      <SpeedBox src={imageRoutes?.desktop_0_Home_back} />
+      <SpeedBox
+        speed="0.1"
+        className="welcome"
+        src={imageRoutes?.desktop_0_Home_back}
+      />
       <Box sx={styles?.container}>
         <Image src={imageRoutes?.couple} sx={styles?.image} />
         <Flex sx={styles?.column}>

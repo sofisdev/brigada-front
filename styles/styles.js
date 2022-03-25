@@ -24,7 +24,7 @@ export const styles = {
       my: '100px',
     },
     '.form': {
-      my: '400px',
+      my: '300px',
     },
   },
 

@@ -1,6 +1,8 @@
 const styles = {
   container: {
     flexDirection: 'column',
+    position: 'relative',
+
     m: '0',
     '::before': {
       content: '""',
@@ -8,7 +10,7 @@ const styles = {
       minHeight: '100vh',
       width: 'auto',
       height: '100%',
-      zIndex:'-2',
+      zIndex: '-2',
       opacity: '0.5',
       position: 'fixed',
       top: '0px',
@@ -18,7 +20,6 @@ const styles = {
     },
   },
   content: {
-    position: 'relative',
     width: '100%',
     height: '100%',
     flexDirection: 'column',

@@ -1,6 +1,5 @@
 const styles = {
   section: {
-    height: '80vh',
     maxHeight: '900px',
   },
   container: {

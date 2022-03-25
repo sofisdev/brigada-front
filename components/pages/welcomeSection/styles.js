@@ -1,11 +1,12 @@
 const styles = {
   container: {
     display: 'flex',
+    flexDirection: ['column', 'row'],
     justifyContent: 'space-between',
     textAlign: 'right',
     alignItems: 'center',
     minHeight: '100vh',
-    p: '20px 80px',
+    p: ['60px 70px', '20px 80px'],
   },
   column: {
     flexDirection: 'column',
@@ -14,7 +15,7 @@ const styles = {
   },
   image: {
     clipPath: 'polygon(30% 70% 70% 30% / 30% 30% 70% 70%)',
-    maxWidth: '550px',
+    maxWidth: ['100%', '550px'],
     height: 'auto',
   },
   arrow: {

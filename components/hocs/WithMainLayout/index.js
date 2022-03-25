@@ -1,9 +1,9 @@
 
 /** @jsxImportSource theme-ui */
 import { useSession } from 'next-auth/react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useQuery } from 'react-query';
-import { Flex, Themed } from 'theme-ui';
+import { Flex } from 'theme-ui';
 
 import { getLayout } from '../../../repository/platformApi';
 import Footer from '../../layout/Footer';

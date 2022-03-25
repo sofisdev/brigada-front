@@ -1,7 +1,7 @@
 const styles = {
   container: {
     position: 'absolute',
-    bottom: 0,
+    bottom: '20px',
     width: '100vw',
     left: 0,
     right: 0,

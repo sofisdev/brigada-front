@@ -18,7 +18,7 @@ const AddressSection = ({ layout }) => {
         className="welcome"
         src={imageRoutes?.desktop_0_Home_back}
       />
-      <Box className="reveal" sx={styles?.container}>
+      <Box sx={styles?.container}>
         <Box>
           <Themed.h1>{title}</Themed.h1>
           <Themed.h1>{place}</Themed.h1>
