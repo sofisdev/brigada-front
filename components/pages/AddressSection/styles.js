@@ -17,6 +17,12 @@ const styles = {
     justifyContent: 'space-between',
     ml: ['auto', '50px'],
     mt: ['20px', '0px'],
+    borderRadius: '20px',
+    background: 'rgba(255,255,255,0.5)',
+    '-webkit-backdrop-filter': 'blur(10px)',
+    backdropFilter: 'blur(10px)',
+    border: '1px solid rgba(255,255,255,0.25)',
+    p:'20px'
   },
   street: {
     mb: ['15px', '30px'],

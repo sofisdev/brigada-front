@@ -32,13 +32,7 @@ const AddressSection = ({ layout }) => {
           </Link>
         </Box>
         <Flex sx={styles?.row}>
-          {/* <Image sx={styles?.map} src={imageRoutes?.test} /> */}
-          <iframe
-            src="https://www.google.com/maps/d/embed?mid=1DbooN9OWeFNbsoPDlDw3NYsIbWua3hco&ehbc=2E312F"
-            width="640"
-            height="480"
-            title="map"
-           />
+          <Image sx={styles?.map} src={imageRoutes?.test} />
           <Box sx={styles.rightColumn}>
             <Flex sx={styles?.street}>
               <Image

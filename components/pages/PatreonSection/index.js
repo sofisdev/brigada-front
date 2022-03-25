@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
 import { PropTypes } from 'prop-types';
-import { Box, Flex, Image, Link, Themed } from 'theme-ui';
+import { Box, Flex, Image, Link, Text, Themed } from 'theme-ui';
 
 import imageRoutes from '../../../constants/imageRoutes';
 import { scrollControll } from '../../../utils/scrollControll';
@@ -12,6 +12,15 @@ const PatreonSection = ({ layout }) => {
 
   return (
     <section id="patreon" sx={styles?.container} className="reveal">
+      <Box sx={styles.formSection}>
+        {/* <Text>Gracias</Text>
+        {kid && (
+          <Text>
+            Si has marcado que vienes con tus peques, nos pondremos en contacto
+            contigo
+          </Text>
+        )} */}
+      </Box>
       <Themed.h2>
         {language === 'es'
           ? '¿Quieres patrocinar nuestra boda?'

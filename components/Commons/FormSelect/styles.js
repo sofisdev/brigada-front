@@ -1,6 +1,6 @@
 const styles = {
   field: {
-    mr: '20px',
+    mr: ['0px', '20px'],
     minWidth: '200px',
   },
 };

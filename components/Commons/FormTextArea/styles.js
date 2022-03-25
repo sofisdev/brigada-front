@@ -1,9 +1,9 @@
 const styles = {
   field: {
     flexDirection: 'column',
-    mr: '20px',
+    mr: ['0px', '20px'],
     flexGrow: '2',
-    mt:'20px'
+    mt: '20px',
   },
 };
 

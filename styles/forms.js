@@ -5,7 +5,8 @@ export const forms = {
     bg: '#f8f8f8',
     border: 'none',
     borderRadius: '0px',
-    fontFamily:'regular'
+    fontFamily: 'regular',
+    color: 'text',
   },
 
   label: {

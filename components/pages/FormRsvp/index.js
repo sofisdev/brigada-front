@@ -4,20 +4,14 @@ import { PropTypes } from 'prop-types';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useMutation, useQueryClient } from 'react-query';
-import { Box, Button, Flex, Text } from 'theme-ui';
+import { Box, Button, Flex, Spinner, Text, Themed } from 'theme-ui';
 
 import imageRoutes from '../../../constants/imageRoutes';
-import {
-  kidsQty,
-  menus,
-  sitting,
-  transportation,
-} from '../../../constants/options';
+import { menus, transportation } from '../../../constants/options';
 import routes from '../../../constants/routes';
 import { postForm } from '../../../repository/platformApi';
 import { scrollControll } from '../../../utils/scrollControll';
 import FormAdult from '../../Commons/FormAdult';
-import FormKids from '../../Commons/FormKids';
 import FormRadio from '../../Commons/FormRadio';
 import FormTextArea from '../../Commons/FormTextArea';
 import SpeedBox from '../../Commons/SpeedBox';
@@ -27,6 +21,7 @@ const FormRsvp = ({ layout, language }) => {
   const { title, place, href, street, description, warning } = layout.address;
   const [plusOne, setPlusOne] = useState(false);
   const [kid, addKid] = useState(false);
+  const [isLoading, setLoading] = useState(false);
   const [isSuccess, setSuccess] = useState(false);
   const [addGuestLabel, setAddGuestLabel] = useState();
   const [addKidLabel, setAddKidLabel] = useState();
@@ -76,14 +71,17 @@ const FormRsvp = ({ layout, language }) => {
       date: new Date().toISOString(),
     };
     await postForm(newData);
+    console.log('yes');
   };
 
   const { mutate: submitForm } = useMutation(onSubmit, {
+    onMutate: async () => {
+      await setLoading(true);
+    },
     onSuccess: async () => {
-      setSuccess(true);
-      setTimeout(() => {
-        Router.push({ hash: routes?.patreon, query: { isKid: kid } });
-      }, 5000);
+      await setLoading(false);
+      await setSuccess(true);
+      Router.push({ hash: routes?.patreon, query: { isKid: kid } });
     },
     onError: console.log,
   });
@@ -95,10 +93,15 @@ const FormRsvp = ({ layout, language }) => {
         speed="-0.1"
       />
       <Box sx={styles.container} as="form" onSubmit={handleSubmit(submitForm)}>
-        <Box>
-          {!isSuccess ? (
-            <>
-              <Box sx={styles.formSection}>
+        <Box sx={styles.formSection}>
+          {isLoading ? (
+            <Flex sx={styles.success}>
+              <Spinner />
+            </Flex>
+          ) : (
+            !isLoading &&
+            !isSuccess && (
+              <>
                 <Flex sx={styles.options}>
                   <FormRadio
                     register={register}
@@ -158,22 +161,16 @@ const FormRsvp = ({ layout, language }) => {
                   register={register}
                   errors={errors}
                 />
-              </Box>
-
-              <Button sx={styles.button} type="submit">
-                SAVE
-              </Button>
-            </>
-          ) : (
-            <Box sx={styles.formSection}>
-              <Text>Gracias</Text>
-              {kid && (
-                <Text>
-                  Si has marcado que vienes con tus peques, nos pondremos en
-                  contacto contigo
-                </Text>
-              )}
-            </Box>
+                <Button sx={styles.button} type="submit">
+                  SAVE
+                </Button>
+              </>
+            )
+          )}
+          {isSuccess && (
+            <Flex sx={styles.success}>
+              <Themed.h2 >SUCCESS</Themed.h2>
+            </Flex>
           )}
         </Box>
       </Box>
