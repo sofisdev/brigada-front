@@ -13,6 +13,7 @@ const FormSelect = ({
   isRequired,
   errors,
   errorMessage,
+  disabled,
   ...props
 }) => (
   <Box sx={styles.field}>
@@ -21,7 +22,9 @@ const FormSelect = ({
       name={name}
       control={control}
       rules={{ required: isRequired }}
-      render={({ field }) => <Select {...field} {...props} />}
+      render={({ field }) => (
+        <Select {...field} {...props} isDisabled={disabled} />
+      )}
     />
     {errors?.[name]?.type === 'required' && (
       <Text variant="error">{errorMessage}</Text>

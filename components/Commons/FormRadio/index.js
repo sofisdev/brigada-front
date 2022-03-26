@@ -7,6 +7,7 @@ import styles from './styles';
 const FormRadio = ({
   label,
   name,
+  disabled,
   register,
   handleChange,
   option1,
@@ -25,6 +26,7 @@ const FormRadio = ({
           type="radio"
           value
           onChange={handleChange}
+          disabled={disabled}
         />
         <p sx={{ m: '0' }}>{option1}</p>
       </Label>
@@ -34,6 +36,7 @@ const FormRadio = ({
           type="radio"
           value={false}
           onChange={handleChange}
+          disabled={disabled}
         />
         <p sx={{ m: '0' }}>{option2}</p>
       </Label>

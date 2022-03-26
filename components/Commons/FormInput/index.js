@@ -12,12 +12,16 @@ const FormInput = ({
   errors,
   errorMessage,
   isHidden,
+  disabled,
   ...props
 }) => (
   <Flex sx={styles?.field}>
     {label && <Label>{label}</Label>}
-
-    <Input {...register(name, { required: isRequired })} {...props} />
+    <Input
+      {...register(name, { required: isRequired })}
+      {...props}
+      disabled={disabled}
+    />
     {errors?.[name]?.type === 'required' && (
       <Text variant="error">{errorMessage}</Text>
     )}

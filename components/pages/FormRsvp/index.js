@@ -24,6 +24,7 @@ const FormRsvp = ({ layout, language }) => {
   const [isLoading, setLoading] = useState(false);
   const [isSuccess, setSuccess] = useState(false);
   const [addGuestLabel, setAddGuestLabel] = useState();
+  const [errorMessage, setErrorMessage] = useState();
   const [addKidLabel, setAddKidLabel] = useState();
   const [optionsRadio, setOptionsRadio] = useState([]);
   window.addEventListener('scroll', scrollControll);
@@ -38,6 +39,9 @@ const FormRsvp = ({ layout, language }) => {
         : 'Are you bringing kids?',
     );
     setOptionsRadio(language === 'es' ? ['Si', 'No'] : ['Yes', 'No']);
+    setErrorMessage(
+      language === 'es' ? 'Campo requerido' : 'This field is required',
+    );
   }, [language]);
 
   const handleChangeGuest = (e) => {
@@ -96,87 +100,83 @@ const FormRsvp = ({ layout, language }) => {
       />
       <Box sx={styles.container} as="form" onSubmit={handleSubmit(submitForm)}>
         <Box sx={styles.formSection}>
-          {isLoading ? (
-            <Flex sx={styles.success}>
-              <Spinner />
-            </Flex>
-          ) : (
-            !isLoading &&
-            !isSuccess && (
-              <>
-                <Flex sx={styles.options}>
-                  <FormRadio
-                    register={register}
-                    label={addGuestLabel}
-                    handleChange={(event) => handleChangeGuest(event)}
-                    option1={optionsRadio?.[0]}
-                    option2={optionsRadio?.[1]}
-                    name="guest_plusOne"
-                    errors={errors}
-                  />
-                  <FormRadio
-                    register={register}
-                    label={addKidLabel}
-                    handleChange={(event) => handleChangeKid(event)}
-                    option1={optionsRadio?.[0]}
-                    option2={optionsRadio?.[1]}
-                    name="kids"
-                    errors={errors}
-                  />
-                </Flex>
-                <FormAdult
-                  title="Datos de invitado 1"
-                  errors={errors}
-                  register={register}
-                  optionsMenus={menus}
-                  optionsTransport={transportation}
-                  control={control}
-                  name="main_"
-                  isRequired
-                  selectBus
-                  language={language}
-                />
-                {plusOne === 'true' && (
-                  <>
-                    <Themed.p>{plusOne}</Themed.p>
-                    <FormAdult
-                      title="Datos de acompañante"
-                      errors={errors}
-                      register={register}
-                      optionsMenus={menus}
-                      control={control}
-                      name="guest_"
-                      isRequired={!!plusOne}
-                      language={language}
-                    />
-                  </>
-                )}
-                <FormTextArea
-                  label={
-                    language === 'es'
-                      ? 'Déjanos comentarios o preguntas (opcional)'
-                      : 'Do you any questions or comments? (optional)'
-                  }
-                  name="comments"
-                  placeholder={
-                    language === 'es'
-                      ? 'Déjanos tus comentarios...'
-                      : 'Leave us your comments...'
-                  }
-                  register={register}
-                  errors={errors}
-                />
-                <Button sx={styles.button} type="submit">
-                  SAVE
-                </Button>
-              </>
-            )
+          <Flex sx={styles.options}>
+            <FormRadio
+              register={register}
+              label={addGuestLabel}
+              handleChange={(event) => handleChangeGuest(event)}
+              option1={optionsRadio?.[0]}
+              option2={optionsRadio?.[1]}
+              name="guest_plusOne"
+              errors={errors}
+              disabled={isLoading || isSuccess}
+              errorMessage={errorMessage}
+            />
+            <FormRadio
+              register={register}
+              label={addKidLabel}
+              handleChange={(event) => handleChangeKid(event)}
+              option1={optionsRadio?.[0]}
+              option2={optionsRadio?.[1]}
+              name="kids"
+              errors={errors}
+              disabled={isLoading || isSuccess}
+              errorMessage={errorMessage}
+            />
+          </Flex>
+          <FormAdult
+            title={language === 'es' ? 'Datos de invitado/a:' : 'Guest Data:'}
+            errors={errors}
+            register={register}
+            optionsMenus={menus}
+            optionsTransport={transportation}
+            control={control}
+            name="main_"
+            isRequired
+            selectBus
+            language={language}
+            disabled={isLoading || isSuccess}
+            errorMessage={errorMessage}
+          />
+          {plusOne === 'true' && (
+            <FormAdult
+              title={language === 'es' ? 'Datos de acompañante:' : 'Plus-One Data:'}
+              errors={errors}
+              register={register}
+              optionsMenus={menus}
+              control={control}
+              name="guest_"
+              isRequired={!!plusOne}
+              language={language}
+              disabled={isLoading || isSuccess}
+              errorMessage={errorMessage}
+            />
           )}
-          {isSuccess && (
-            <Flex sx={styles.success}>
-              <Themed.h2>SUCCESS</Themed.h2>
-            </Flex>
-          )}
+          <FormTextArea
+            label={
+              language === 'es'
+                ? 'Déjanos comentarios o preguntas (opcional)'
+                : 'Do you any questions or comments? (optional)'
+            }
+            name="comments"
+            placeholder={
+              language === 'es'
+                ? 'Déjanos tus comentarios...'
+                : 'Leave us your comments...'
+            }
+            register={register}
+            errors={errors}
+            disabled={isLoading || isSuccess}
+            errorMessage={errorMessage}
+          />
+          <Button
+            sx={styles.button}
+            type="submit"
+            disabled={isLoading || isSuccess}
+          >
+            {!isLoading && !isSuccess ? 'SEND' : isSuccess && 'SUCCESS'}
+            {isLoading && <Spinner />}
+          </Button>
         </Box>
       </Box>
     </section>

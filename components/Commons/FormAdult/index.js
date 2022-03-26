@@ -11,11 +11,13 @@ const FormAdult = ({
   name,
   title,
   errors,
+  errorMessage,
   register,
   optionsMenus,
   optionsTransport,
   control,
   language,
+  disabled,
 }) => (
   <>
     <Themed.h3 sx={styles.heading}>{title}</Themed.h3>
@@ -27,6 +29,8 @@ const FormAdult = ({
         register={register}
         isRequired={isRequired}
         errors={errors}
+        disabled={disabled}
+        errorMessage={errorMessage}
       />
       <FormInput
         label={language === 'es' ? 'Apellidos * ' : 'Last name *'}
@@ -35,6 +39,8 @@ const FormAdult = ({
         register={register}
         isRequired={isRequired}
         errors={errors}
+        disabled={disabled}
+        errorMessage={errorMessage}
       />
     </Flex>
 
@@ -50,6 +56,8 @@ const FormAdult = ({
         options={optionsMenus?.[language]}
         isSearchable={false}
         errors={errors}
+        disabled={disabled}
+        errorMessage={errorMessage}
       />
       <FormInput
         label={language === 'es' ? 'Intolerancias' : 'Allergies'}
@@ -61,11 +69,15 @@ const FormAdult = ({
         }
         register={register}
         errors={errors}
+        disabled={disabled}
+        errorMessage={errorMessage}
       />
       {selectBus && (
         <FormSelect
           label={
-            language === 'es' ? '¿Vienes en Bus o en coche? *' : 'Transportation *'
+            language === 'es'
+              ? '¿Vienes en Bus o en coche? *'
+              : 'Transportation *'
           }
           name={`${name}bus`}
           control={control}
@@ -78,6 +90,8 @@ const FormAdult = ({
           isSearchable={false}
           errors={errors}
           isRequired={isRequired}
+          disabled={disabled}
+          errorMessage={errorMessage}
         />
       )}
     </Flex>
