@@ -4,7 +4,7 @@ import { PropTypes } from 'prop-types';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useMutation } from 'react-query';
-import { Box, Button, Flex, Spinner } from 'theme-ui';
+import { Box, Button, Flex, Image, Spinner } from 'theme-ui';
 
 import imageRoutes from '../../../constants/imageRoutes';
 import { menus, transportation } from '../../../constants/options';
@@ -17,31 +17,23 @@ import FormTextArea from '../../Commons/FormTextArea';
 import SpeedBox from '../../Commons/SpeedBox';
 import styles from './styles';
 
-const FormRsvp = ({ language }) => {
+const FormRsvp = ({ layout, language }) => {
+  const {
+    titleGuestData,
+    titlePlusOneData,
+    guestLabel,
+    kidLabel,
+    optionsRadio,
+    errorMessage,
+    caption,
+    success,
+  } = layout.form;
+
   const [plusOne, setPlusOne] = useState(null);
   const [kid, addKid] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const [isSuccess, setSuccess] = useState(false);
-  const [addGuestLabel, setAddGuestLabel] = useState();
-  const [errorMessage, setErrorMessage] = useState();
-  const [addKidLabel, setAddKidLabel] = useState();
-  const [optionsRadio, setOptionsRadio] = useState([]);
   window.addEventListener('scroll', scrollControll);
-
-  useEffect(() => {
-    setAddGuestLabel(
-      language === 'es' ? '¿Vienes con acompañante?' : 'Add Plus-One',
-    );
-    setAddKidLabel(
-      language === 'es'
-        ? '¿Vienes con tu(s) peque(s)?'
-        : 'Are you bringing kids?',
-    );
-    setOptionsRadio(language === 'es' ? ['Si', 'No'] : ['Yes', 'No']);
-    setErrorMessage(
-      language === 'es' ? 'Campo requerido' : 'This field is required',
-    );
-  }, [language]);
 
   const handleChangeGuest = (e) => {
     setPlusOne(e.target.value);
@@ -90,6 +82,13 @@ const FormRsvp = ({ language }) => {
     },
     onError: console.log,
   });
+
+  const handleArrow = () =>
+    Router.push({
+      hash: routes?.patreon,
+      query: { isKid: kid, success: true },
+    });
+
   return (
     <section id="rsvp" sx={styles.section(kid && plusOne)}>
       <SpeedBox
@@ -102,7 +101,7 @@ const FormRsvp = ({ language }) => {
           <Flex sx={styles.options}>
             <FormRadio
               register={register}
-              label={addGuestLabel}
+              label={guestLabel}
               handleChange={(event) => handleChangeGuest(event)}
               option1={optionsRadio?.[0]}
               option2={optionsRadio?.[1]}
@@ -113,7 +112,7 @@ const FormRsvp = ({ language }) => {
             />
             <FormRadio
               register={register}
-              label={addKidLabel}
+              label={kidLabel}
               handleChange={(event) => handleChangeKid(event)}
               option1={optionsRadio?.[0]}
               option2={optionsRadio?.[1]}
@@ -124,7 +123,7 @@ const FormRsvp = ({ language }) => {
             />
           </Flex>
           <FormAdult
-            title={language === 'es' ? 'Datos de invitado/a:' : 'Guest Data:'}
+            title={titlePlusOneData}
             errors={errors}
             register={register}
             optionsMenus={menus}
@@ -139,7 +138,7 @@ const FormRsvp = ({ language }) => {
           />
           {plusOne === 'true' && (
             <FormAdult
-              title={language === 'es' ? 'Datos de acompañante:' : 'Plus-One Data:'}
+              title={titleGuestData}
               errors={errors}
               register={register}
               optionsMenus={menus}
@@ -173,9 +172,18 @@ const FormRsvp = ({ language }) => {
             type="submit"
             disabled={isLoading || isSuccess}
           >
-            {!isLoading && !isSuccess ? 'SEND' : isSuccess && 'SUCCESS'}
-            {isLoading && <Spinner />}
+            {!isLoading && !isSuccess ? caption : isSuccess && success}
+            {isLoading && <Spinner variant="spinner.form" />}
           </Button>
+
+          <Flex sx={styles?.rowCenter}>
+            <Image
+              alt="arrow-icon"
+              src={imageRoutes?.arrowDown}
+              sx={styles?.arrow}
+              onClick={handleArrow}
+            />
+          </Flex>
         </Box>
       </Box>
     </section>

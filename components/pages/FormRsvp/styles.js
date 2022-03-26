@@ -40,6 +40,14 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
   },
+  arrow: {
+    width: '50px',
+    height: 'auto',
+    mt: '0px',
+  },
+  rowCenter: {
+    justifyContent: 'center',
+  },
 };
 
 export default styles;

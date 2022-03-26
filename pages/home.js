@@ -1,5 +1,5 @@
 /** @jsxImportSource theme-ui */
-import { Box, Themed } from 'theme-ui';
+import { Box, Flex, Spinner, Themed } from 'theme-ui';
 
 import WithMainLayout from '../components/hocs/WithMainLayout';
 import AddressSection from '../components/pages/AddressSection';
@@ -17,7 +17,17 @@ const HomePage = ({ layout, language }) => (
         <PatreonSection layout={layout} language={language} />
       </>
     ) : (
-      <Themed.p>Loading..</Themed.p>
+      <Flex
+        sx={{
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: 'calc(100vh - 85px)',
+        }}
+      >
+        <Spinner variant="spinner.default" />
+        <Themed.h3>Loading...</Themed.h3>
+      </Flex>
     )}
   </Box>
 );

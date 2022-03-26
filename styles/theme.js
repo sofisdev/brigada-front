@@ -9,6 +9,7 @@ import { lineHeights } from './lineHeights';
 import { links } from './links';
 import { sizes } from './sizes';
 import { space } from './space';
+import { spinner } from './spinner';
 import { styles } from './styles';
 import { text } from './text';
 
@@ -26,6 +27,7 @@ export const theme = {
   forms,
   styles,
   breakpoints,
+  spinner,
 };
 
 export default theme;
