@@ -3,8 +3,8 @@ import Router from 'next/router';
 import { PropTypes } from 'prop-types';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useMutation, useQueryClient } from 'react-query';
-import { Box, Button, Flex, Spinner, Text, Themed } from 'theme-ui';
+import { useMutation } from 'react-query';
+import { Box, Button, Flex, Spinner } from 'theme-ui';
 
 import imageRoutes from '../../../constants/imageRoutes';
 import { menus, transportation } from '../../../constants/options';
@@ -17,8 +17,7 @@ import FormTextArea from '../../Commons/FormTextArea';
 import SpeedBox from '../../Commons/SpeedBox';
 import styles from './styles';
 
-const FormRsvp = ({ layout, language }) => {
-  const { title, place, href, street, description, warning } = layout.address;
+const FormRsvp = ({ language }) => {
   const [plusOne, setPlusOne] = useState(null);
   const [kid, addKid] = useState(false);
   const [isLoading, setLoading] = useState(false);

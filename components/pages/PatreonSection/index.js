@@ -6,8 +6,7 @@ import { Box, Text, Themed } from 'theme-ui';
 import { scrollControll } from '../../../utils/scrollControll';
 import styles from './styles';
 
-const PatreonSection = ({ layout }) => {
-  const { language } = layout.address;
+const PatreonSection = ({ language }) => {
   window.addEventListener('scroll', scrollControll);
   const router = useRouter();
   const { isKid, success } = router.query;
