@@ -1,6 +1,7 @@
 const styles = {
   section: {
     maxHeight: '900px',
+    position:'relative'
   },
   container: {
     my: ['50px', '100px'],
@@ -28,7 +29,6 @@ const styles = {
     mb: ['15px', '30px'],
   },
   text: {
-    maxWidth: '600px',
     ml: ['10px', '20px'],
     mb: ['10px', '30px'],
   },

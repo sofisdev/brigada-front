@@ -21,7 +21,8 @@ const AddressSection = ({ layout }) => {
       <SpeedBox
         speed="-0.2"
         className="welcome"
-        src={imageRoutes?.desktop_0_Home_back}
+        src={imageRoutes?.desktop_1_Gotis}
+        name="right"
       />
       <Box sx={styles?.container}>
         <Box>
@@ -32,7 +33,7 @@ const AddressSection = ({ layout }) => {
           </Link>
         </Box>
         <Flex sx={styles?.row}>
-          <Image sx={styles?.map} src={imageRoutes?.test} />
+          <Image sx={styles?.map} src={imageRoutes?.desktop_2_Finca} />
           <Box sx={styles.rightColumn}>
             <Flex sx={styles?.street}>
               <Image
