@@ -18,7 +18,6 @@ const styles = {
     position: 'absolute',
     right: 0,
     zIndex: '-1',
-    bg: 'red',
   }),
 };
 

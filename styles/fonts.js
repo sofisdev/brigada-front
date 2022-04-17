@@ -1,6 +1,7 @@
 export const fonts = {
-  regular: 'Lato-Regular',
-  bold: 'Lato-Bold',
-  heading: 'Prata-Regular',
-  light: 'Lato-Light',
+  regular: 'RobotoSlab-Regular',
+  bold: 'RobotoSlab-Bold',
+  heading: 'JosefinSans-light',
+  headingBold: 'JosefinSans-bold',
+  light: 'RobotoSlab-Light',
 };

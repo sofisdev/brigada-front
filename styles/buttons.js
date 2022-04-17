@@ -24,6 +24,7 @@ export const buttons = {
   },
   transparent: {
     bg: 'transparent',
+    color: 'text',
     p: '8px',
     fontSize: 0,
     fontWeight: 'bold',
@@ -32,7 +33,7 @@ export const buttons = {
     textTransform: 'uppercase',
     cursor: 'pointer',
     '&:hover': {
-      color: ['white ', 'text'],
+      color: 'text',
       bg:'yellow'
     },
     '&:disabled': {

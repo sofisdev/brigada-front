@@ -1,25 +1,37 @@
 // ⬇️ Define here your fonts according to the font file name and format
 const allFonts = [
   {
-    name: 'Lato-Black',
+    name: 'JosefinSans-Medium',
     type: 'woff',
   },
   {
-    name: 'Lato-Bold',
+    name: 'JosefinSans-Bold',
     type: 'woff',
   },
   {
-    name: 'Lato-Light',
+    name: 'JosefinSans-Light',
     type: 'woff',
   },
   {
-    name: 'Lato-Regular',
+    name: 'JosefinSans-Regular',
     type: 'woff',
   },
   {
-    name: 'Prata-Regular',
+    name: 'RobotoSlab-Medium',
     type: 'woff',
   },
+  {
+    name: 'RobotoSlab-Bold',
+    type: 'woff',
+  },
+  {
+    name: 'RobotoSlab-Light',
+    type: 'woff',
+  },
+  {
+    name: 'RobotoSlab-Regular',
+    type: 'woff',
+  }
 ];
 
 export default allFonts;

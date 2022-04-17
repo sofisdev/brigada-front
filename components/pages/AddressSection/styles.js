@@ -31,6 +31,7 @@ const styles = {
   text: {
     ml: ['10px', '20px'],
     mb: ['10px', '30px'],
+    fontFamily:'light'
   },
   image: {
     clipPath: 'polygon(30% 70% 70% 30% / 30% 30% 70% 70%)',
