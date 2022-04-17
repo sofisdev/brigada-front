@@ -3,10 +3,8 @@ import { SessionProvider } from 'next-auth/react';
 import { useState } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
-import { Provider } from 'react-redux';
 import { ThemeProvider } from 'theme-ui';
 
-import store from '../redux/store';
 import GlobalComponent from '../styles/global';
 import { theme } from '../styles/theme';
 import { FontLinks } from '../utils/getFonts';
@@ -39,9 +37,7 @@ const MyApp = function ({ Component, pageProps }) {
         <ThemeProvider theme={theme}>
           <GlobalComponent />
           <SessionProvider session={pageProps.session}>
-            <Provider store={store}>
-              <Component {...pageProps} />
-            </Provider>
+            <Component {...pageProps} />
           </SessionProvider>
         </ThemeProvider>
         <ReactQueryDevtools initialIsOpen={false} />
