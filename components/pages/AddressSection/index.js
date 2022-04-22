@@ -19,10 +19,10 @@ const AddressSection = ({ layout }) => {
   return (
     <section id="address" sx={styles?.section}>
       <SpeedBox
-        speed="-0.2"
-        className="welcome"
+        speed="-0.5"
+        // className="custom"
         src={imageRoutes?.desktop_1_Gotis}
-        name="right"
+        name="drops"
       />
       <Box sx={styles?.container}>
         <Box>

@@ -21,7 +21,10 @@ export const styles = {
       opacity: 1,
     },
     '.welcome': {
-      my: '100px',
+      my: '-20px',
+    },
+    '.custom':{
+      
     },
     '.form': {
       my: '300px',

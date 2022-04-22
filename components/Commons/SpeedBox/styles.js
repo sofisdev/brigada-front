@@ -9,6 +9,17 @@ const styles = {
     zIndex: '-1',
   }),
 
+  drops: (src) => ({
+    backgroundImage: `url(${src})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'contain',
+    height: '220px',
+    width: '500px',
+    position: 'absolute',
+    zIndex: '-1',
+    left:'30vw'
+  }),
+
   right: (src) => ({
     backgroundImage: `url(${src})`,
     backgroundRepeat: 'no-repeat',
