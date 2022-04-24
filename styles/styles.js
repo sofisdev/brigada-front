@@ -33,7 +33,7 @@ export const styles = {
 
   h1: {
     variant: 'text.heading',
-    fontSize: [6, 7],
+    fontSize: [6, 50],
     my: ['15px', '25px'],
   },
   h2: {

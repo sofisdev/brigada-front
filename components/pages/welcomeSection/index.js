@@ -46,8 +46,10 @@ const WelcomeSection = ({ layout }) => {
         <Image src={imageRoutes?.couple} sx={styles?.image} />
         <Flex sx={styles?.column}>
           <Box>
-            <Themed.h1>{title}</Themed.h1>
-            <Themed.h1>{date}</Themed.h1>
+            <Themed.h1 sx={styles?.title}>SOFIA & JAVI</Themed.h1>
+            <Themed.h2>{date}</Themed.h2>
+            <Themed.h2 sx={styles?.brigada}>{title}</Themed.h2>
+
           </Box>
           <Image
             onClick={handleArrow}

@@ -23,6 +23,9 @@ const styles = {
     height: 'auto',
     mt: ['0px', '80px'],
   },
+  brigada:{
+    fontFamily:'regular'
+  },
 };
 
 export default styles;
