@@ -20,9 +20,6 @@ export const styles = {
       animation: `${fadeBottom} 0.6s ease-in`,
       opacity: 1,
     },
-    '.welcome': {
-      my: '-20px',
-    },
     '.custom':{
       
     },
@@ -33,8 +30,9 @@ export const styles = {
 
   h1: {
     variant: 'text.heading',
-    fontSize: [6, '60px'],
+    fontSize: [6, '50px'],
     my: ['15px', '25px'],
+    textTransform: 'uppercase'
   },
   h2: {
     variant: 'text.heading',

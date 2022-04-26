@@ -57,6 +57,9 @@ const styles = {
   rowCenter: {
     justifyContent: 'center',
   },
+  undercase:{
+    textTransform:'capitalize'
+  }
 };
 
 export default styles;

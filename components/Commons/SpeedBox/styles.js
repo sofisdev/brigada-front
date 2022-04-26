@@ -2,7 +2,7 @@ const styles = {
   container: (src) => ({
     backgroundImage: `url(${src})`,
     backgroundRepeat: 'no-repeat',
-    backgroundSize: '100vw 100vh',
+    backgroundSize: 'contain',
     height: '100vh',
     width: '100vw',
     position: 'absolute',
@@ -18,6 +18,18 @@ const styles = {
     position: 'absolute',
     zIndex: '-1',
     left:'30vw'
+  }),
+
+  mancha1: (src) => ({
+    backgroundImage: `url(${src})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'contain',
+    height: '400px',
+    width: '400px',
+    position: 'absolute',
+    zIndex: '-1',
+    right:'10px',
+    bottom:'10px'
   }),
 
   right: (src) => ({

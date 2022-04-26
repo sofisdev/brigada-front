@@ -24,10 +24,15 @@ const AddressSection = ({ layout }) => {
         src={imageRoutes?.desktop_1_Gotis}
         name="drops"
       />
+      <SpeedBox
+        speed="-0.2"
+        src={imageRoutes?.mancha_1}
+        name="mancha1"
+      />
       <Box sx={styles?.container}>
         <Box>
           <Themed.h1>{title}</Themed.h1>
-          <Themed.h1>{place}</Themed.h1>
+          <Themed.h1 sx={styles.undercase}>{place}</Themed.h1>
           <Link href={href} target="_blank">
             Página Web
           </Link>

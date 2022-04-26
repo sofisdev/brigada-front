@@ -42,6 +42,7 @@ const styles = {
   },
   title: {
     color: 'black',
+    fontSize: [6, '60px'],
   },
 };
 
