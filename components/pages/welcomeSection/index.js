@@ -46,10 +46,14 @@ const WelcomeSection = ({ layout }) => {
         <Image src={imageRoutes?.couple} sx={styles?.image} />
         <Flex sx={styles?.column}>
           <Box>
-            <Themed.h1 sx={styles?.title}>SOFIA & JAVI</Themed.h1>
-            <Themed.h2>{date}</Themed.h2>
-            <Themed.h2 sx={styles?.brigada}>{title}</Themed.h2>
-
+            <Themed.h1 sx={styles?.title}>SOFI & JAVI</Themed.h1>
+            <Themed.p sx={styles?.date}>{date}</Themed.p>
+            <div sx={styles.brigadaContainer}>
+              <Themed.p sx={styles?.brigada}>
+                y decidieron ser más que pareja
+              </Themed.p>
+              <Themed.p sx={styles?.brigada}> decidieron ser brigada</Themed.p>
+            </div>
           </Box>
           <Image
             onClick={handleArrow}
