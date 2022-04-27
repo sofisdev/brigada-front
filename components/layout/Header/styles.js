@@ -26,7 +26,7 @@ const styles = {
     width: '300px',
   },
   navContainer: {
-    animation: [`${fadeInMobile} 0.5s linear`, `${fadeIn} 0.5s linear`],
+    animation: `${fadeInMobile} 0.5s linear`,
     position: 'absolute',
     height: '100vh',
     width: ['100vw', '50vw'],

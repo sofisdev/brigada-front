@@ -25,7 +25,7 @@ const AddressSection = ({ layout }) => {
         name="drops"
       />
       <SpeedBox
-        speed="-0.2"
+        speed="-0.3"
         src={imageRoutes?.mancha_1}
         name="mancha1"
       />

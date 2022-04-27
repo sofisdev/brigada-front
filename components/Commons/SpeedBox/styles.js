@@ -29,7 +29,7 @@ const styles = {
     position: 'absolute',
     zIndex: '-1',
     right:'10px',
-    bottom:'10px'
+    bottom:'-50px'
   }),
 
   right: (src) => ({

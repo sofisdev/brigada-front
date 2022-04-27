@@ -30,7 +30,7 @@ export const styles = {
 
   h1: {
     variant: 'text.heading',
-    fontSize: [6, '50px'],
+    fontSize: [6, '43px'],
     my: ['15px', '25px'],
     textTransform: 'uppercase'
   },

@@ -58,7 +58,7 @@ const styles = {
     justifyContent: 'center',
   },
   undercase:{
-    textTransform:'capitalize'
+    textTransform:'capitalize',
   }
 };
 

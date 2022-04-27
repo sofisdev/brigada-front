@@ -30,31 +30,25 @@ const LogIn = ({ callbackUrl }) => {
   });
   return (
     <Container src={imageRoutes?.desktop_0_Home}>
-      <Flex sx={styles.mainContainer}>
-        <Flex sx={styles.colOneContainer}>
-          <Heading as="h1" sx={styles.text}>
-            WELCOME!
-          </Heading>
-          <Flex
-            sx={styles.column}
-            as="form"
-            onSubmit={handleSubmit(submitForm)}
-          >
-            <Themed.p sx={styles.text}>
-              Enter required fields and hit save to create new contact.
-            </Themed.p>
-            <FormInput
-              label="Enter Password"
-              name="weddingId"
-              placeholder="password"
-              register={register}
-              isRequired
-              errors={errors}
-            />
-            <Button sx={styles.button} type="submit">
-              CONTINUE
-            </Button>
-          </Flex>
+      <Flex sx={styles.colOneContainer}>
+        <Heading as="h1" sx={styles.text}>
+          WELCOME!
+        </Heading>
+        <Flex sx={styles.column} as="form" onSubmit={handleSubmit(submitForm)}>
+          <Themed.p sx={styles.text}>
+            Enter required fields and hit save to create new contact.
+          </Themed.p>
+          <FormInput
+            label="Enter Password"
+            name="weddingId"
+            placeholder="password"
+            register={register}
+            isRequired
+            errors={errors}
+          />
+          <Button sx={styles.button} type="submit">
+            CONTINUE
+          </Button>
         </Flex>
       </Flex>
     </Container>
