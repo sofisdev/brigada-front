@@ -90,13 +90,12 @@ const FormRsvp = ({ layout, language }) => {
     });
 
   return (
-    <section id="rsvp" sx={styles.section(kid && plusOne)}>
-      <SpeedBox
-        className="form"
-        src={imageRoutes?.desktop_0_Home_back}
-        speed="-0.1"
-      />
-      <Box sx={styles.container} as="form" onSubmit={handleSubmit(submitForm)}>
+    <section id="rsvp" sx={styles.section(kid && plusOne, imageRoutes?.desktop_0_back)}>
+      {/* <SpeedBox
+        speed="0.1"
+        src={imageRoutes?.desktop_0_back}
+      /> */}
+      <Box sx={() => styles.container} as="form" onSubmit={handleSubmit(submitForm)}>
         <Box sx={styles.formSection}>
           <Flex sx={styles.options}>
             <FormRadio

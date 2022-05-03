@@ -20,7 +20,6 @@ const AddressSection = ({ layout }) => {
     <section id="address" sx={styles?.section}>
       <SpeedBox
         speed="-0.5"
-        // className="custom"
         src={imageRoutes?.desktop_1_Gotis}
         name="drops"
       />
@@ -29,12 +28,17 @@ const AddressSection = ({ layout }) => {
         src={imageRoutes?.mancha_1}
         name="mancha1"
       />
+      <SpeedBox
+        speed="0.3"
+        src={imageRoutes?.mancha_3}
+        name="mancha3"
+      />
       <Box sx={styles?.container}>
         <Box>
           <Themed.h1>{title}</Themed.h1>
           <Themed.h1 sx={styles.undercase}>{place}</Themed.h1>
           <Link href={href} target="_blank">
-            Página Web
+            Visita su página Web
           </Link>
         </Box>
         <Flex sx={styles?.row}>
@@ -49,13 +53,7 @@ const AddressSection = ({ layout }) => {
 
               <Themed.h3 sx={styles?.text}>{street}</Themed.h3>
             </Flex>
-            <Flex>
-              <Image
-                alt="warning-icon"
-                src={imageRoutes?.icon_warning}
-                sx={styles?.icon}
-              />
-
+            <Flex sx={styles?.street}>
               <Box>
                 <Themed.h3 sx={styles?.text}>{description}</Themed.h3>
                 <Themed.h3 sx={styles?.text}>{warning}</Themed.h3>

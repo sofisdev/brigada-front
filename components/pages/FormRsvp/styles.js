@@ -1,11 +1,19 @@
 const styles = {
-  section: (bool) => ({
+  section: (bool, src) => ({
     minHeight: bool ? '900px' : 'auto',
     my: '100px',
+    backgroundImage: `url(${src})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    height: 'auto',
+    width: '100vw',
+    maxWidth: '100%',
+    p:'0px'
   }),
   container: {
     my: '100px',
-    p: ['10px 30px', '20px 80px'],
+    p: ['10px 30px', '150px 80px'],
   },
   row: {
     height: '50px',

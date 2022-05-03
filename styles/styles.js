@@ -7,6 +7,7 @@ const fadeBottom = keyframes({
 
 export const styles = {
   root: {
+    overflowX:'hidden',
     fontFamily: 'regular',
     lineHeight: 'body',
     fontWeight: 'body',
@@ -20,9 +21,7 @@ export const styles = {
       animation: `${fadeBottom} 0.6s ease-in`,
       opacity: 1,
     },
-    '.custom':{
-      
-    },
+    '.custom': {},
     '.form': {
       my: '300px',
     },
@@ -32,7 +31,7 @@ export const styles = {
     variant: 'text.heading',
     fontSize: [6, '43px'],
     my: ['15px', '25px'],
-    textTransform: 'uppercase'
+    textTransform: 'uppercase',
   },
   h2: {
     variant: 'text.heading',
@@ -65,8 +64,14 @@ export const styles = {
     mb: '5px',
   },
   a: {
-    color: 'blue',
+    color: 'text',
     cursor: 'pointer',
+    p: '10px 15px',
+    '&:hover': {
+      bg: ['cream', 'cream'],
+      borderRadius: '20px',
+      color: ['white ', 'text'],
+    },
   },
   pre: {
     fontFamily: 'monospace',

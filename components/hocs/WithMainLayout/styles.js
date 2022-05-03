@@ -17,6 +17,7 @@ const styles = {
       right: '0px',
       bottom: '0px',
       left: '0px',
+      maxWidth: '100%',
     },
   },
   content: {

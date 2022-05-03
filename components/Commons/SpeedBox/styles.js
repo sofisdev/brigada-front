@@ -3,10 +3,11 @@ const styles = {
     backgroundImage: `url(${src})`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'contain',
-    height: '100vh',
+    height: '100%',
     width: '100vw',
     position: 'absolute',
     zIndex: '-1',
+    maxWidth: '100%',
   }),
 
   drops: (src) => ({
@@ -17,7 +18,7 @@ const styles = {
     width: '500px',
     position: 'absolute',
     zIndex: '-1',
-    left:'30vw'
+    left: '30vw',
   }),
 
   mancha1: (src) => ({
@@ -28,8 +29,21 @@ const styles = {
     width: '400px',
     position: 'absolute',
     zIndex: '-1',
-    right:'10px',
-    bottom:'-50px'
+    right: '10px',
+    bottom: '-50px',
+  }),
+
+  mancha3: (src) => ({
+    backgroundImage: `url(${src})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'contain',
+    height: '600px',
+    width: '600px',
+    position: 'absolute',
+    zIndex: '-1',
+    left: '50px',
+    bottom: '200px',
+    opacity: '0.5',
   }),
 
   right: (src) => ({
