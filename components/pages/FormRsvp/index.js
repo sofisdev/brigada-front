@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 import Router from 'next/router';
 import { PropTypes } from 'prop-types';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useMutation } from 'react-query';
 import { Box, Button, Flex, Image, Spinner } from 'theme-ui';
@@ -14,7 +14,6 @@ import { scrollControll } from '../../../utils/scrollControll';
 import FormAdult from '../../Commons/FormAdult';
 import FormRadio from '../../Commons/FormRadio';
 import FormTextArea from '../../Commons/FormTextArea';
-import SpeedBox from '../../Commons/SpeedBox';
 import styles from './styles';
 
 const FormRsvp = ({ layout, language }) => {
@@ -91,10 +90,6 @@ const FormRsvp = ({ layout, language }) => {
 
   return (
     <section id="rsvp" sx={styles.section(kid && plusOne, imageRoutes?.desktop_0_back)}>
-      {/* <SpeedBox
-        speed="0.1"
-        src={imageRoutes?.desktop_0_back}
-      /> */}
       <Box sx={() => styles.container} as="form" onSubmit={handleSubmit(submitForm)}>
         <Box sx={styles.formSection}>
           <Flex sx={styles.options}>
