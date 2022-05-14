@@ -12,10 +12,8 @@ export const forms = {
   label: {
     display: 'flex',
     alignItems: 'center',
-    fontFamily: 'headingBold',
-    fontSize: 1,
-    fontWeight: 'bold',
-    textTransform: 'uppercase',
+    fontFamily: 'regular',
+    fontSize: 2,
     letterSpacing: '2px',
     mt: '10px',
   },

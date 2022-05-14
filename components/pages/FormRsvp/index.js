@@ -124,7 +124,7 @@ const FormRsvp = ({ layout, language }) => {
             />
           </Flex>
           <FormAdult
-            title={titlePlusOneData}
+            title={titleGuestData}
             errors={errors}
             register={register}
             optionsMenus={menus}
@@ -139,7 +139,7 @@ const FormRsvp = ({ layout, language }) => {
           />
           {plusOne === 'true' && (
             <FormAdult
-              title={titleGuestData}
+              title={titlePlusOneData}
               errors={errors}
               register={register}
               optionsMenus={menus}

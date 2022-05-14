@@ -5,7 +5,9 @@ const styles = {
     flexGrow: '2',
   },
   heading: {
-    mt: '15px',
+    mt: '35px',
+    textTransform: 'uppercase',
+    fontFamily: 'headingBold',
   },
   row: {
     flexDirection: ['column', 'row'],
