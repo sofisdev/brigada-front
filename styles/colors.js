@@ -12,4 +12,5 @@ export const colors = {
   error: '#ff4713',
   backgroundGrey: '#D3D3D3',
   darkGreen: '#224A3B',
+  blue: '#3A809E',
 };
