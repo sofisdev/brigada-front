@@ -31,7 +31,7 @@ const FormRsvp = ({ layout, language }) => {
   const [plusOne, setPlusOne] = useState(null);
   const [kid, addKid] = useState(false);
   const [isLoading, setLoading] = useState(false);
-  const [isSuccess, setSuccess] = useState(false);
+  const [isSuccess, setSuccess] = useState();
   window.addEventListener('scroll', scrollControll);
 
   const handleChangeGuest = (e) => {
@@ -76,7 +76,7 @@ const FormRsvp = ({ layout, language }) => {
       await setSuccess(true);
       Router.push({
         hash: routes?.patreon,
-        query: { isKid: kid, success: true },
+        query: { isKid: kid, success: isSuccess },
       });
     },
     onError: console.log,
@@ -85,12 +85,19 @@ const FormRsvp = ({ layout, language }) => {
   const handleArrow = () =>
     Router.push({
       hash: routes?.patreon,
-      query: { isKid: kid, success: true },
+      query: { isKid: kid, success: isSuccess },
     });
 
   return (
-    <section id="rsvp" sx={styles.section(kid && plusOne, imageRoutes?.desktop_0_back)}>
-      <Box sx={() => styles.container} as="form" onSubmit={handleSubmit(submitForm)}>
+    <section
+      id="rsvp"
+      sx={styles.section(kid && plusOne, imageRoutes?.desktop_0_back)}
+    >
+      <Box
+        sx={() => styles.container}
+        as="form"
+        onSubmit={handleSubmit(submitForm)}
+      >
         <Box sx={styles.formSection}>
           <Flex sx={styles.options}>
             <FormRadio
