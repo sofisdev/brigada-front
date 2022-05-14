@@ -27,12 +27,12 @@ const PatreonSection = ({ language }) => {
           </Themed.h2>
         )}
       </Box>
-      <Themed.h2>
+      <Themed.h2 sx={styles.text}>
         {language === 'es'
           ? '¿Quieres patrocinar nuestra boda?'
           : '¿Do you want to be a patreon of our wedding?'}
       </Themed.h2>
-      <Themed.h2>{`IBAN: ${
+      <Themed.h2 sx={styles.iban}>{`IBAN: ${
         process.env.NEXT_PUBLIC_IBAN_NUMBER_COUNTRY
       } ${process.env.NEXT_PUBLIC_IBAN_NUMBER?.replace(
         /-+/g,

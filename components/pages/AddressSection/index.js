@@ -28,11 +28,6 @@ const AddressSection = ({ layout }) => {
         src={imageRoutes?.mancha_1}
         name="mancha1"
       />
-      <SpeedBox
-        speed="0.3"
-        src={imageRoutes?.mancha_3}
-        name="mancha3"
-      />
       <Box sx={styles?.container}>
         <Box>
           <Themed.h1>{title}</Themed.h1>

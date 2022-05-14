@@ -8,9 +8,17 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
     textAlign: 'center',
+    color: 'white',
   },
   formSection: {
     mb: '50px',
+  },
+  iban: {
+    fontFamily: 'regular',
+    color: 'inherit',
+  },
+  text: {
+    color: 'inherit',
   },
 };
 
