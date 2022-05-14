@@ -12,15 +12,6 @@ export const styles = {
     lineHeight: 'body',
     fontWeight: 'body',
     scrollBehavior: 'smooth',
-    '.reveal': {
-      position: 'relative',
-      opacity: 0,
-    },
-
-    '.reveal.active': {
-      animation: `${fadeBottom} 0.6s ease-in`,
-      opacity: 1,
-    },
     '.custom': {},
     '.form': {
       my: '300px',

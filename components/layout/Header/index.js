@@ -1,5 +1,4 @@
 /** @jsxImportSource theme-ui */
-import { useRouter } from 'next/router';
 import { signOut } from 'next-auth/react';
 import { useState } from 'react';
 import { Button, Flex, Image, NavLink } from 'theme-ui';

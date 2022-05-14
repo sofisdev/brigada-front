@@ -1,6 +1,5 @@
 import { keyframes } from '@emotion/react';
 
-const fadeIn = keyframes({ from: { right: '-200px' }, to: { right: 0 } });
 const fadeInMobile = keyframes({
   from: { opacity: '0' },
   to: { opacity: '1' },
@@ -8,10 +7,14 @@ const fadeInMobile = keyframes({
 
 const styles = {
   headerContainer: {
-    position: 'sticky',
+    position: 'fixed',
     width: '100vw',
     zIndex: 10,
     justifyContent: 'flex-end',
+    bg: '(background, 0.5)',
+    boxShadow: '0px 5px 15px 4px rgba(0,0,0,0.1)',
+    '-webkit-backdrop-filter': 'blur(10px)',
+    backdropFilter: 'blur(10px)',
   },
   icon: {
     m: '20px',
@@ -49,12 +52,12 @@ const styles = {
     my: 'auto',
     a: {
       fontSize: '22px',
-      textAlign:['center', 'right']
+      textAlign: ['center', 'right'],
     },
   },
   verticalDivider: {
     borderLeft: '1px solid',
-    height: '20px',
+    height: '13px 20px',
   },
   isItemActive: {
     fontFamily: 'bold',

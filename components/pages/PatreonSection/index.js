@@ -1,18 +1,16 @@
 /** @jsxImportSource theme-ui */
 import { useRouter } from 'next/router';
 import { PropTypes } from 'prop-types';
-import { Box, Text, Themed } from 'theme-ui';
+import { Box, Themed } from 'theme-ui';
 
-import { scrollControll } from '../../../utils/scrollControll';
 import styles from './styles';
 
 const PatreonSection = ({ language }) => {
-  window.addEventListener('scroll', scrollControll);
   const router = useRouter();
   const { isKid, success } = router.query;
 
   return (
-    <section id="patreon" sx={styles?.container} className="reveal">
+    <section id="patreon" sx={styles?.container}>
       <Box sx={styles.formSection}>
         {success && (
           <Themed.h2>
