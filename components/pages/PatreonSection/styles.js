@@ -1,9 +1,9 @@
 const styles = {
   container: {
-    height: '80vh',
+    height: 'auto',
     maxHeight: '900px',
     my: '100px',
-    pt: '200px',
+    pb: '170px',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
