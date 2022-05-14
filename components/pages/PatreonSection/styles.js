@@ -1,5 +1,5 @@
 const styles = {
-  container: {
+  container: (src) => ({
     height: 'auto',
     maxHeight: '900px',
     my: '100px',
@@ -7,9 +7,13 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    textAlign: 'center',
+    backgroundImage: `url(${src})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
     color: 'white',
-  },
+    textAlign: 'center',
+  }),
   formSection: {
     mb: '50px',
   },
