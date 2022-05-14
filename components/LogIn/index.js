@@ -32,19 +32,17 @@ const LogIn = ({ callbackUrl }) => {
     <Container src={imageRoutes?.desktop_0_Home}>
       <Flex sx={styles.colOneContainer}>
         <Heading as="h1" sx={styles.text}>
-          WELCOME!
+          ¡SOMOS BRIGADA!
         </Heading>
         <Flex sx={styles.column} as="form" onSubmit={handleSubmit(submitForm)}>
-          <Themed.p sx={styles.text}>
-            Enter required fields and hit save to create new contact.
-          </Themed.p>
           <FormInput
-            label="Enter Password"
+            label="Contraseña/Password:"
             name="weddingId"
             placeholder="password"
             register={register}
             isRequired
             errors={errors}
+            type="password"
           />
           <Button sx={styles.button} type="submit">
             CONTINUE

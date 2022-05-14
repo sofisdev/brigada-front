@@ -13,6 +13,9 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
+    div: {
+      mr: '0px',
+    },
   },
   button: {
     width: '100%',
