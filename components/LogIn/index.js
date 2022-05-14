@@ -3,7 +3,7 @@ import { signIn } from 'next-auth/react';
 import { PropTypes } from 'prop-types';
 import { useForm } from 'react-hook-form';
 import { useMutation } from 'react-query';
-import { Button, Flex, Heading, Themed } from 'theme-ui';
+import { Button, Flex, Heading } from 'theme-ui';
 
 import imageRoutes from '../../constants/imageRoutes';
 import Container from '../Commons/Container';
@@ -26,7 +26,7 @@ const LogIn = ({ callbackUrl }) => {
     onSuccess: async () => {
       console.log('success');
     },
-    onError: console.log,
+    onError: console.log('error on submit login'),
   });
   return (
     <Container src={imageRoutes?.desktop_0_Home}>
@@ -36,7 +36,7 @@ const LogIn = ({ callbackUrl }) => {
         </Heading>
         <Flex sx={styles.column} as="form" onSubmit={handleSubmit(submitForm)}>
           <FormInput
-            label="Contraseña/Password:"
+            label="Contraseña / Password:"
             name="weddingId"
             placeholder="password"
             register={register}
@@ -45,7 +45,7 @@ const LogIn = ({ callbackUrl }) => {
             type="password"
           />
           <Button sx={styles.button} type="submit">
-            CONTINUE
+            ENVIAR / SUBMIT
           </Button>
         </Flex>
       </Flex>
