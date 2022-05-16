@@ -3,7 +3,7 @@ const styles = {
     height: 'auto',
     maxHeight: '900px',
     my: '100px',
-    pb: '170px',
+    // pb: '170px',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',

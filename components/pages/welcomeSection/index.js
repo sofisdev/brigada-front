@@ -43,7 +43,7 @@ const WelcomeSection = ({ layout }) => {
         src={imageRoutes?.desktop_0_Home_back}
       />
       <Box sx={styles?.container}>
-        <Image src={imageRoutes?.couple} sx={styles?.image} />
+        <Image loading="lazy" src={imageRoutes?.couple} sx={styles?.image} alt="couple" />
         <Flex sx={styles?.column}>
           <Box>
             <Themed.h1 sx={styles?.title}>SOFI & JAVI</Themed.h1>
@@ -56,9 +56,11 @@ const WelcomeSection = ({ layout }) => {
             </div>
           </Box>
           <Image
+            loading="lazy"
             onClick={handleArrow}
             src={imageRoutes?.arrowDown}
             sx={styles?.arrow}
+            alt="arrow"
           />
         </Flex>
       </Box>

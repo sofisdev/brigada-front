@@ -26,8 +26,8 @@ const MyApp = function ({ Component, pageProps }) {
       <Head>
         <title>Brigada</title>
         <FontLinks />
-
         <link rel="icon" href="/static/assets/images/icons/favicon.png" />
+        <meta name="googlebot" content="notranslate"/>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"

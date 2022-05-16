@@ -22,7 +22,7 @@ const Header = ({ setLanguage, language }) => {
             }}
             variant="transparent"
           >
-            <Image alt="close_icon" src={close} />
+            <Image loading="lazy" alt="close_icon" src={close} />
           </Button>
           <Flex sx={styles.navItems}>
             {navItems.map((item) => (
@@ -61,7 +61,7 @@ const Header = ({ setLanguage, language }) => {
         }}
         variant="transparent"
       >
-        <Image alt="menu_icon" src={menu} />
+        <Image loading="lazy" alt="menu_icon" src={menu} />
       </Button>
     </Flex>
   );

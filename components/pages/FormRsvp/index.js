@@ -179,6 +179,7 @@ const FormRsvp = ({ layout, language }) => {
 
           <Flex sx={styles?.rowCenter}>
             <Image
+              loading="lazy"
               alt="arrow-icon"
               src={imageRoutes?.arrowDown}
               sx={styles?.arrow}

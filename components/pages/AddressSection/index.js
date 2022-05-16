@@ -18,16 +18,8 @@ const AddressSection = ({ layout }) => {
   window.addEventListener('scroll', scrollControll);
   return (
     <section id="address" sx={styles?.section}>
-      <SpeedBox
-        speed="-0.5"
-        src={imageRoutes?.desktop_1_Gotis}
-        name="drops"
-      />
-      <SpeedBox
-        speed="-0.3"
-        src={imageRoutes?.mancha_1}
-        name="mancha1"
-      />
+      <SpeedBox speed="-0.5" src={imageRoutes?.desktop_1_Gotis} name="drops" />
+      <SpeedBox speed="-0.3" src={imageRoutes?.mancha_1} name="mancha1" />
       <Box sx={styles?.container}>
         <Box>
           <Themed.h1>{title}</Themed.h1>
@@ -37,10 +29,16 @@ const AddressSection = ({ layout }) => {
           </Link>
         </Box>
         <Flex sx={styles?.row}>
-          <Image sx={styles?.map} src={imageRoutes?.desktop_2_Finca} />
+          <Image
+            loading="lazy"
+            sx={styles?.map}
+            src={imageRoutes?.desktop_2_Finca}
+            alt="finca"
+          />
           <Box sx={styles.rightColumn}>
             <Flex sx={styles?.street}>
               <Image
+                loading="lazy"
                 alt="compass-icon"
                 src={imageRoutes?.icon_compass}
                 sx={styles?.icon}
@@ -58,6 +56,7 @@ const AddressSection = ({ layout }) => {
         </Flex>
         <Flex sx={styles?.rowCenter}>
           <Image
+            loading="lazy"
             alt="arrow-icon"
             src={imageRoutes?.arrowDown}
             sx={styles?.arrow}
