@@ -28,17 +28,17 @@ const FormRsvp = ({ layout, language }) => {
     success,
   } = layout.form;
 
-  const [plusOne, setPlusOne] = useState(null);
+  const [plusOne, setPlusOne] = useState(false);
   const [kid, addKid] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const [isSuccess, setSuccess] = useState();
   window.addEventListener('scroll', scrollControll);
 
-  const handleChangeGuest = (e) => {
-    setPlusOne(e.target.value);
+  const handleChangeGuest = () => {
+    setPlusOne(!plusOne);
   };
-  const handleChangeKid = (e) => {
-    addKid(e.target.value);
+  const handleChangeKid = () => {
+    addKid(!kid);
   };
 
   const {
@@ -87,7 +87,6 @@ const FormRsvp = ({ layout, language }) => {
       hash: routes?.patreon,
       query: { isKid: kid, success: isSuccess },
     });
-
   return (
     <section
       id="rsvp"
@@ -103,7 +102,7 @@ const FormRsvp = ({ layout, language }) => {
             <FormRadio
               register={register}
               label={guestLabel}
-              handleChange={(event) => handleChangeGuest(event)}
+              handleChange={handleChangeGuest}
               option1={optionsRadio?.[0]}
               option2={optionsRadio?.[1]}
               name="guest_plusOne"
@@ -114,7 +113,7 @@ const FormRsvp = ({ layout, language }) => {
             <FormRadio
               register={register}
               label={kidLabel}
-              handleChange={(event) => handleChangeKid(event)}
+              handleChange={handleChangeKid}
               option1={optionsRadio?.[0]}
               option2={optionsRadio?.[1]}
               name="kids"
@@ -137,20 +136,20 @@ const FormRsvp = ({ layout, language }) => {
             disabled={isLoading || isSuccess}
             errorMessage={errorMessage}
           />
-          {plusOne === 'true' && (
-            <FormAdult
-              title={titlePlusOneData}
-              errors={errors}
-              register={register}
-              optionsMenus={menus}
-              control={control}
-              name="guest_"
-              isRequired={!!plusOne}
-              language={language}
-              disabled={isLoading || isSuccess}
-              errorMessage={errorMessage}
-            />
-          )}
+
+          <FormAdult
+            title={titlePlusOneData}
+            errors={errors}
+            register={register}
+            optionsMenus={menus}
+            control={control}
+            name="guest_"
+            isRequired={!!plusOne}
+            language={language}
+            disabled={isLoading || !plusOne || isSuccess}
+            errorMessage={errorMessage}
+          />
+
           <FormTextArea
             label={
               language === 'es'

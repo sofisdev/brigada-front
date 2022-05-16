@@ -4,11 +4,12 @@ const styles = {
     my: '100px',
     backgroundImage: `url(${src})`,
     backgroundRepeat: 'no-repeat',
-    backgroundSize: 'contain',
+    backgroundSize: 'cover',
     backgroundPosition: 'initial',
     height: 'auto',
     width: '100vw',
     maxWidth: '100%',
+    maxHeight: 'calc(100vh + 85px)',
     p:'0px'
   }),
   container: {

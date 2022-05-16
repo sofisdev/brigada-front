@@ -20,8 +20,8 @@ const FormAdult = ({
   disabled,
 }) => (
   <>
-    <Themed.h3 sx={styles.heading}>{title}</Themed.h3>
-    <Flex sx={styles.row}>
+    <Themed.h3 sx={styles.heading(disabled)}>{title}</Themed.h3>
+    <Flex sx={styles.row(disabled)}>
       <FormInput
         label={language === 'es' ? 'Nombre *' : 'First name *'}
         name={`${name}name`}
@@ -44,7 +44,7 @@ const FormAdult = ({
       />
     </Flex>
 
-    <Flex sx={styles.row}>
+    <Flex sx={styles.row(disabled)}>
       <FormSelect
         label={language === 'es' ? 'Menú *' : 'Menu *'}
         name={`${name}diet`}

@@ -7,6 +7,9 @@ export const forms = {
     borderRadius: '0px',
     fontFamily: 'regular',
     color: 'text',
+    '&:disabled':{
+      color:'red'
+    }
   },
 
   label: {
@@ -16,6 +19,9 @@ export const forms = {
     fontSize: 2,
     letterSpacing: '2px',
     mt: '10px',
+    '&:disabled':{
+      color:'red'
+    }
   },
   radio: {
     color: 'blue',

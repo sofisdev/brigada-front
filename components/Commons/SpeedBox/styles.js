@@ -2,13 +2,13 @@ const styles = {
   container: (src) => ({
     backgroundImage: `url(${src})`,
     backgroundRepeat: 'no-repeat',
-    backgroundSize: 'contain',
+    backgroundSize: 'cover',
     height: '100%',
     width: '100vw',
     position: 'absolute',
     zIndex: '-1',
     maxWidth: '100%',
-    maxHeight: '100vh',
+    maxHeight: 'calc(100vh + 85px)',
   }),
 
   drops: (src) => ({
