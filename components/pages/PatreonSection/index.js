@@ -11,7 +11,7 @@ const PatreonSection = ({ language }) => {
   const { isKid, success } = router.query;
 
   return (
-    <section id="patreon" sx={styles?.container(imageRoutes.mancha_1)}>
+    <section id="patreon" sx={styles?.container(imageRoutes.mancha_4)}>
       <Box sx={styles?.textContainer}>
         <Box sx={styles.formSection}>
           {success && (

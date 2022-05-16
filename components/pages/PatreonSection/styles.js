@@ -1,28 +1,26 @@
 const styles = {
   container: (src) => ({
-    height: 'auto',
     maxHeight: '900px',
     my: '100px',
-    // pb: '170px',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
     backgroundImage: `url(${src})`,
     backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
+    backgroundSize: 'auto',
+    backgroundPosition: 'center top 30px',
     color: 'white',
     textAlign: 'center',
+    p:'250px'
   }),
-  formSection: {
-    mb: '50px',
-  },
   iban: {
     fontFamily: 'regular',
     color: 'inherit',
   },
   text: {
     color: 'inherit',
+  },
+  textContainer: {
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 };
 

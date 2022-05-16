@@ -14,21 +14,21 @@ import styles from './styles';
 
 const WelcomeSection = ({ layout }) => {
   const { date, title } = layout.home;
-  useEffect(() => {
-    const parallaxEls = document.querySelectorAll('[data-speed]');
-    function scrollHandler() {
-      const windowHeight = window.innerHeight;
-      for (const parallaxEl of parallaxEls) {
-        const elementTop = parallaxEl.getBoundingClientRect().top;
-        if (elementTop < windowHeight) {
-          const direction = parallaxEl.dataset.direction == 'up' ? '-' : '';
-          const transformY = this.pageYOffset * parallaxEl.dataset.speed;
-          parallaxEl.style.transform = `translate3d(0,${direction}${transformY}px,0)`;
-        }
-      }
-    }
-    window.addEventListener('scroll', scrollHandler);
-  }, [window.pageYOffset]);
+  // useEffect(() => {
+  //   const parallaxEls = document.querySelectorAll('[data-speed]');
+  //   function scrollHandler() {
+  //     const windowHeight = window.innerHeight;
+  //     for (const parallaxEl of parallaxEls) {
+  //       const elementTop = parallaxEl.getBoundingClientRect().top;
+  //       if (elementTop < windowHeight) {
+  //         const direction = parallaxEl.dataset.direction == 'up' ? '-' : '';
+  //         const transformY = this.pageYOffset * parallaxEl.dataset.speed;
+  //         parallaxEl.style.transform = `translate3d(0,${direction}${transformY}px,0)`;
+  //       }
+  //     }
+  //   }
+  //   window.addEventListener('scroll', scrollHandler);
+  // }, [window.pageYOffset]);
 
   const handleArrow = () =>
     Router.push({
