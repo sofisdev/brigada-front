@@ -28,7 +28,7 @@ const FormAdult = ({
         placeholder={language === 'es' ? 'Nombre' : 'First name'}
         register={register}
         isRequired={isRequired}
-        errors={errors}
+        errors={!disabled && errors}
         disabled={disabled}
         errorMessage={errorMessage}
       />
@@ -38,7 +38,7 @@ const FormAdult = ({
         placeholder={language === 'es' ? 'Apellidos' : 'Last name'}
         register={register}
         isRequired={isRequired}
-        errors={errors}
+        errors={!disabled && errors}
         disabled={disabled}
         errorMessage={errorMessage}
       />
@@ -55,7 +55,7 @@ const FormAdult = ({
         }
         options={optionsMenus?.[language]}
         isSearchable={false}
-        errors={errors}
+        errors={!disabled && errors}
         disabled={disabled}
         errorMessage={errorMessage}
       />
@@ -68,7 +68,7 @@ const FormAdult = ({
             : 'Diabetic, lactose-intolerant, etc'
         }
         register={register}
-        errors={errors}
+        errors={!disabled && errors}
         disabled={disabled}
         errorMessage={errorMessage}
       />
@@ -88,7 +88,7 @@ const FormAdult = ({
           }
           options={optionsTransport?.[language]}
           isSearchable={false}
-          errors={errors}
+          errors={!disabled && errors}
           isRequired={isRequired}
           disabled={disabled}
           errorMessage={errorMessage}

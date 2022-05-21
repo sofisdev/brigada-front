@@ -21,12 +21,12 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    background: 'rgba(255,255,255,0.5)',
-    '-webkit-backdrop-filter': 'blur(10px)',
-    backdropFilter: 'blur(10px)',
-    border: '1px solid rgba(255,255,255,0.25)',
-    p: '20px',
-    borderRadius: '20px',
+    background: ['rgba(255,255,255,0.5)', 'none'],
+    '-webkit-backdrop-filter': ['blur(10px)', 'none'],
+    backdropFilter: ['blur(10px)', 'none'],
+    border: ['1px solid rgba(255,255,255,0.25)', '0px'],
+    p: ['20px', '0px'],
+    borderRadius: ['20px', '0px'],
   },
 };
 
