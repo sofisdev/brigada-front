@@ -90,7 +90,7 @@ const FormRsvp = ({ layout, language }) => {
   return (
     <section
       id="rsvp"
-      sx={styles.section(kid && plusOne, imageRoutes?.desktop_0_back)}
+      sx={styles.section(kid && plusOne, imageRoutes?.desktop_0_back, imageRoutes?.mobile_0_back3)}
     >
       <Box
         sx={() => styles.container}

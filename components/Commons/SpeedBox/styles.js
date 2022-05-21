@@ -18,10 +18,12 @@ const styles = {
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'contain',
     height: '220px',
-    width: '500px',
+    width: ['180px', '500px'],
     position: 'absolute',
     zIndex: '-1',
-    left: '30vw',
+    left: ['auto', '30vw'],
+    right: ['20px', 'auto'],
+    top: '180px',
   }),
 
   mancha1: (src) => ({

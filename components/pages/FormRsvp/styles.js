@@ -1,16 +1,16 @@
 const styles = {
-  section: (bool, src) => ({
+  section: (bool, src, srcMobile) => ({
     minHeight: bool ? '900px' : 'auto',
     my: '100px',
-    backgroundImage: `url(${src})`,
+    backgroundImage: [`url(${srcMobile || src})`, `url(${src})`],
     backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
+    backgroundSize: ['contain', 'cover'],
     backgroundPosition: 'initial',
     height: 'auto',
     width: '100vw',
     maxWidth: '100%',
-    maxHeight: 'calc(100vh + 85px)',
-    p:'0px'
+    maxHeight: ['200vh', 'calc(100vh + 85px)'],
+    p: '0px',
   }),
   container: {
     my: '100px',
