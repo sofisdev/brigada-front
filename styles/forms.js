@@ -11,7 +11,6 @@ export const forms = {
       color:'red'
     }
   },
-
   label: {
     display: 'flex',
     alignItems: 'center',

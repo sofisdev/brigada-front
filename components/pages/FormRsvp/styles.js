@@ -32,6 +32,11 @@ const styles = {
     mt: '15px',
     mb: '50px',
   },
+  spinner: {
+    width: '100%',
+    mt: '0px',
+    mb: '30px',
+  },
   formSection: {
     borderRadius: '20px',
     background: 'rgba(255,255,255,0.5)',

@@ -15,7 +15,7 @@ const styles = {
   },
   image: {
     clipPath: 'polygon(30% 70% 70% 30% / 30% 30% 70% 70%)',
-    maxWidth: ['100%', '480px'],
+    maxWidth: ['80vw', '380px', '480px'],
     height: 'auto',
   },
   arrow: {

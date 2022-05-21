@@ -90,7 +90,11 @@ const FormRsvp = ({ layout, language }) => {
   return (
     <section
       id="rsvp"
-      sx={styles.section(kid && plusOne, imageRoutes?.desktop_0_back, imageRoutes?.mobile_0_back3)}
+      sx={styles.section(
+        kid && plusOne,
+        imageRoutes?.desktop_0_back,
+        imageRoutes?.mobile_0_back3,
+      )}
     >
       <Box
         sx={() => styles.container}
@@ -136,7 +140,6 @@ const FormRsvp = ({ layout, language }) => {
             disabled={isLoading || isSuccess}
             errorMessage={errorMessage}
           />
-
           <FormAdult
             title={titlePlusOneData}
             errors={errors}
@@ -149,7 +152,6 @@ const FormRsvp = ({ layout, language }) => {
             disabled={isLoading || !plusOne || isSuccess}
             errorMessage={errorMessage}
           />
-
           <FormTextArea
             label={
               language === 'es'
@@ -167,14 +169,16 @@ const FormRsvp = ({ layout, language }) => {
             disabled={isLoading || isSuccess}
             errorMessage={errorMessage}
           />
-          <Button
-            sx={styles.button}
-            type="submit"
-            disabled={isLoading || isSuccess}
-          >
-            {!isLoading && !isSuccess ? caption : isSuccess && success}
-            {isLoading && <Spinner variant="spinner.form" />}
-          </Button>
+          {!isLoading && (
+            <Button
+              sx={styles.button}
+              type="submit"
+              disabled={isLoading || isSuccess}
+            >
+              {!isLoading && !isSuccess ? caption : isSuccess && success}
+            </Button>
+          )}
+          {isLoading && <Spinner sx={styles.spinner} variant="spinner.form" />}
 
           <Flex sx={styles?.rowCenter}>
             <Image
