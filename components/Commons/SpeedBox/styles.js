@@ -1,14 +1,16 @@
 const styles = {
-  container: (src) => ({
-    backgroundImage: `url(${src})`,
+  container: (src, srcMobile) => ({
+    backgroundImage: [`url(${srcMobile || src})`, `url(${src})`],
     backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
+    backgroundSize: ['contain', 'cover'],
     height: '100%',
     width: '100vw',
     position: 'absolute',
+    top: ['60px', '0px'],
     zIndex: '-1',
     maxWidth: '100%',
-    maxHeight: 'calc(100vh + 85px)',
+    maxHeight: ['100vh', 'calc(100vh + 85px)'],
+    opacity: ['0.8', '1'],
   }),
 
   drops: (src) => ({

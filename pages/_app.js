@@ -24,9 +24,10 @@ const MyApp = function ({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Brigada</title>
+        <title>Somos Brigada</title>
         <FontLinks />
         <link rel="icon" href="/static/assets/images/icons/favicon.png" />
+        <meta name="description" content="We are brigada, RSVP" />
         <meta name="googlebot" content="notranslate"/>
         <meta
           name="viewport"

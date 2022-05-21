@@ -6,7 +6,7 @@ const styles = {
     textAlign: 'right',
     alignItems: 'center',
     minHeight: ['80vh', '100vh'],
-    p: ['0px 30px', '20px 80px'],
+    p: ['105px 30px 0px 30px', '20px 80px'],
   },
   column: {
     flexDirection: 'column',
@@ -21,7 +21,7 @@ const styles = {
   arrow: {
     width: '50px',
     height: 'auto',
-    mt: ['0px', '80px'],
+    mt: ['40px', '80px'],
   },
   brigada: {
     fontFamily: 'regular',
@@ -42,7 +42,8 @@ const styles = {
   },
   title: {
     color: 'black',
-    fontSize: [6, '60px'],
+    fontSize: [8, '60px'],
+    pt: ['20px', '0px'],
   },
 };
 

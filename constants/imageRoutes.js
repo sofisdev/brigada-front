@@ -9,6 +9,7 @@ export default {
   icon_warning: '/static/assets/images/icon_warning.png',
   desktop_0_Home: '/static/assets/images/desktop_0_Home.png',
   desktop_0_Home_back: '/static/assets/images/desktop_0_Home_back.png',
+  mobile_0_Home_back: '/static/assets/images/mobile_0_Home_back.png',
   desktop_0_back: '/static/assets/images/desktop_0_back.png',
   desktop_2_Finca: '/static/assets/images/desktop_2_Finca.png',
   desktop_1_Gotis: '/static/assets/images/desktop_1_Gotis.png',
