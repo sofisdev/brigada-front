@@ -6,16 +6,22 @@ const styles = {
     backgroundRepeat: 'no-repeat',
     backgroundSize: ['contain', 'auto'],
     backgroundPosition: ['center', 'center top 30px'],
-    color: ['black', 'white'],
+    color: 'black',
     textAlign: 'center',
-    p: ['120px 20px', '250px'],
+    p: ['0px 20px 130px', '250px 300px'],
   }),
   iban: {
     fontFamily: 'regular',
     color: 'inherit',
+    p: '10px 0px',
+    width: '100%',
+    borderRadius: '10px',
+    '&:hover': {
+      bg: 'yellow',
+    },
   },
   text: {
-    color: 'inherit',
+    color: 'black',
   },
   textContainer: {
     flexDirection: 'column',

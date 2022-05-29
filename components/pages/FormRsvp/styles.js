@@ -6,7 +6,7 @@ const styles = {
     backgroundRepeat: 'no-repeat',
     backgroundSize: ['100vw 150vh', 'contain'],
     backgroundPosition: 'initial',
-    height: '150vh',
+    // height: '150vh',
     width: ['auto', '100vw'],
     maxWidth: ['auto', '100%'],
     maxHeight: ['100%', 'calc(100vh + 85px)'],

@@ -77,7 +77,7 @@ const FormRsvp = ({ layout, language }) => {
       await setSuccess(true);
       Router.push({
         hash: routes?.patreon,
-        query: { isKid: kid, success: isSuccess },
+        query: { isKid: kid, success: true },
       });
     },
     onError: async () => {

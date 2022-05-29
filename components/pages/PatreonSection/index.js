@@ -13,16 +13,16 @@ const PatreonSection = ({ language }) => {
   return (
     <section id="patreon" sx={styles?.container(imageRoutes.mancha_4)}>
       <Box sx={styles?.textContainer}>
-        <Box sx={styles.formSection}>
+        <Box >
           {success && (
-            <Themed.h2>
+            <Themed.h2 sx={styles.text}>
               {language === 'es'
                 ? '¡Gracias! Ya formas parte del clan brigada!'
                 : 'Thanks! You are now part of our clan "Brigada"!'}
             </Themed.h2>
           )}
           {isKid === 'true' && (
-            <Themed.h2>
+            <Themed.h2 sx={styles.text}>
               {language === 'es'
                 ? 'Si has marcado que vienes con tus peques, nos pondremos en contacto contigo'
                 : 'If you said you will bring your kids, we will contact you'}

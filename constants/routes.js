@@ -7,4 +7,5 @@ export default {
   timing: '#timing',
   guestList: '#rsvp',
   patreon: '#patreon',
+  index: '/',
 };

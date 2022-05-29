@@ -18,6 +18,7 @@ export async function middleware(req = NextRequest) {
       process.env.NEXTAUTH_URL,
   });
   const { pathname } = req.nextUrl;
+
   if (pathname.includes(routes.api) || !!token || !isAppRoute(pathname)) {
     return NextResponse.next();
   }
