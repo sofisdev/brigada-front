@@ -14,7 +14,7 @@ const styles = {
   }),
   container: {
     my: '100px',
-    p: ['10px 30px', '150px 80px'],
+    p: ['90px 30px', '150px 80px'],
   },
   row: {
     height: '50px',

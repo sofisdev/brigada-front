@@ -5,7 +5,7 @@ const styles = {
   },
   container: {
     my: ['50px', '100px'],
-    p: ['20px 30px', '20px 80px'],
+    p: ['85px 30px', '20px 80px'],
   },
   row: {
     alignItems: 'center',

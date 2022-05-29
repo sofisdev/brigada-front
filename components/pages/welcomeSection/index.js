@@ -4,8 +4,7 @@
 /** @jsxImportSource theme-ui */
 import Router from 'next/router';
 import { PropTypes } from 'prop-types';
-import { useEffect } from 'react';
-import { Box, Button, Flex, Image, Themed } from 'theme-ui';
+import { Box, Flex, Image, Themed } from 'theme-ui';
 
 import imageRoutes from '../../../constants/imageRoutes';
 import routes from '../../../constants/routes';
@@ -26,7 +25,7 @@ const WelcomeSection = ({ layout }) => {
         speed="0.1"
         className="welcome"
         src={imageRoutes?.desktop_0_Home_back}
-        srcMobile={imageRoutes?.mobile_0_Home_back}
+        srcMobile={imageRoutes?.mobile_0_back}
       />
       <Box sx={styles?.container}>
         <Image src={imageRoutes?.couple} sx={styles?.image} alt="couple" />
