@@ -20,12 +20,10 @@ export async function middleware(req = NextRequest) {
   const { pathname } = req.nextUrl;
 
   if (pathname.includes(routes.api) || !!token || !isAppRoute(pathname)) {
-    console.log('here 2');
     return NextResponse.next();
   }
 
   if (!token && pathname !== routes.login) {
-    console.log('here 3');
     const url = req.nextUrl.clone();
     url.pathname = routes.login;
     return NextResponse.rewrite(url);
