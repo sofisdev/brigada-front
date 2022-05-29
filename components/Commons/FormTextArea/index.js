@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
 import { PropTypes } from 'prop-types';
-import { Flex, Input, Label, Text, Textarea } from 'theme-ui';
+import { Flex, Label, Text, Textarea } from 'theme-ui';
 
 import styles from './styles';
 
@@ -12,12 +12,13 @@ const FormTextArea = ({
   errors,
   errorMessage,
   isHidden,
+  disabled,
   ...props
 }) => (
   <Flex sx={styles?.field}>
-    {label && <Label>{label}</Label>}
+    {label && <Label variant={!disabled ? 'forms.label' : 'forms.labelDisabled'}>{label}</Label>}
 
-    <Textarea {...register(name, { required: isRequired })} {...props} />
+    <Textarea disabled={disabled} {...register(name, { required: isRequired })} {...props} />
     {errors?.[name]?.type === 'required' && (
       <Text variant="error">{errorMessage}</Text>
     )}

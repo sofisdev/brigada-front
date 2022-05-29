@@ -32,6 +32,7 @@ const FormRsvp = ({ layout, language }) => {
   const [kid, addKid] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const [isSuccess, setSuccess] = useState();
+  const [isErrorForm, setErrorForm] = useState(false);
   window.addEventListener('scroll', scrollControll);
 
   const handleChangeGuest = () => {
@@ -79,7 +80,10 @@ const FormRsvp = ({ layout, language }) => {
         query: { isKid: kid, success: isSuccess },
       });
     },
-    onError: console.log,
+    onError: async () => {
+      await setLoading(false);
+      await setErrorForm(true);
+    },
   });
 
   const handleArrow = () =>
@@ -93,7 +97,7 @@ const FormRsvp = ({ layout, language }) => {
       sx={styles.section(
         kid && plusOne,
         imageRoutes?.desktop_0_back,
-        imageRoutes?.mobile_0_back3,
+        imageRoutes?.mobile_0_back4,
       )}
     >
       <Box
@@ -111,7 +115,7 @@ const FormRsvp = ({ layout, language }) => {
               option2={optionsRadio?.[1]}
               name="guest_plusOne"
               errors={errors}
-              disabled={isLoading || isSuccess}
+              disabled={isLoading || isSuccess || isErrorForm}
               errorMessage={errorMessage}
             />
             <FormRadio
@@ -122,7 +126,7 @@ const FormRsvp = ({ layout, language }) => {
               option2={optionsRadio?.[1]}
               name="kids"
               errors={errors}
-              disabled={isLoading || isSuccess}
+              disabled={isLoading || isSuccess || isErrorForm}
               errorMessage={errorMessage}
             />
           </Flex>
@@ -137,7 +141,7 @@ const FormRsvp = ({ layout, language }) => {
             isRequired
             selectBus
             language={language}
-            disabled={isLoading || isSuccess}
+            disabled={isLoading || isSuccess || isErrorForm}
             errorMessage={errorMessage}
           />
           <FormAdult
@@ -149,7 +153,7 @@ const FormRsvp = ({ layout, language }) => {
             name="guest_"
             isRequired={!!plusOne}
             language={language}
-            disabled={isLoading || !plusOne || isSuccess}
+            disabled={isLoading || !plusOne || isSuccess || isErrorForm}
             errorMessage={errorMessage}
           />
           <FormTextArea
@@ -166,20 +170,28 @@ const FormRsvp = ({ layout, language }) => {
             }
             register={register}
             errors={errors}
-            disabled={isLoading || isSuccess}
+            disabled={isLoading || isSuccess || isErrorForm}
             errorMessage={errorMessage}
           />
           {!isLoading && (
             <Button
               sx={styles.button}
               type="submit"
-              disabled={isLoading || isSuccess}
+              disabled={isLoading || isSuccess || isErrorForm}
             >
               {!isLoading && !isSuccess ? caption : isSuccess && success}
             </Button>
           )}
-          {isLoading && <Spinner sx={styles.spinner} variant="spinner.form" />}
-
+          {isLoading && !isErrorForm && (
+            <Spinner sx={styles.spinner} variant="spinner.form" />
+          )}
+          {isErrorForm && (
+            <Box
+              sx={styles.errorForm}
+            >
+              Error en el formulario, por favor contacte a los novios
+            </Box>
+          )}
           <Flex sx={styles?.rowCenter}>
             <Image
               loading="lazy"

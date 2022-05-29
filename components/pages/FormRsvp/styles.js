@@ -4,12 +4,12 @@ const styles = {
     my: '100px',
     backgroundImage: [`url(${srcMobile || src})`, `url(${src})`],
     backgroundRepeat: 'no-repeat',
-    backgroundSize: ['contain', 'cover'],
+    backgroundSize: ['100vw 150vh', 'contain'],
     backgroundPosition: 'initial',
-    height: 'auto',
-    width: '100vw',
-    maxWidth: '100%',
-    maxHeight: ['200vh', 'calc(100vh + 85px)'],
+    height: '150vh',
+    width: ['auto', '100vw'],
+    maxWidth: ['auto', '100%'],
+    maxHeight: ['100%', 'calc(100vh + 85px)'],
     p: '0px',
   }),
   container: {
@@ -61,6 +61,15 @@ const styles = {
   },
   rowCenter: {
     justifyContent: 'center',
+  },
+  errorForm: {
+    width: '100%',
+    p: '5px',
+    bg: '#CB704A',
+    textAlign: 'center',
+    borderRadius: '10px',
+    color: 'white',
+    mb: '20px',
   },
 };
 

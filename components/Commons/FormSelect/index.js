@@ -17,7 +17,7 @@ const FormSelect = ({
   ...props
 }) => (
   <Box sx={styles.field}>
-    {label && <Label>{label}</Label>}
+    {label && <Label variant={!disabled ? 'forms.label' : 'forms.labelDisabled'}>{label}</Label>}
     <Controller
       name={name}
       control={control}

@@ -18,9 +18,9 @@ const FormRadio = ({
   ...props
 }) => (
   <Box sx={styles.field}>
-    <Label>{label}</Label>
+    <Label variant={!disabled ? 'forms.label' : 'forms.labelDisabled'}>{label}</Label>
     <Flex>
-      <Label>
+      <Label variant={!disabled ? 'forms.label' : 'forms.labelDisabled'}>
         <Radio
           {...register(name, { required: true })}
           {...props}
@@ -31,7 +31,7 @@ const FormRadio = ({
         />
         <p sx={{ m: '0' }}>{option1}</p>
       </Label>
-      <Label>
+      <Label variant={!disabled ? 'forms.label' : 'forms.labelDisabled'}>
         <Radio
           {...register(name, { required: true })}
           type="radio"

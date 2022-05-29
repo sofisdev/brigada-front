@@ -10,10 +10,9 @@ const styles = {
     fontFamily: 'headingBold',
     opacity: disabled && '0.5',
   }),
-  row: (disabled = false) => ({
+  row: {
     flexDirection: ['column', 'row'],
-    opacity: disabled && '0.5',
-  }),
+  },
 };
 
 export default styles;

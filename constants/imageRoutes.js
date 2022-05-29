@@ -12,6 +12,7 @@ export default {
   mobile_0_Home_back: '/static/assets/images/mobile_0_Home_back.png',
   desktop_0_back: '/static/assets/images/desktop_0_back.png',
   mobile_0_back3: '/static/assets/images/mobile_0_back3.png',
+  mobile_0_back4: '/static/assets/images/mobile_0_back4.png',
   desktop_2_Finca: '/static/assets/images/desktop_2_Finca.png',
   desktop_1_Gotis: '/static/assets/images/desktop_1_Gotis.png',
   mancha_1: '/static/assets/images/mancha_1.png',

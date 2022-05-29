@@ -16,7 +16,11 @@ const FormInput = ({
   ...props
 }) => (
   <Flex sx={styles?.field}>
-    {label && <Label>{label}</Label>}
+    {label && (
+      <Label variant={!disabled ? 'forms.label' : 'forms.labelDisabled'}>
+        {label}
+      </Label>
+    )}
     <Input
       {...register(name, { required: isRequired })}
       {...props}

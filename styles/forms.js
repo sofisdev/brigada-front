@@ -7,9 +7,9 @@ export const forms = {
     borderRadius: '0px',
     fontFamily: 'regular',
     color: 'text',
-    '&:disabled':{
-      color:'red'
-    }
+    '&:disabled': {
+      opacity: '0.5',
+    },
   },
   label: {
     display: 'flex',
@@ -18,18 +18,29 @@ export const forms = {
     fontSize: 2,
     letterSpacing: '2px',
     mt: '10px',
-    '&:disabled':{
-      color:'red'
-    }
+    '&:disabled': {
+      opacity: '0.5',
+    },
+  },
+  labelDisabled: {
+    display: 'flex',
+    alignItems: 'center',
+    fontFamily: 'regular',
+    fontSize: 2,
+    letterSpacing: '2px',
+    mt: '10px',
+    opacity: '0.5',
   },
   radio: {
+    variant: 'forms.input',
     color: 'blue',
+    boxShadow: 'none',
+    bg: 'transparent',
   },
   checkbox: {
     color: 'blue',
   },
   textarea: {
     variant: 'forms.input',
-    resize: 'vertical',
   },
 };
