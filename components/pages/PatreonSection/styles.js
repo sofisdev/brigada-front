@@ -8,7 +8,7 @@ const styles = {
     backgroundPosition: ['center', 'center top 30px'],
     color: 'black',
     textAlign: 'center',
-    p: ['0px 20px 130px', '250px 300px'],
+    p: ['85px 20px 130px', '250px 300px'],
   }),
   iban: {
     fontFamily: 'regular',
