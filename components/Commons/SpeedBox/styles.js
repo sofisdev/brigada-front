@@ -2,7 +2,7 @@ const styles = {
   container: (src, srcMobile) => ({
     backgroundImage: [`url(${srcMobile || src})`, `url(${src})`],
     backgroundRepeat: 'no-repeat',
-    backgroundSize: ['contain', 'cover'],
+    backgroundSize: ['contain', 'contain'],
     height: '100%',
     width: '100vw',
     position: 'absolute',

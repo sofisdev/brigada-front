@@ -4,7 +4,7 @@ import { PropTypes } from 'prop-types';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useMutation } from 'react-query';
-import { Box, Button, Flex, Image, Spinner } from 'theme-ui';
+import { Box, Button, Flex, Image, Spinner, Themed } from 'theme-ui';
 
 import imageRoutes from '../../../constants/imageRoutes';
 import { menus, transportation } from '../../../constants/options';
@@ -105,6 +105,7 @@ const FormRsvp = ({ layout, language }) => {
         as="form"
         onSubmit={handleSubmit(submitForm)}
       >
+        <Themed.h1>RSVP - ¡APÚNTAME!</Themed.h1>
         <Box sx={styles.formSection}>
           <Flex sx={styles.options}>
             <FormRadio

@@ -22,6 +22,7 @@ const styles = {
   },
   text: {
     color: 'black',
+    whiteSpace: 'pre-wrap',
   },
   textContainer: {
     flexDirection: 'column',

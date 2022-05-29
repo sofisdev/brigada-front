@@ -13,7 +13,7 @@ const PatreonSection = ({ language }) => {
   return (
     <section id="patreon" sx={styles?.container(imageRoutes.mancha_4)}>
       <Box sx={styles?.textContainer}>
-        <Box >
+        <Box>
           {success && (
             <Themed.h2 sx={styles.text}>
               {language === 'es'
@@ -31,8 +31,8 @@ const PatreonSection = ({ language }) => {
         </Box>
         <Themed.h2 sx={styles.text}>
           {language === 'es'
-            ? '¿Quieres patrocinar nuestra boda?'
-            : '¿Do you want to be a patreon of our wedding?'}
+            ? 'No tenemos lista de bodas,\n¡Lo que sí tenemos son ganas de celebrar, bailar, comer y beber con todos vosotros!\nAnte las preguntas recibidas, si os apetece patrocinar nuestra luna de miel os dejamos el siguiente número de cuenta:'
+            : "We don't have a wedding registry,\n¡What we are so excited about is to celebrate, dance and drink with all of you!\nDue to received questions, if you'd still want to be a patreon to our wedding, you can find a bank account here below:"}
         </Themed.h2>
         <Themed.h2 sx={styles.iban}>{`IBAN: ${
           process.env.NEXT_PUBLIC_IBAN_NUMBER_COUNTRY
