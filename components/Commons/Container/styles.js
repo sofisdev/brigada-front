@@ -1,6 +1,6 @@
 const styles = {
-  container: (src) => ({
-    backgroundImage: `url(${src})`,
+  container: (src, srcMobile) => ({
+    backgroundImage: [`url(${srcMobile || src})`, `url(${src})`],
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundPosition:'center',

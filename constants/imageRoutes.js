@@ -11,6 +11,7 @@ export default {
   desktop_0_Home_back: '/static/assets/images/desktop_0_Home_back.png',
   mobile_0_back: '/static/assets/images/mobile_0_back.png',
   desktop_0_back: '/static/assets/images/desktop_0_back.png',
+  mobile_login: '/static/assets/images/mobile_0_back_login.png',
   mobile_0_back2: '/static/assets/images/mobile_0_back2.png',
   mobile_0_back3: '/static/assets/images/mobile_0_back3.png',
   mobile_0_back4: '/static/assets/images/mobile_0_back4.png',

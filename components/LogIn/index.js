@@ -29,7 +29,7 @@ const LogIn = ({ callbackUrl }) => {
     onError: console.log('error on submit login'),
   });
   return (
-    <Container src={imageRoutes?.desktop_0_Home}>
+    <Container src={imageRoutes?.desktop_0_Home} srcMobile={imageRoutes?.mobile_login}>
       <Flex sx={styles.colOneContainer}>
         <Heading as="h1" sx={styles.text}>
           ¡SOMOS BRIGADA!
