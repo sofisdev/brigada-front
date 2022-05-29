@@ -7,7 +7,7 @@ const THIRD_PARTY = config.get('THIRD_PARTY');
 const redirects = async () => [
   {
     source: '/',
-    destination: '/login',
+    destination: '/home',
     permanent: true,
   },
 ];

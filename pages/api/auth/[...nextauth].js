@@ -4,7 +4,6 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 
 import { jwtCallback, sessionCallback } from '../../../lib/nextAuth';
 import {
-  getLayout,
   postVerifyCredentials,
 } from '../../../repository/platformApi';
 
