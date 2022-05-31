@@ -1,7 +1,7 @@
 export default {
   menu: '/static/assets/images/menu_black.svg',
   close: '/static/assets/images/close_black.svg',
-  couple: '/static/assets/images/couple_small.png',
+  couple: '/static/assets/images/couple.png',
   background: '/static/assets/images/background_small.png',
   arrowDown: '/static/assets/images/arrow_down.png',
   test: '/static/assets/images/test.png',
@@ -16,6 +16,7 @@ export default {
   mobile_0_back3: '/static/assets/images/mobile_0_back3.png',
   mobile_0_back4: '/static/assets/images/mobile_0_back4.png',
   desktop_2_Finca: '/static/assets/images/desktop_2_Finca.png',
+  mobile_2_Finca: '/static/assets/images/mobile_2_Finca.png',
   desktop_1_Gotis: '/static/assets/images/desktop_1_Gotis.png',
   mancha_1: '/static/assets/images/mancha_1.png',
   mancha_2: '/static/assets/images/mancha_2.png',

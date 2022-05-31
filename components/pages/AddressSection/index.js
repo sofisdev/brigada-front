@@ -5,7 +5,6 @@ import { Box, Flex, Image, Link, Themed } from 'theme-ui';
 
 import imageRoutes from '../../../constants/imageRoutes';
 import routes from '../../../constants/routes';
-import { scrollControll } from '../../../utils/scrollControll';
 import SpeedBox from '../../Commons/SpeedBox';
 import styles from './styles';
 
@@ -15,7 +14,6 @@ const AddressSection = ({ layout }) => {
     Router.push({
       hash: routes.guestList,
     });
-  window.addEventListener('scroll', scrollControll);
   return (
     <section id="address" sx={styles?.section}>
       <SpeedBox speed="-0.5" src={imageRoutes?.desktop_1_Gotis} name="drops" />
@@ -32,7 +30,7 @@ const AddressSection = ({ layout }) => {
           <Image
             loading="lazy"
             sx={styles?.map}
-            src={imageRoutes?.desktop_2_Finca}
+            src={imageRoutes?.mobile_2_Finca}
             alt="finca"
           />
           <Box sx={styles.rightColumn}>

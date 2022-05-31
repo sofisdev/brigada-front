@@ -10,7 +10,6 @@ import imageRoutes from '../../../constants/imageRoutes';
 import { menus, transportation } from '../../../constants/options';
 import routes from '../../../constants/routes';
 import { postForm } from '../../../repository/platformApi';
-import { scrollControll } from '../../../utils/scrollControll';
 import FormAdult from '../../Commons/FormAdult';
 import FormRadio from '../../Commons/FormRadio';
 import FormTextArea from '../../Commons/FormTextArea';
@@ -33,7 +32,6 @@ const FormRsvp = ({ layout, language }) => {
   const [isLoading, setLoading] = useState(false);
   const [isSuccess, setSuccess] = useState();
   const [isErrorForm, setErrorForm] = useState(false);
-  window.addEventListener('scroll', scrollControll);
 
   const handleChangeGuest = () => {
     setPlusOne(!plusOne);
