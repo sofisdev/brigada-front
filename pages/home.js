@@ -3,6 +3,7 @@ import { Box, Flex, Spinner, Themed } from 'theme-ui';
 
 import WithMainLayout from '../components/hocs/WithMainLayout';
 import AddressSection from '../components/pages/AddressSection';
+import FaqSection from '../components/pages/FaqSection';
 import FormRsvp from '../components/pages/FormRsvp';
 import PatreonSection from '../components/pages/PatreonSection';
 import WelcomeSection from '../components/pages/welcomeSection';
@@ -15,6 +16,7 @@ const HomePage = ({ layout, language }) => (
         <AddressSection layout={layout} />
         <FormRsvp layout={layout} language={language} />
         <PatreonSection layout={layout} language={language} />
+        <FaqSection layout={layout} language={language} />
       </>
     ) : (
       <Flex

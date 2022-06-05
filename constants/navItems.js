@@ -1,6 +1,6 @@
 import routes from './routes';
 
-const { address, homeSection, patreon, guestList, timing } = routes;
+const { address, homeSection, patreon, guestList, faq } = routes;
 
 export const navItems = [
   {
@@ -16,20 +16,20 @@ export const navItems = [
     parameters: true,
   },
   {
-    name: { en: 'Timing', es: 'Horario' },
-    link: timing,
-    divider: true,
-    parameters: true,
-  },
-  {
     name: { en: 'RSVP', es: '¡Apúntame!' },
     link: guestList,
     divider: true,
     parameters: true,
   },
   {
-    name: { en: 'Registry', es: 'Patrocina nuestra boda' },
+    name: { en: 'Registry', es: 'Agradecimientos' },
     link: patreon,
+    divider: true,
+    parameters: true,
+  },
+  {
+    name: { en: 'FAQ', es: 'PReguntas frecuentes' },
+    link: faq,
     divider: true,
     parameters: true,
   },
