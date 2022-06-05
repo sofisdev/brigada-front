@@ -7,7 +7,7 @@ const fadeBottom = keyframes({
 
 export const styles = {
   root: {
-    overflowX:'hidden',
+    overflowX: 'hidden',
     fontFamily: 'regular',
     lineHeight: 'body',
     fontWeight: 'body',
@@ -17,7 +17,6 @@ export const styles = {
       my: '300px',
     },
   },
-
   h1: {
     variant: 'text.heading',
     fontSize: [6, '43px'],

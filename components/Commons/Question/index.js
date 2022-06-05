@@ -4,10 +4,10 @@ import { Box, Flex } from 'theme-ui';
 import styles from './styles';
 
 const Container = ({ question, answer }) => (
-  <Box sx={styles?.question} >
+  <Box sx={styles?.question}>
     <details>
-      <summary>{question}</summary>
-      <p>{answer}</p>
+      <summary sx={styles?.title}>{question}</summary>
+      <p sx={styles?.answer}>{answer}</p>
     </details>
   </Box>
 );
