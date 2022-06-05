@@ -7,7 +7,7 @@ const styles = {
     backgroundSize: ['contain', 'auto'],
     backgroundPosition: ['center', 'center top 30px'],
     color: 'black',
-    textAlign: 'center',
+    textAlign: 'left',
     p: ['85px 20px 130px', '250px 300px'],
   }),
   iban: {

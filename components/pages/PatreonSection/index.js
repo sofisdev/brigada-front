@@ -12,6 +12,7 @@ const PatreonSection = ({ language }) => {
 
   return (
     <section id="patreon" sx={styles?.container(imageRoutes.mancha_4)}>
+      <Themed.h1>REGALO / REGISTRY</Themed.h1>
       <Box sx={styles?.textContainer}>
         <Box>
           {success && (
