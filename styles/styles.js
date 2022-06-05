@@ -1,10 +1,3 @@
-import { keyframes } from '@emotion/react';
-
-const fadeBottom = keyframes({
-  from: { transform: 'translateY(150px)', opacity: 0 },
-  to: { transform: 'translateY(0)', opacity: 1 },
-});
-
 export const styles = {
   root: {
     overflowX: 'hidden',
@@ -26,12 +19,15 @@ export const styles = {
   h2: {
     variant: 'text.heading',
     fontSize: 5,
+    whiteSpace: 'pre-wrap',
   },
   h3: {
     variant: 'text.heading',
+    fontFamily: 'headingBold',
     fontSize: 3,
     mb: '5px',
     mt: '0px',
+    whiteSpace: 'pre-wrap',
   },
   h4: {
     variant: 'text.heading',

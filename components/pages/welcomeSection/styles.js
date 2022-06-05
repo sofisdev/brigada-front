@@ -14,9 +14,16 @@ const styles = {
     justifyContent: 'space-between',
   },
   image: {
-    clipPath: 'polygon(30% 70% 70% 30% / 30% 30% 70% 70%)',
+    display: ['none', 'block'],
+    borderRadius: '50%',
     maxWidth: ['80vw', '380px', '480px'],
     height: 'auto',
+  },
+  imageMobile: {
+    display: ['block', 'none'],
+    maxWidth: ['80vw', '380px', '480px'],
+    height: 'auto',
+    borderRadius: '50%',
   },
   arrow: {
     width: '50px',

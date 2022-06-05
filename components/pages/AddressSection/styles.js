@@ -1,11 +1,11 @@
 const styles = {
   section: {
     maxHeight: '900px',
-    position:'relative'
+    position: 'relative',
   },
   container: {
     my: ['50px', '100px'],
-    p: ['85px 30px', '20px 80px'],
+    p: ['85px 30px','20px 80px', '20px 150px'],
   },
   row: {
     alignItems: 'center',
@@ -23,15 +23,19 @@ const styles = {
     '-webkit-backdrop-filter': 'blur(10px)',
     backdropFilter: 'blur(10px)',
     border: '1px solid rgba(255,255,255,0.25)',
-    p:'20px'
+    p: '20px',
+    maxWidth:['auto', '40vw', '40vw']
   },
   street: {
     mb: ['15px', '30px'],
+    alignItems:'center'
   },
   text: {
+    whiteSpace: 'pre-wrap',
     ml: ['10px', '20px'],
-    mb: ['10px', '30px'],
-    fontFamily:'light'
+    my: '10px',
+    fontFamily: 'light',
+    fontSize: '16px',
   },
   image: {
     clipPath: 'polygon(30% 70% 70% 30% / 30% 30% 70% 70%)',
@@ -44,9 +48,10 @@ const styles = {
     mt: '30px',
   },
   icon: {
-    width: '80px',
+    width: '50px',
     height: '100%',
     objectFit: 'contain',
+    mr: ['0px', '20px', '20px'],
   },
   map: {
     width: 'fit-content',
@@ -57,9 +62,9 @@ const styles = {
   rowCenter: {
     justifyContent: 'center',
   },
-  undercase:{
-    textTransform:'capitalize',
-  }
+  undercase: {
+    textTransform: 'capitalize',
+  },
 };
 
 export default styles;

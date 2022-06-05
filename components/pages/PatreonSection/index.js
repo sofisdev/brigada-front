@@ -1,46 +1,57 @@
 /** @jsxImportSource theme-ui */
-import { useRouter } from 'next/router';
+import Router, { useRouter } from 'next/router';
 import { PropTypes } from 'prop-types';
-import { Box, Themed } from 'theme-ui';
+import { Box, Flex, Image, Themed } from 'theme-ui';
 
 import imageRoutes from '../../../constants/imageRoutes';
+import routes from '../../../constants/routes';
 import styles from './styles';
 
-const PatreonSection = ({ language }) => {
+const PatreonSection = ({ layout, language }) => {
   const router = useRouter();
   const { isKid, success } = router.query;
 
+  const handleArrow = () =>
+    Router.push({
+      hash: routes.faq,
+    });
+
+  const { title, thanks, kidComment, paragraph } = layout.patreon;
+
   return (
-    <section id="patreon" sx={styles?.container(imageRoutes.mancha_4)}>
-      <Themed.h1>REGALO / REGISTRY</Themed.h1>
+    <section
+      id="patreon"
+      sx={styles?.container('', imageRoutes.mobile_0_back3)}
+    >
+      <Themed.h1>{title}</Themed.h1>
       <Box sx={styles?.textContainer}>
         <Box>
-          {success && (
-            <Themed.h2 sx={styles.text}>
-              {language === 'es'
-                ? '¡Gracias! Ya formas parte del clan brigada!'
-                : 'Thanks! You are now part of our clan "Brigada"!'}
-            </Themed.h2>
-          )}
+          {success && <Themed.h2 sx={styles.text}>{thanks}</Themed.h2>}
           {isKid === 'true' && (
-            <Themed.h2 sx={styles.text}>
-              {language === 'es'
-                ? 'Si has marcado que vienes con tus peques, nos pondremos en contacto contigo'
-                : 'If you said you will bring your kids, we will contact you'}
-            </Themed.h2>
+            <Themed.h2 sx={styles.text}>{kidComment}</Themed.h2>
           )}
         </Box>
-        <Themed.h2 sx={styles.text}>
-          {language === 'es'
-            ? 'No tenemos lista de bodas,\n¡Lo que sí tenemos son ganas de celebrar, bailar, comer y beber con todos vosotros!\nAnte las preguntas recibidas, si os apetece patrocinar nuestra luna de miel os dejamos el siguiente número de cuenta:'
-            : "We don't have a wedding registry,\n¡What we are so excited about is celebrating, dancing and drinking with all of you!\nAfter receiving some questions about this, if you'd still want to be a patreon to our honeymoon, here's the following bank account:"}
-        </Themed.h2>
-        <Themed.h2 sx={styles.iban}>{`IBAN: ${
+        {paragraph?.map((line, id) => (
+          <Themed.h2 key={id} sx={styles.text}>
+            {line}
+          </Themed.h2>
+        ))}
+
+        <Themed.h2 sx={styles.iban}>{`IBAN:\n${
           process.env.NEXT_PUBLIC_IBAN_NUMBER_COUNTRY
         } ${process.env.NEXT_PUBLIC_IBAN_NUMBER?.replace(
           /-+/g,
           ' ',
         )}`}</Themed.h2>
+        <Flex sx={styles?.rowCenter}>
+          <Image
+            loading="lazy"
+            alt="arrow-icon"
+            src={imageRoutes?.arrowDown}
+            sx={styles?.arrow}
+            onClick={handleArrow}
+          />
+        </Flex>
       </Box>
     </section>
   );
