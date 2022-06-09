@@ -10,7 +10,7 @@ const client = createClient({
 });
 
 export const postVerifyCredentials = async (body) => {
-  const response = await client.post('auth/verify', body);
+  const response = await client.postLogin('auth/verify', body);
   return response.data;
 };
 
