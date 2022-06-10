@@ -6,6 +6,7 @@ module.exports = {
     AUTH: {
       authUrl: process.env.NEXTAUTH_URL,
       authSecret: process.env.NEXTAUTH_SECRET,
+      jwtSecret: process.env.JWT_SECRET,
     },
   },
   IS_MOCKING_ENABLED: false,

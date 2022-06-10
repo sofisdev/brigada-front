@@ -40,8 +40,6 @@ export default NextAuth({
   },
   jwt: {
     maxAge: 60 * 60 * 1 * 1,
-    encode: async ({ secret, token }) => jwt.sign(token, secret),
-    decode: async ({ secret, token }) => jwt.verify(token, secret),
   },
   pages: {
     signIn: '/login',
