@@ -17,5 +17,6 @@ export const postVerifyCredentials = async (body) => {
 export const getLayout = async () => client.get('/layout');
 
 export const postForm = async ({ ...body }) => client.post('/form', body);
+export const postLogout = async () => client.post('/logout');
 
 export default {};

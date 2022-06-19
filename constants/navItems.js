@@ -28,7 +28,7 @@ export const navItems = [
     parameters: true,
   },
   {
-    name: { en: 'FAQ', es: 'PReguntas frecuentes' },
+    name: { en: 'FAQ', es: 'Preguntas frecuentes' },
     link: faq,
     divider: true,
     parameters: true,

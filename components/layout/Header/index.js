@@ -6,6 +6,7 @@ import { Button, Flex, Image, NavLink } from 'theme-ui';
 
 import imageRoutes from '../../../constants/imageRoutes';
 import { navItems } from '../../../constants/navItems';
+import { postLogout } from '../../../repository/platformApi';
 import styles from './styles';
 
 const Header = ({ setLanguage, language }) => {
@@ -18,6 +19,11 @@ const Header = ({ setLanguage, language }) => {
     });
     setNavActive(false);
   };
+
+  const handleLogout = async() =>{
+    await postLogout()
+    signOut({ callbackUrl: '/login' })
+  }
 
   return (
     <Flex as="header" sx={styles.headerContainer}>
@@ -44,7 +50,7 @@ const Header = ({ setLanguage, language }) => {
             <NavLink
               variant="user"
               sx={styles.isItemActive}
-              onClick={() => signOut({ callbackUrl: '/login' })}
+              onClick={handleLogout}
             >
               Log out
             </NavLink>
