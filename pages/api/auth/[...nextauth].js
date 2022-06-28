@@ -1,4 +1,3 @@
-import jwt from 'jsonwebtoken';
 import getConfig from 'next/config';
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
