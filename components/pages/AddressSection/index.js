@@ -72,4 +72,6 @@ const AddressSection = ({ layout }) => {
 export default AddressSection;
 
 AddressSection.defaultProps = {};
-AddressSection.propTypes = {};
+AddressSection.propTypes = {
+  layout: PropTypes.shape({}).isRequired,
+};

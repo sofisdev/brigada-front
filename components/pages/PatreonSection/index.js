@@ -7,7 +7,7 @@ import imageRoutes from '../../../constants/imageRoutes';
 import routes from '../../../constants/routes';
 import styles from './styles';
 
-const PatreonSection = ({ layout, language }) => {
+const PatreonSection = ({ layout }) => {
   const router = useRouter();
   const { isKid, success } = router.query;
 
@@ -60,4 +60,6 @@ const PatreonSection = ({ layout, language }) => {
 export default PatreonSection;
 
 PatreonSection.defaultProps = {};
-PatreonSection.propTypes = {};
+PatreonSection.propTypes = {
+  layout: PropTypes.shape({}).isRequired,
+};

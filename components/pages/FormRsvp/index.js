@@ -25,6 +25,7 @@ const FormRsvp = ({ layout, language }) => {
     errorMessage,
     caption,
     success,
+    title,
   } = layout.form;
 
   const [plusOne, setPlusOne] = useState(false);
@@ -103,7 +104,7 @@ const FormRsvp = ({ layout, language }) => {
         as="form"
         onSubmit={handleSubmit(submitForm)}
       >
-        <Themed.h1>RSVP - ¡APÚNTAME!</Themed.h1>
+        <Themed.h1>{title}</Themed.h1>
         <Box sx={styles.formSection}>
           <Flex sx={styles.options}>
             <FormRadio
@@ -185,9 +186,7 @@ const FormRsvp = ({ layout, language }) => {
             <Spinner sx={styles.spinner} variant="spinner.form" />
           )}
           {isErrorForm && (
-            <Box
-              sx={styles.errorForm}
-            >
+            <Box sx={styles.errorForm}>
               Error en el formulario, por favor contacte a los novios
             </Box>
           )}
@@ -209,4 +208,6 @@ const FormRsvp = ({ layout, language }) => {
 export default FormRsvp;
 
 FormRsvp.defaultProps = {};
-FormRsvp.propTypes = {};
+FormRsvp.propTypes = {
+  layout: PropTypes.shape({}).isRequired,
+};

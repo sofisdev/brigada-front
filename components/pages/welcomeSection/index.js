@@ -34,10 +34,13 @@ const WelcomeSection = ({ layout }) => {
               d="M429.5,286.5Q401,333,357.5,350.5Q314,368,277,390Q240,412,187.5,416.5Q135,421,85,390Q35,359,42,299.5Q49,240,54.5,188Q60,136,96.5,95.5Q133,55,186.5,52.5Q240,50,278.5,78Q317,106,355.5,128.5Q394,151,426,195.5Q458,240,429.5,286.5Z"
             />
           </clipPath>
-          
         </svg>
         <Image src={imageRoutes?.couple} sx={styles?.image} alt="couple" />
-        <Image src={imageRoutes?.coupleMobile} sx={styles?.imageMobile} alt="couple" />
+        <Image
+          src={imageRoutes?.coupleMobile}
+          sx={styles?.imageMobile}
+          alt="couple"
+        />
         <Flex sx={styles?.column}>
           <Box>
             <Themed.h1 sx={styles?.title}>SOFI & JAVI</Themed.h1>
@@ -65,4 +68,6 @@ const WelcomeSection = ({ layout }) => {
 export default WelcomeSection;
 
 WelcomeSection.defaultProps = {};
-WelcomeSection.propTypes = {};
+WelcomeSection.propTypes = {
+  layout: PropTypes.shape({}).isRequired,
+};

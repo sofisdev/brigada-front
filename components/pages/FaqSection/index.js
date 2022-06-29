@@ -9,11 +9,11 @@ import Question from '../../Commons/Question';
 import styles from './styles';
 
 const FaqSection = ({ layout }) => {
-  const { questions } = layout.faq;
+  const { questions, title } = layout.faq;
 
   return (
     <section id="faq" sx={styles.section}>
-      <Themed.h1>PREGUNTAS FRECUENTES - FAQ</Themed.h1>
+      <Themed.h1>{title}</Themed.h1>
       <Box sx={styles?.container}>
         {questions.map((el, id) => (
           <Question key={id} question={el.question} answer={el.answer} />
@@ -26,4 +26,6 @@ const FaqSection = ({ layout }) => {
 export default FaqSection;
 
 FaqSection.defaultProps = {};
-FaqSection.propTypes = {};
+FaqSection.propTypes = {
+  layout: PropTypes.shape({}).isRequired,
+};
