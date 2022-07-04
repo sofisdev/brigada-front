@@ -16,6 +16,9 @@ const styles = {
     '-webkit-backdrop-filter': 'blur(10px)',
     backdropFilter: 'blur(10px)',
   },
+  closedMenu: {
+    pr: '50px',
+  },
   icon: {
     m: '20px',
   },
@@ -39,6 +42,8 @@ const styles = {
     alignItems: 'flex-end',
     color: 'darkGreen',
     p: '20px',
+    pr: '50px',
+    pt: '0px',
   },
   subNavContainer: {
     alignItems: 'center',

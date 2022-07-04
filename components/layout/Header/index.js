@@ -2,7 +2,7 @@
 import Router from 'next/router';
 import { signOut } from 'next-auth/react';
 import { useState } from 'react';
-import { Button, Flex, Image, NavLink } from 'theme-ui';
+import { Box, Button, Flex, Image, NavLink } from 'theme-ui';
 
 import imageRoutes from '../../../constants/imageRoutes';
 import { navItems } from '../../../constants/navItems';
@@ -20,16 +20,17 @@ const Header = ({ setLanguage, language }) => {
     setNavActive(false);
   };
 
-  const handleLogout = async() =>{
-    await postLogout()
-    signOut({ callbackUrl: '/login' })
-  }
+  const handleLogout = async () => {
+    await postLogout();
+    signOut({ callbackUrl: '/login' });
+  };
 
   return (
     <Flex as="header" sx={styles.headerContainer}>
       {isNavActive && (
         <Flex sx={styles.navContainer}>
           <Button
+            sx={styles.icon}
             onClick={() => {
               setNavActive(false);
             }}
@@ -57,25 +58,26 @@ const Header = ({ setLanguage, language }) => {
           </Flex>
         </Flex>
       )}
-
-      <Button
-        sx={styles.icon}
-        onClick={() => {
-          setLanguage(language === 'es' ? 'en' : 'es');
-        }}
-        variant="transparent"
-      >
-        {language}
-      </Button>
-      <Button
-        sx={styles.icon}
-        onClick={() => {
-          setNavActive(true);
-        }}
-        variant="transparent"
-      >
-        <Image loading="lazy" alt="menu_icon" src={menu} />
-      </Button>
+      <Box sx={styles.closedMenu}>
+        <Button
+          sx={styles.icon}
+          onClick={() => {
+            setLanguage(language === 'es' ? 'en' : 'es');
+          }}
+          variant="transparent"
+        >
+          {language}
+        </Button>
+        <Button
+          sx={styles.icon}
+          onClick={() => {
+            setNavActive(true);
+          }}
+          variant="transparent"
+        >
+          <Image loading="lazy" alt="menu_icon" src={menu} />
+        </Button>
+      </Box>
     </Flex>
   );
 };
