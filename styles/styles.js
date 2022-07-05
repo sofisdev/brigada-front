@@ -50,14 +50,14 @@ export const styles = {
     mb: '5px',
   },
   a: {
+    textDecoration: 'none',
     color: 'text',
     cursor: 'pointer',
-    p: '10px 15px',
+    py: '6px',
     '&:hover': {
-      bg: ['cream', 'cream'],
-      borderRadius: '20px',
-      color: ['white ', 'text'],
-    },
+      textDecoration: 'underline',
+      textUnderlineOffset: '5px',
+      textDecorationThickness: '3px',    },
   },
   pre: {
     fontFamily: 'monospace',

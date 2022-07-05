@@ -7,7 +7,7 @@ const styles = {
     backdropFilter: 'blur(10px)',
     border: '1px solid rgba(255,255,255,0.25)',
     p: '20px',
-    width: ['90vw', '800px'],
+    width: ['90vw', '90vw', '800px'],
     textAlign: 'left',
   },
   title: {

@@ -10,7 +10,7 @@ import { postLogout } from '../../../repository/platformApi';
 import styles from './styles';
 
 const Header = ({ setLanguage, language }) => {
-  const { menu, close } = imageRoutes;
+  const { menu, close, world } = imageRoutes;
   const [isNavActive, setNavActive] = useState(false);
 
   const handleSelect = (item) => async () => {
@@ -29,15 +29,17 @@ const Header = ({ setLanguage, language }) => {
     <Flex as="header" sx={styles.headerContainer}>
       {isNavActive && (
         <Flex sx={styles.navContainer}>
-          <Button
-            sx={styles.icon}
-            onClick={() => {
-              setNavActive(false);
-            }}
-            variant="transparent"
-          >
-            <Image loading="lazy" alt="close_icon" src={close} />
-          </Button>
+          <Flex sx={styles.closeIcon}>
+            <Button
+              sx={styles.icon}
+              onClick={() => {
+                setNavActive(false);
+              }}
+              variant="close"
+            >
+              <Image loading="lazy" alt="close_icon" src={close} />
+            </Button>
+          </Flex>
           <Flex sx={styles.navItems}>
             {navItems.map((item) => (
               <NavLink
@@ -58,7 +60,7 @@ const Header = ({ setLanguage, language }) => {
           </Flex>
         </Flex>
       )}
-      <Box sx={styles.closedMenu}>
+      <Flex sx={styles.closedMenu}>
         <Button
           sx={styles.icon}
           onClick={() => {
@@ -66,6 +68,12 @@ const Header = ({ setLanguage, language }) => {
           }}
           variant="transparent"
         >
+          <Image
+            loading="lazy"
+            alt="menu_icon"
+            src={world}
+            sx={styles.worldIcon}
+          />
           {language}
         </Button>
         <Button
@@ -77,7 +85,7 @@ const Header = ({ setLanguage, language }) => {
         >
           <Image loading="lazy" alt="menu_icon" src={menu} />
         </Button>
-      </Box>
+      </Flex>
     </Flex>
   );
 };

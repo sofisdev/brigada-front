@@ -11,7 +11,6 @@ export const buttons = {
     letterSpacing: '2px',
     textTransform: 'uppercase',
     cursor: 'pointer',
-    boxShadow: '3px 2px 7px 1px rgba(0,0,0,0.1)',
     '&:hover': {
       bg: ['cream', 'cream'],
       color: ['white ', 'text'],
@@ -34,7 +33,27 @@ export const buttons = {
     cursor: 'pointer',
     '&:hover': {
       color: 'text',
-      bg:'yellow'
+      bg: 'cream',
+    },
+    '&:disabled': {
+      bg: 'midGrey',
+      color: 'white',
+      border: 'none',
+    },
+  },
+  close: {
+    bg: 'transparent',
+    color: 'text',
+    p: '8px',
+    fontSize: 0,
+    fontWeight: 'bold',
+    border: '2px solid transparent',
+    letterSpacing: '2px',
+    textTransform: 'uppercase',
+    cursor: 'pointer',
+    '&:hover': {
+      color: 'text',
+      borderColor: 'white',
     },
     '&:disabled': {
       bg: 'midGrey',

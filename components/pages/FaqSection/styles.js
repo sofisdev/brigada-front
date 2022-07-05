@@ -6,11 +6,11 @@ const styles = {
     alignItems: 'center',
   },
   section: {
-    minHeight:'90vh',
+    minHeight: '90vh',
     width: ['auto', '100vw'],
     maxWidth: ['auto', '100%'],
     mb: '60px',
-    p: ['90px 30px', '60px 80px'],
+    p: ['90px 30px', '90px 30px', '60px 80px'],
   },
 };
 
