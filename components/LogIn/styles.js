@@ -21,6 +21,20 @@ const styles = {
     width: '100%',
     mt: '20px',
   },
+  errorForm: {
+    width: '100%',
+    p: '5px',
+    bg: '#CB704A',
+    textAlign: 'center',
+    borderRadius: '10px',
+    color: 'white',
+    mb: '20px',
+  },
+  spinner: {
+    width: '100%',
+    mt: '10px',
+    color: 'white'
+  },
 };
 
 export default styles;
