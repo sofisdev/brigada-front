@@ -44,7 +44,7 @@ const WelcomeSection = ({ layout }) => {
         <Flex sx={styles?.column}>
           <Box>
             <Themed.h1 sx={styles?.title}>SOFI & JAVI</Themed.h1>
-            <Themed.p sx={styles?.date}>{date} | 18:30</Themed.p>
+            <Themed.p sx={styles?.date}>{date} | 18:00</Themed.p>
             <div sx={styles.brigadaContainer}>
               <Themed.p sx={styles?.brigada}>
                 y decidieron ser más que pareja

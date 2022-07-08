@@ -23,5 +23,6 @@ export const text = {
     borderRadius: '5px',
     border: '1px solid #891717',
     px: '10px',
+    width: 'fit-content',
   },
 };

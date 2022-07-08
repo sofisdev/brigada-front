@@ -160,7 +160,7 @@ const FormRsvp = ({ layout, language }) => {
             label={
               language === 'es'
                 ? 'Déjanos comentarios o preguntas (opcional)'
-                : 'Do you any questions or comments? (optional)'
+                : 'Do you have any questions or comments? (optional)'
             }
             name="comments"
             placeholder={
