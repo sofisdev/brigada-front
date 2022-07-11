@@ -12,7 +12,7 @@ const HomePage = ({ layout, language }) => (
   <Box>
     {layout ? (
       <>
-        <WelcomeSection layout={layout} />
+        <WelcomeSection layout={layout} language={language} />
         <AddressSection layout={layout} />
         <FormRsvp layout={layout} language={language} />
         <PatreonSection layout={layout} language={language} />

@@ -11,9 +11,13 @@ export const buttons = {
     letterSpacing: '2px',
     textTransform: 'uppercase',
     cursor: 'pointer',
+    color: 'text',
+    '&:focus': {
+      boxShadow: '6px 6px 15px #c3c3c3, -6px -6px 15px #fdfdfd',
+      bg: 'cream',
+    },
     '&:hover': {
-      bg: ['cream', 'cream'],
-      color: ['white ', 'text'],
+      boxShadow: '6px 6px 15px #c3c3c3, -6px -6px 15px #fdfdfd',
     },
     '&:disabled': {
       bg: 'midGrey',

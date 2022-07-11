@@ -31,6 +31,11 @@ const styles = {
   button: {
     mt: '15px',
     mb: '50px',
+    width: ['100%', 'auto'],
+    '&:active': {
+      boxShadow: '6px 6px 15px #c3c3c3, -6px -6px 15px #fdfdfd',
+      bg: 'cream',
+    },
   },
   spinner: {
     width: '100%',

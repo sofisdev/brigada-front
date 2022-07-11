@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable eqeqeq */
 /* eslint-disable react/no-this-in-sfc */
@@ -11,7 +12,8 @@ import routes from '../../../constants/routes';
 import SpeedBox from '../../Commons/SpeedBox';
 import styles from './styles';
 
-const WelcomeSection = ({ layout }) => {
+const WelcomeSection = ({ layout, language }) => {
+console.log("🚀 ~ file: index.js ~ line 15 ~ WelcomeSection ~ language", language)
   const { date } = layout.home;
 
   const handleArrow = () =>
@@ -44,12 +46,14 @@ const WelcomeSection = ({ layout }) => {
         <Flex sx={styles?.column}>
           <Box>
             <Themed.h1 sx={styles?.title}>SOFI & JAVI</Themed.h1>
-            <Themed.p sx={styles?.date}>{date} | 18:00</Themed.p>
+            <Themed.p sx={styles?.date}>
+              {date} | {language === 'es' ? '18:00' : '6PM'}
+            </Themed.p>
             <div sx={styles.brigadaContainer}>
               <Themed.p sx={styles?.brigada}>
-                y decidieron ser más que pareja
+                "y decidieron ser más que pareja
               </Themed.p>
-              <Themed.p sx={styles?.brigada}> decidieron ser brigada</Themed.p>
+              <Themed.p sx={styles?.brigada}> decidieron ser brigada"</Themed.p>
             </div>
           </Box>
           <Image

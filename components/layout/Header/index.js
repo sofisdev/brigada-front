@@ -2,7 +2,7 @@
 import Router from 'next/router';
 import { signOut } from 'next-auth/react';
 import { useState } from 'react';
-import { Box, Button, Flex, Image, NavLink } from 'theme-ui';
+import { Button, Flex, Image, NavLink, Themed } from 'theme-ui';
 
 import imageRoutes from '../../../constants/imageRoutes';
 import { navItems } from '../../../constants/navItems';
@@ -74,7 +74,33 @@ const Header = ({ setLanguage, language }) => {
             src={world}
             sx={styles.worldIcon}
           />
-          {language}
+          <Themed.h5
+            sx={{
+              fontFamily: 'headingBold',
+              color: 'black',
+              textDecoration: language === 'es' ? 'underline' : 'none',
+              textDecorationThickness: '2px',
+              textUnderlineOffset: '5px',
+              px: '8px',
+              m: '0px',
+            }}
+          >
+            ES
+          </Themed.h5>
+          <Themed.h5 sx={{ m: '0px' }}>|</Themed.h5>
+          <Themed.h5
+            sx={{
+              fontFamily: 'headingBold',
+              color: 'black',
+              textDecoration: language === 'en' ? 'underline' : 'none',
+              textDecorationThickness: '2px',
+              textUnderlineOffset: '5px',
+              px: '8px',
+              m: '0px',
+            }}
+          >
+            EN
+          </Themed.h5>
         </Button>
         <Button
           sx={styles.icon}
