@@ -22,7 +22,7 @@ export const navItems = [
     parameters: true,
   },
   {
-    name: { en: 'Registry', es: 'Agradecimientos' },
+    name: { en: 'Registry', es: 'Regalo' },
     link: patreon,
     divider: true,
     parameters: true,

@@ -5,6 +5,7 @@
 import { PropTypes } from 'prop-types';
 import { Box, Themed } from 'theme-ui';
 
+import imageRoutes from '../../../constants/imageRoutes';
 import Question from '../../Commons/Question';
 import styles from './styles';
 

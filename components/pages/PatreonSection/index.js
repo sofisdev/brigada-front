@@ -21,20 +21,17 @@ const PatreonSection = ({ layout }) => {
   return (
     <section
       id="patreon"
-      sx={styles?.container('', imageRoutes.mobile_0_back3)}
+      sx={styles?.container(
+        imageRoutes.desktop_0_iban,
+        imageRoutes.mobile_0_back3,
+      )}
     >
       <Themed.h1>{title}</Themed.h1>
       <Box sx={styles?.textContainer}>
-        <Box>
-          {success && <Themed.h2 sx={styles.text}>{thanks}</Themed.h2>}
-          {isKid === 'true' && (
-            <Themed.h2 sx={styles.text}>{kidComment}</Themed.h2>
-          )}
-        </Box>
         {paragraph?.map((line, id) => (
-          <Themed.h2 key={id} sx={styles.text}>
+          <Themed.h4 key={id} sx={styles.text}>
             {line}
-          </Themed.h2>
+          </Themed.h4>
         ))}
 
         <Themed.h2 sx={styles.iban}>{`IBAN:\n${

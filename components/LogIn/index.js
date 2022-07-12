@@ -75,7 +75,7 @@ const LogIn = ({ callbackUrl }) => {
             type="password"
           />
           {!isLoading && (
-            <Button sx={styles.button} type="submit">
+            <Button sx={styles.button} type="submit" variant="login">
               ENVIAR / SUBMIT
             </Button>
           )}

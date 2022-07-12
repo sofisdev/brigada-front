@@ -6,15 +6,14 @@ const styles = {
     backgroundRepeat: 'no-repeat',
     backgroundSize: ['100vw 150vh', 'contain'],
     backgroundPosition: 'initial',
-    // height: '150vh',
     width: ['auto', '100vw'],
     maxWidth: ['auto', '100%'],
-    maxHeight: ['100%', 'calc(100vh + 85px)'],
+    maxHeight: ['100%', '100%'],
     p: '0px',
   }),
   container: {
     my: '100px',
-    p: ['90px 30px', '90px 30px', '150px 80px'],
+    p: ['90px 30px', '90px 30px', '150px'],
   },
   row: {
     height: '50px',

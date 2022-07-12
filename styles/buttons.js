@@ -25,6 +25,27 @@ export const buttons = {
       border: 'none',
     },
   },
+  login: {
+    bg: 'cream',
+    p: '8px 32px',
+    border: '3px solid white',
+    fontSize: 0,
+    fontWeight: 'bold',
+    borderRadius: '0px',
+    borderStyle: 'solid',
+    letterSpacing: '2px',
+    textTransform: 'uppercase',
+    cursor: 'pointer',
+    color: 'text',
+    '&:hover': {
+      borderColor: 'transparent',
+    },
+    '&:disabled': {
+      bg: 'midGrey',
+      color: 'white',
+      border: 'none',
+    },
+  },
   transparent: {
     bg: 'transparent',
     color: 'text',
