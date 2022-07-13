@@ -30,7 +30,7 @@ const MyApp = function ({ Component, pageProps }) {
         <meta name="description" content="Web de registro para invitados" />
         <meta property="og:title" content="Somos brigada" />
         <meta property="og:url" content="https://www.somosbrigada.net/" />
-        <meta property="og:type" content="website">
+        <meta property="og:type" content="website" />
         <meta property="og:description" content="Web de registro para invitados" />
         <meta property="og:image" content="https://aalcachucho.com/wp-content/uploads/eventos-fiestas-bodas-cumpleanos-bautizos-aniversario-carpa-circo-sierra-madrid-aalcachucho.jpg" />
         <meta name="googlebot" content="notranslate"/>
