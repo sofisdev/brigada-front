@@ -27,7 +27,11 @@ const MyApp = function ({ Component, pageProps }) {
         <title>Somos Brigada</title>
         <FontLinks />
         <link rel="icon" href="/static/assets/images/icons/favicon.png" />
-        <meta name="description" content="We are brigada, RSVP" />
+        <meta name="description" content="Web de registro para invitados" />
+        <meta property="og:title" content="Somos brigada" />
+        <meta property="og:url" content="https://www.somosbrigada.net/" />
+        <meta property="og:description" content="Web de registro para invitados" />
+        <meta property="og:image" content="https://www.ezzential.es/finca-aal-cachucho.html" />
         <meta name="googlebot" content="notranslate"/>
         <meta
           name="viewport"
