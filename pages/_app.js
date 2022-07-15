@@ -32,7 +32,7 @@ const MyApp = function ({ Component, pageProps }) {
         <meta property="og:url" content="https://www.somosbrigada.net/" />
         <meta property="og:type" content="website" />
         <meta property="og:description" content="Web de registro para invitados" />
-        <meta property="og:image" content="https://aalcachucho.com/wp-content/uploads/eventos-fiestas-bodas-cumpleanos-bautizos-aniversario-carpa-circo-sierra-madrid-aalcachucho.jpg" />
+        <meta property="og:image" content="https://res.cloudinary.com/dfpleoyv6/image/upload/v1657924253/Save_the_Date_wip2_nq305t.jpg" />
         <meta name="googlebot" content="notranslate"/>
         <meta
           name="viewport"
