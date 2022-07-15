@@ -69,6 +69,8 @@ const LogIn = ({ callbackUrl }) => {
           <Flex sx={styles.inputWrapper}>
             <FormInputLogin
               maxLength={11}
+              data-lpignore="true"
+              autocomplete="off"
               label="Contraseña / Password:"
               name="weddingId"
               placeholder="password"

@@ -9,6 +9,12 @@ export const styles = {
     '.form': {
       my: '300px',
     },
+    'div.css-1obar3y': {
+      display: 'none!important',
+    },
+    'div[id^=__lpform_]': {
+      display: 'none',
+    },
   },
   h1: {
     variant: 'text.heading',
@@ -57,7 +63,8 @@ export const styles = {
     '&:hover': {
       textDecoration: 'underline',
       textUnderlineOffset: '5px',
-      textDecorationThickness: '3px',    },
+      textDecorationThickness: '3px',
+    },
   },
   pre: {
     fontFamily: 'monospace',

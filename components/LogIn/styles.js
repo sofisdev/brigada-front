@@ -42,7 +42,7 @@ const styles = {
     position: 'absolute',
     width: '26px',
     top: '58%',
-    right: '12%',
+    right: '3%',
     '&:hover': {
       cursor: 'pointer',
     },
