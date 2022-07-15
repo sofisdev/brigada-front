@@ -10,7 +10,7 @@ export const navItems = [
     parameters: true,
   },
   {
-    name: { en: 'Address', es: 'Mapa' },
+    name: { en: 'Address', es: 'Lugar' },
     link: address,
     divider: true,
     parameters: true,
