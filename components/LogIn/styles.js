@@ -33,7 +33,19 @@ const styles = {
   spinner: {
     width: '100%',
     mt: '10px',
-    color: 'white'
+    color: 'white',
+  },
+  inputWrapper: {
+    position: 'relative',
+  },
+  iconPassword: {
+    position: 'absolute',
+    width: '26px',
+    top: '58%',
+    right: '12%',
+    '&:hover': {
+      cursor: 'pointer',
+    },
   },
 };
 

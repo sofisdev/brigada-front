@@ -2,6 +2,8 @@ export default {
   menu: '/static/assets/images/menu_black.svg',
   world: '/static/assets/images/world-icon.svg',
   close: '/static/assets/images/close_black.svg',
+  passVisible: '/static/assets/images/passVisible.svg',
+  passNotVisible: '/static/assets/images/passNotVisible.svg',
   couple: '/static/assets/images/couple.png',
   coupleMobile: '/static/assets/images/couple_mobile.png',
   background: '/static/assets/images/background_small.png',

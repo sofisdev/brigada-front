@@ -5,7 +5,7 @@ import { PropTypes } from 'prop-types';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useMutation } from 'react-query';
-import { Box, Button, Flex, Heading, Spinner } from 'theme-ui';
+import { Box, Button, Flex, Heading, Image, Spinner } from 'theme-ui';
 
 import imageRoutes from '../../constants/imageRoutes';
 import Container from '../Commons/Container';
@@ -24,6 +24,7 @@ const LogIn = ({ callbackUrl }) => {
   const [error, setError] = useState(null);
   const [isLoading, setLoading] = useState(false);
   const [isErrorForm, setErrorForm] = useState(false);
+  const [isPassword, setIsPassword] = useState(true);
 
   const onSubmit = async (data) => {
     const { weddingId } = data;
@@ -65,15 +66,29 @@ const LogIn = ({ callbackUrl }) => {
           ¡SOMOS BRIGADA!
         </Heading>
         <Flex sx={styles.column} as="form" onSubmit={handleSubmit(submitForm)}>
-          <FormInputLogin
-            label="Contraseña / Password:"
-            name="weddingId"
-            placeholder="password"
-            register={register}
-            isRequired
-            errors={errors}
-            type="password"
-          />
+          <Flex sx={styles.inputWrapper}>
+            <FormInputLogin
+              maxLength={11}
+              label="Contraseña / Password:"
+              name="weddingId"
+              placeholder="password"
+              register={register}
+              isRequired
+              errors={errors}
+              type={isPassword ? 'password' : 'text'}
+            />
+            <Image
+              sx={styles.iconPassword}
+              onClick={() => setIsPassword(!isPassword)}
+              loading="lazy"
+              alt="close_icon"
+              src={
+                isPassword
+                  ? imageRoutes.passNotVisible
+                  : imageRoutes.passVisible
+              }
+            />
+          </Flex>
           {!isLoading && (
             <Button sx={styles.button} type="submit" variant="login">
               ENVIAR / SUBMIT
