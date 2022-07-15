@@ -83,11 +83,11 @@ export const transportation = {
     },
     {
       value: 'bus_soon',
-      label: 'Bus con vuelta aprox 00:00 AM',
+      label: 'Bus con vuelta aprox. 00:00 AM',
     },
     {
       value: 'bus_late',
-      label: 'Bus con vuelta aprox 03:00 AM',
+      label: 'Bus con vuelta aprox. 03:00 AM',
     },
   ],
   en: [

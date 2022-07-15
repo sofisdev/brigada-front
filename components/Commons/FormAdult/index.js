@@ -76,7 +76,7 @@ const FormAdult = ({
         <FormSelect
           label={
             language === 'es'
-              ? '¿Vienes en Bus o en coche? *'
+              ? '¿Vienes en bus o en coche? *'
               : 'Transportation *'
           }
           name={`${name}bus`}
