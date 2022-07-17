@@ -88,7 +88,6 @@ const FormRsvp = ({ layout, language }) => {
   const handleArrow = () =>
     Router.push({
       hash: routes?.patreon,
-      query: { isKid: kid, success: isSuccess },
     });
   return (
     <section

@@ -8,8 +8,6 @@ import routes from '../../../constants/routes';
 import styles from './styles';
 
 const PatreonSection = ({ layout }) => {
-  const router = useRouter();
-  const { isKid, success } = router.query;
 
   const handleArrow = () =>
     Router.push({
