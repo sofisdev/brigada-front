@@ -12,8 +12,10 @@ const AddressSection = ({ layout }) => {
   const {
     title,
     link,
+    linkMaps,
     place,
     href,
+    hrefMaps,
     street,
     descriptionTitle,
     description,
@@ -45,6 +47,9 @@ const AddressSection = ({ layout }) => {
           />
           <Box sx={styles.rightColumn}>
             <Themed.h2>{street}</Themed.h2>
+            <Link href={hrefMaps} target="_blank">
+              {linkMaps}
+            </Link>
             <Flex sx={styles?.street}>
               <Box>
                 <Themed.h3>{descriptionTitle}</Themed.h3>

@@ -68,7 +68,7 @@ const LogIn = ({ callbackUrl }) => {
         <Flex sx={styles.column} as="form" onSubmit={handleSubmit(submitForm)}>
           <Flex sx={styles.inputWrapper}>
             <FormInputLogin
-              maxLength={11}
+              maxLength={13}
               data-lpignore="true"
               autocomplete="off"
               label="Contraseña / Password:"

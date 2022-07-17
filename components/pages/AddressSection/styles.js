@@ -27,7 +27,7 @@ const styles = {
     maxWidth:['auto', '40vw', '40vw']
   },
   street: {
-    mb: ['15px', '30px'],
+    my: ['15px', '30px'],
     alignItems:'center'
   },
   text: {

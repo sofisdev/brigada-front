@@ -56,14 +56,14 @@ export const styles = {
     mb: '5px',
   },
   a: {
-    textDecoration: 'none',
     color: 'text',
     cursor: 'pointer',
     py: '6px',
+    textDecoration: 'underline',
+    textUnderlineOffset: '3px',
+    textDecorationThickness: '2px',
     '&:hover': {
-      textDecoration: 'underline',
-      textUnderlineOffset: '5px',
-      textDecorationThickness: '3px',
+      color:'blue'
     },
   },
   pre: {
