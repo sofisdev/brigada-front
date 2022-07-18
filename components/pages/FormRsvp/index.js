@@ -28,25 +28,42 @@ const FormRsvp = ({ layout, language }) => {
     title,
   } = layout.form;
 
-  const [plusOne, setPlusOne] = useState(false);
+  const [plusOne, setPlusOne] = useState('false');
   const [kid, addKid] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const [isSuccess, setSuccess] = useState();
   const [isErrorForm, setErrorForm] = useState(false);
 
-  const handleChangeGuest = () => {
-    setPlusOne(!plusOne);
-  };
-  const handleChangeKid = () => {
-    addKid(!kid);
-  };
-
   const {
     control,
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
+    console.log("🚀 ~ file: index.js ~ line 44 ~ FormRsvp ~ errors", errors)
+
+  const handleChangeGuest = async (e) => {
+    await setPlusOne(e.target.value);
+    if (e.target.value === 'false') {
+      reset({
+        guest_name: null,
+        guest_lastName: null,
+        guest_diet: null,
+        guest_allergy: null,
+      }, {
+        keepErrors: false, 
+        keepDirty: false,
+        keepIsSubmitted: false,
+        keepTouched: false,
+        keepIsValid: false,
+        keepSubmitCount: false,
+      });
+    }
+  };
+  const handleChangeKid = (e) => {
+    addKid(e.target.value);
+  };
 
   const onSubmit = async (data) => {
     const newData = {
@@ -57,10 +74,13 @@ const FormRsvp = ({ layout, language }) => {
       main_bus: data?.main_bus?.value,
       guest_plusOne: data?.guest_plusOne || null,
       kids: data?.kids || null,
-      guest_name: data?.guest_name || null,
-      guest_lastName: data?.guest_lastName || null,
-      guest_diet: data?.guest_diet?.value || null,
-      guest_allergy: data?.guest_allergy || null,
+      guest_name: (data?.guest_plusOne === 'true' && data?.guest_name) || null,
+      guest_lastName:
+        (data?.guest_plusOne === 'true' && data?.guest_lastName) || null,
+      guest_diet:
+        (data?.guest_plusOne === 'true' && data?.guest_diet?.value) || null,
+      guest_allergy:
+        (data?.guest_plusOne === 'true' && data?.guest_allergy) || null,
       comments: data?.comments || null,
       date: new Date().toISOString(),
     };
@@ -72,14 +92,15 @@ const FormRsvp = ({ layout, language }) => {
       await setLoading(true);
     },
     onSuccess: async () => {
+      console.log('success');
       await setLoading(false);
       await setSuccess(true);
       Router.push({
         hash: routes?.patreon,
-        query: { isKid: kid, success: true },
       });
     },
-    onError: async () => {
+    onError: async (err) => {
+      console.log("🚀 ~ file: index.js ~ line 101 ~ onError: ~ err", err)
       await setLoading(false);
       await setErrorForm(true);
     },
@@ -152,7 +173,9 @@ const FormRsvp = ({ layout, language }) => {
             name="guest_"
             isRequired={!!plusOne}
             language={language}
-            disabled={isLoading || !plusOne || isSuccess || isErrorForm}
+            disabled={
+              isLoading || plusOne === 'false' || isSuccess || isErrorForm
+            }
             errorMessage={errorMessage}
           />
           <FormTextArea

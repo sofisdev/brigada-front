@@ -25,7 +25,7 @@ const FormRadio = ({
           {...register(name, { required: true })}
           {...props}
           type="radio"
-          value
+          value="true"
           onChange={handleChange}
           disabled={disabled}
         />
@@ -35,7 +35,7 @@ const FormRadio = ({
         <Radio
           {...register(name, { required: true })}
           type="radio"
-          value={false}
+          value="false"
           onChange={handleChange}
           disabled={disabled}
           defaultChecked

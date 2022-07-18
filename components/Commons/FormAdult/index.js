@@ -27,7 +27,7 @@ const FormAdult = ({
         name={`${name}name`}
         placeholder={language === 'es' ? 'Nombre' : 'First name'}
         register={register}
-        isRequired={isRequired}
+        isRequired={!disabled && isRequired}
         errors={!disabled && errors}
         disabled={disabled}
         errorMessage={errorMessage}
@@ -37,7 +37,7 @@ const FormAdult = ({
         name={`${name}lastName`}
         placeholder={language === 'es' ? 'Apellidos' : 'Last name'}
         register={register}
-        isRequired={isRequired}
+        isRequired={!disabled && isRequired}
         errors={!disabled && errors}
         disabled={disabled}
         errorMessage={errorMessage}
@@ -49,7 +49,7 @@ const FormAdult = ({
         label={language === 'es' ? 'Menú *' : 'Menu *'}
         name={`${name}diet`}
         control={control}
-        isRequired={isRequired}
+        isRequired={!disabled && isRequired}
         placeholder={
           language === 'es' ? 'Selecciona un menú' : 'Please select a menu'
         }
@@ -89,7 +89,7 @@ const FormAdult = ({
           options={optionsTransport?.[language]}
           isSearchable={false}
           errors={!disabled && errors}
-          isRequired={isRequired}
+          isRequired={!disabled && isRequired}
           disabled={disabled}
           errorMessage={errorMessage}
         />

@@ -13,7 +13,6 @@ import SpeedBox from '../../Commons/SpeedBox';
 import styles from './styles';
 
 const WelcomeSection = ({ layout, language }) => {
-console.log("🚀 ~ file: index.js ~ line 15 ~ WelcomeSection ~ language", language)
   const { date } = layout.home;
 
   const handleArrow = () =>
