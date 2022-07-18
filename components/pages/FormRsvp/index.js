@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 import Router from 'next/router';
 import { PropTypes } from 'prop-types';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useMutation } from 'react-query';
 import { Box, Button, Flex, Image, Spinner, Themed } from 'theme-ui';
@@ -38,32 +38,29 @@ const FormRsvp = ({ layout, language }) => {
     control,
     register,
     handleSubmit,
-    reset,
+    resetField,
     formState: { errors },
   } = useForm();
-    console.log("🚀 ~ file: index.js ~ line 44 ~ FormRsvp ~ errors", errors)
+  console.log('🚀 ~ file: index.js ~ line 44 ~ FormRsvp ~ errors', errors);
 
   const handleChangeGuest = async (e) => {
     await setPlusOne(e.target.value);
-    if (e.target.value === 'false') {
-      reset({
-        guest_name: null,
-        guest_lastName: null,
-        guest_diet: null,
-        guest_allergy: null,
-      }, {
-        keepErrors: false, 
-        keepDirty: false,
-        keepIsSubmitted: false,
-        keepTouched: false,
-        keepIsValid: false,
-        keepSubmitCount: false,
-      });
-    }
   };
   const handleChangeKid = (e) => {
     addKid(e.target.value);
   };
+
+  useEffect(() => {
+    if (plusOne === 'false') {
+      const fieldsToReset = [
+        'guest_name',
+        'guest_lastName',
+        'guest_diet',
+        'guest_allergy',
+      ];
+      fieldsToReset.forEach((field) => resetField(field));
+    }
+  }, [plusOne]);
 
   const onSubmit = async (data) => {
     const newData = {
@@ -100,7 +97,7 @@ const FormRsvp = ({ layout, language }) => {
       });
     },
     onError: async (err) => {
-      console.log("🚀 ~ file: index.js ~ line 101 ~ onError: ~ err", err)
+      console.log('🚀 ~ file: index.js ~ line 101 ~ onError: ~ err', err);
       await setLoading(false);
       await setErrorForm(true);
     },
