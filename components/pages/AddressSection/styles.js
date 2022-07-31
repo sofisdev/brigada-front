@@ -1,11 +1,11 @@
 const styles = {
   section: {
-    maxHeight: '900px',
+    maxHeight: ['auto', '900px'],
     position: 'relative',
   },
   container: {
     my: ['50px', '100px'],
-    p: ['85px 30px','20px 80px', '20px 150px'],
+    p: ['85px 30px', '20px 80px', '20px 150px'],
   },
   row: {
     alignItems: 'center',
@@ -24,11 +24,11 @@ const styles = {
     backdropFilter: 'blur(10px)',
     border: '1px solid rgba(255,255,255,0.25)',
     p: '20px',
-    maxWidth:['auto', '40vw', '40vw']
+    maxWidth: ['auto', '40vw', '40vw'],
   },
   street: {
     my: ['15px', '30px'],
-    alignItems:'center'
+    alignItems: 'center',
   },
   text: {
     whiteSpace: 'pre-wrap',
@@ -55,7 +55,7 @@ const styles = {
   },
   map: {
     width: 'fit-content',
-    height: '100%',
+    height: ['auto', '100%'],
     objectFit: 'contain',
     mt: ['20px', '0px'],
   },
