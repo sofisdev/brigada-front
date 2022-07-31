@@ -40,14 +40,16 @@ const FormRsvp = ({ layout, language }) => {
     handleSubmit,
     resetField,
     formState: { errors },
+    setValue,
   } = useForm();
-  console.log('🚀 ~ file: index.js ~ line 44 ~ FormRsvp ~ errors', errors);
 
-  const handleChangeGuest = async (e) => {
-    await setPlusOne(e.target.value);
+  const handleChangeGuest = (e) => {
+    setPlusOne(e.target.value);
+    setValue('guest_plusOne', e.target.value);
   };
   const handleChangeKid = (e) => {
     addKid(e.target.value);
+    setValue('kids', e.target.value);
   };
 
   useEffect(() => {
@@ -71,13 +73,10 @@ const FormRsvp = ({ layout, language }) => {
       main_bus: data?.main_bus?.value,
       guest_plusOne: data?.guest_plusOne || null,
       kids: data?.kids || null,
-      guest_name: (data?.guest_plusOne === 'true' && data?.guest_name) || null,
-      guest_lastName:
-        (data?.guest_plusOne === 'true' && data?.guest_lastName) || null,
-      guest_diet:
-        (data?.guest_plusOne === 'true' && data?.guest_diet?.value) || null,
-      guest_allergy:
-        (data?.guest_plusOne === 'true' && data?.guest_allergy) || null,
+      guest_name: data?.guest_name || null,
+      guest_lastName: data?.guest_lastName || null,
+      guest_diet: data?.guest_diet?.value || null,
+      guest_allergy: data?.guest_allergy || null,
       comments: data?.comments || null,
       date: new Date().toISOString(),
     };
@@ -97,7 +96,6 @@ const FormRsvp = ({ layout, language }) => {
       });
     },
     onError: async (err) => {
-      console.log('🚀 ~ file: index.js ~ line 101 ~ onError: ~ err', err);
       await setLoading(false);
       await setErrorForm(true);
     },
@@ -107,6 +105,7 @@ const FormRsvp = ({ layout, language }) => {
     Router.push({
       hash: routes?.patreon,
     });
+
   return (
     <section
       id="rsvp"
