@@ -1,12 +1,13 @@
 const styles = {
   text: {
     color: 'white',
+    textAlign: 'center',
   },
   colOneContainer: {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    p: '25px 40px',
+    p: ['25px 10px', '25px 40px'],
     borderRadius: '20px',
   },
   column: {
